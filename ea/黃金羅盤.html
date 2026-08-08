@@ -1,0 +1,106 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>黃金羅盤｜EZQUANT EA</title><style>
+:root{--bg:#f7f9fc;--card:#ffffff;--navy:#14365c;--blue:#1f5fa8;--gold:#c9a227;--green:#1a9e5c;--red:#d64545;--text:#333333;--muted:#6b7686;--border:#e3e8f0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC','Microsoft JhengHei',-apple-system,sans-serif;line-height:1.7;}
+a{color:var(--blue);text-decoration:none;}a:hover{color:var(--navy);}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+header.site{padding:18px 0;border-bottom:1px solid var(--border);background:#ffffff;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(20,54,92,.06);}
+header.site .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{font-size:22px;font-weight:700;letter-spacing:1px;background:linear-gradient(135deg,#c9a227,#e8c96a);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.brand small{display:block;font-size:12px;font-weight:400;letter-spacing:2px;color:var(--muted);margin-top:2px;-webkit-text-fill-color:var(--muted);}
+nav a{margin-left:18px;font-size:14px;color:var(--navy);font-weight:600;}nav a:hover{color:var(--blue);}
+.cta{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--blue);color:#fff;background:var(--blue);transition:transform .2s,box-shadow .2s;}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(31,95,168,.25);color:#fff;background:var(--navy);}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);}
+.btn.ghost:hover{background:var(--blue);color:#fff;}
+section{padding:52px 0;border-top:1px solid var(--border);}
+section h2{font-size:26px;margin:0 0 12px;color:var(--navy);font-weight:800;}section h2 .accent{color:var(--gold);}
+.detail-hero{padding:56px 0 36px;background:linear-gradient(180deg,#eef3fa,#f7f9fc);border-top:none;}
+.detail-hero .tags{display:flex;gap:8px;margin-bottom:16px;}
+.detail-hero h1{font-size:36px;margin:0 0 8px;color:var(--navy);font-weight:800;}.detail-hero .subtitle{color:var(--muted);font-size:17px;margin:0 0 20px;}
+.detail-hero .meta-row{display:flex;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;}
+.detail-hero .meta-row strong{color:var(--text);}
+.detail-section{padding:36px 0;border-top:1px solid var(--border);}
+.detail-section h2{margin:0 0 16px;font-size:24px;color:var(--navy);}
+.detail-section h2::before{content:"";display:inline-block;width:6px;height:22px;background:var(--blue);margin-right:12px;vertical-align:-4px;border-radius:2px;}
+.detail-section h3.chart-h{margin:28px 0 10px;font-size:16px;color:var(--navy);font-weight:600;}
+.feature-block{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.feature{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(20,54,92,.05);}
+.feature h4{margin:0 0 8px;color:var(--navy);font-size:16px;}.feature p{margin:0;color:var(--text);font-size:14px;}
+table{width:100%;border-collapse:collapse;margin:12px 0 8px;font-size:14px;}
+table th,table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+table th{background:#eef3fa;color:var(--navy);font-weight:600;}
+table tr:nth-child(even) td{background:#fafcff;}
+ul.audience{padding-left:20px;color:var(--text);}ul.audience li{margin:6px 0;}
+.notice{background:#fbf5e6;border:1px solid #efdca8;border-radius:10px;padding:16px 20px;color:#6b5a12;margin-top:12px;}.notice + .notice{margin-top:10px;}
+.back{display:inline-block;margin-top:24px;color:var(--muted);font-size:14px;}.back:hover{color:var(--blue);}
+.contact-cta{background:linear-gradient(135deg,#eef3fa,#f7f2df);border:1px solid #e3e8f0;border-radius:14px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;}
+.contact-cta .ctxt h3{margin:0 0 6px;color:var(--navy);font-size:20px;}
+.contact-cta .ctxt p{margin:0;color:var(--text);font-size:14px;max-width:640px;}
+.contact-cta a{white-space:nowrap;}
+.metgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px;}
+.met{background:#f4f7fc;border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.met .ml{color:var(--muted);font-size:12px;letter-spacing:1px;}
+.met .mv{color:var(--navy);font-size:20px;font-weight:700;margin:4px 0 2px;font-family:Menlo,Consolas,sans-serif;}
+.met .ms{color:#8a94a3;font-size:11px;}
+.tag{font-size:12px;padding:3px 10px;border-radius:999px;background:#eef3fa;border:1px solid #d7e2f2;color:var(--blue);}
+.tag.plat{background:#f2f4f7;border-color:var(--border);color:var(--muted);}
+footer.site{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;margin-top:40px;}
+footer.site .disclaimer{max-width:880px;margin:8px auto 0;font-size:12px;}
+@media (max-width:720px){.detail-hero h1{font-size:26px;}section h2{font-size:22px;}header.site .row{flex-direction:column;align-items:flex-start;}nav a{margin-left:0;margin-right:14px;}.contact-cta{flex-direction:column;align-items:flex-start;}.metgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}}
+</style></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT EA<small>CFD 自動化交易程式 · 黃金策略系列</small></div>
+<nav><a href="../index.html">首頁</a><a href="../index.html#products">EA 列表</a><a href="../index.html#contact">聯繫</a></nav>
+</div></header>
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">網格加倉 / 對沖</span><span class="tag plat">MT4</span></div>
+<h1>黃金羅盤</h1>
+<p class="subtitle">為交易找方向 · 黃金網格加倉 × 首尾對沖保命</p>
+<div class="meta-row"><span>平台：<strong>MT4</strong></span><span>商品：<strong>黃金 CFD（XAUUSD）為主，亦適用主要外匯</strong></span><span>分類：<strong>網格加倉 / 對沖</strong></span></div>
+<div class="cta"><a class="btn" href="../docs/黃金羅盤_EA產品說明_客戶版.docx" download>下載完整說明 (.docx)</a><a class="btn ghost" href="../index.html#products">回到列表</a></div>
+</div></section>
+<section class="detail-section"><div class="container">
+<h2>實盤績效</h2>
+<p style="color:var(--muted);margin:-4px 0 18px;">資料來源：實盤觀摩帳號交易記錄匯出 · 統計區間 2026-02-04 ~ 2026-06-02（117 天）· 共 6,144 筆交易。歷史績效不代表未來收益。</p>
+<div class="metgrid"><div class="met"><div class="ml">起始本金</div><div class="mv">$200,000</div><div class="ms">單筆入金</div></div><div class="met"><div class="ml">總報酬率</div><div class="mv" style="color:var(--green);">+54.65%</div><div class="ms">淨利 ÷ 投入本金</div></div><div class="met"><div class="ml">年化報酬率</div><div class="mv">+289.71%</div><div class="ms"></div></div><div class="met"><div class="ml">淨利</div><div class="mv">+$109,308.94</div><div class="ms"></div></div><div class="met"><div class="ml">交易次數</div><div class="mv">6,144</div><div class="ms">已平倉筆數</div></div><div class="met"><div class="ml">勝率</div><div class="mv">82.3%</div><div class="ms">5,054 / 6,144</div></div><div class="met"><div class="ml">獲利因子 PF</div><div class="mv">1.68</div><div class="ms">毛利 ÷ 毛損</div></div><div class="met"><div class="ml">平均賺</div><div class="mv">+$53.61</div><div class="ms">5,054 筆</div></div><div class="met"><div class="ml">平均虧</div><div class="mv">-$148.29</div><div class="ms">1,090 筆</div></div><div class="met"><div class="ml">最大單筆獲利</div><div class="mv">+$2,442.42</div><div class="ms"></div></div><div class="met"><div class="ml">最大單筆虧損</div><div class="mv">-$1,643.27</div><div class="ms"></div></div><div class="met"><div class="ml">最大回撤</div><div class="mv">+$3,919.39 (1.7%)</div><div class="ms">Equity 峰值至谷底</div></div><div class="met"><div class="ml">運行期間</div><div class="mv">2026-02-04 ~ 2026-06-02</div><div class="ms">117 天</div></div></div>
+<h3 class="chart-h">帳戶淨值曲線</h3>
+<svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<defs><linearGradient id="gE_65389" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#1f5fa8" stop-opacity="0.35"/><stop offset="100%" stop-color="#1f5fa8" stop-opacity="0"/></linearGradient></defs>
+<rect width="900" height="280" fill="#ffffff" rx="10"/><line x1="60" x2="880" y1="242.0" y2="242.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="246.0" text-anchor="end" fill="#6b7684" font-size="11">$194,545</text><line x1="60" x2="880" y1="186.0" y2="186.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="190.0" text-anchor="end" fill="#6b7684" font-size="11">$224,602</text><line x1="60" x2="880" y1="130.0" y2="130.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="134.0" text-anchor="end" fill="#6b7684" font-size="11">$254,659</text><line x1="60" x2="880" y1="74.0" y2="74.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="78.0" text-anchor="end" fill="#6b7684" font-size="11">$284,717</text><line x1="60" x2="880" y1="18.0" y2="18.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="22.0" text-anchor="end" fill="#6b7684" font-size="11">$314,774</text>
+<path d="M60.0,231.8 L64.1,231.1 L68.2,230.7 L72.3,229.7 L76.4,229.1 L80.5,227.8 L84.6,227.4 L88.7,226.8 L92.8,226.1 L96.9,225.5 L101.0,224.7 L105.1,224.1 L109.2,223.4 L113.3,222.9 L117.4,221.6 L121.5,221.2 L125.6,221.0 L129.7,220.2 L133.8,219.7 L137.9,219.2 L142.0,218.6 L146.1,217.7 L150.2,216.8 L154.3,212.7 L158.4,215.2 L162.5,214.2 L166.6,213.5 L170.7,212.5 L174.8,211.3 L178.9,210.2 L183.0,209.0 L187.1,207.9 L191.2,206.3 L195.3,205.5 L199.4,202.7 L203.5,202.3 L207.6,201.3 L211.7,200.3 L215.8,199.1 L219.9,197.9 L224.0,196.6 L228.1,195.7 L232.2,194.6 L236.3,193.7 L240.4,192.5 L244.5,191.1 L248.6,190.5 L252.7,189.3 L256.8,188.2 L260.9,187.6 L265.0,186.7 L269.1,186.0 L273.2,185.3 L277.3,184.3 L281.4,183.4 L285.5,182.0 L289.6,181.3 L293.7,180.4 L297.8,179.4 L301.9,178.5 L306.0,177.8 L310.1,177.1 L314.2,176.5 L318.3,175.4 L322.4,175.5 L326.5,174.5 L330.6,173.3 L334.7,172.5 L338.8,172.1 L342.9,171.1 L347.0,170.3 L351.1,170.0 L355.2,169.1 L359.3,168.1 L363.4,167.2 L367.5,166.3 L371.6,165.1 L375.7,164.2 L379.8,160.8 L383.9,160.2 L388.0,158.9 L392.1,158.1 L396.2,157.0 L400.3,155.9 L404.4,155.1 L408.5,154.3 L412.6,153.1 L416.7,152.2 L420.8,151.1 L424.9,149.6 L429.0,149.0 L433.1,147.9 L437.2,146.9 L441.3,146.0 L445.4,144.7 L449.5,142.6 L453.6,142.2 L457.7,141.2 L461.8,139.7 L465.9,137.8 L470.0,136.8 L474.1,135.5 L478.2,134.3 L482.3,133.0 L486.4,131.5 L490.5,130.3 L494.6,129.0 L498.7,127.4 L502.8,126.5 L506.9,125.1 L511.0,124.1 L515.1,122.9 L519.2,121.6 L523.3,122.4 L527.4,121.8 L531.5,121.6 L535.6,120.1 L539.7,118.8 L543.8,117.5 L547.9,116.5 L552.0,114.7 L556.1,114.1 L560.2,112.8 L564.3,111.8 L568.4,110.6 L572.5,109.4 L576.6,108.3 L580.7,106.8 L584.8,105.7 L588.9,104.6 L593.0,103.3 L597.1,101.9 L601.2,100.4 L605.3,99.2 L609.4,98.1 L613.5,95.2 L617.6,93.8 L621.7,94.1 L625.8,91.1 L629.9,89.7 L634.0,88.6 L638.1,87.2 L642.2,86.2 L646.3,85.2 L650.4,83.8 L654.5,82.3 L658.6,81.1 L662.7,80.0 L666.8,79.0 L670.9,78.5 L675.0,78.7 L679.1,77.5 L683.2,76.1 L687.3,75.1 L691.4,73.6 L695.5,72.0 L699.6,70.8 L703.7,69.6 L707.8,68.2 L711.9,66.9 L716.0,65.8 L720.1,63.8 L724.2,62.3 L728.3,61.8 L732.4,60.4 L736.5,59.3 L740.6,58.1 L744.7,56.3 L748.8,55.6 L752.9,53.1 L757.0,53.3 L761.1,52.1 L765.2,51.2 L769.3,50.0 L773.4,48.2 L777.5,46.7 L781.6,46.2 L785.7,44.9 L789.8,43.3 L793.9,42.1 L798.0,40.8 L802.1,39.4 L806.2,38.1 L810.3,43.3 L814.4,42.1 L818.5,41.2 L822.6,39.9 L826.7,38.7 L830.8,37.4 L834.9,36.0 L839.0,41.9 L843.1,40.7 L847.2,39.5 L851.3,38.4 L855.4,37.1 L859.5,35.4 L863.6,35.4 L867.7,33.1 L871.8,30.9 L875.9,31.4 L880.0,28.2 L880.0,242.0 L60.0,242.0 Z" fill="url(#gE_65389)"/>
+<path d="M60.0,231.8 L64.1,231.1 L68.2,230.7 L72.3,229.7 L76.4,229.1 L80.5,227.8 L84.6,227.4 L88.7,226.8 L92.8,226.1 L96.9,225.5 L101.0,224.7 L105.1,224.1 L109.2,223.4 L113.3,222.9 L117.4,221.6 L121.5,221.2 L125.6,221.0 L129.7,220.2 L133.8,219.7 L137.9,219.2 L142.0,218.6 L146.1,217.7 L150.2,216.8 L154.3,212.7 L158.4,215.2 L162.5,214.2 L166.6,213.5 L170.7,212.5 L174.8,211.3 L178.9,210.2 L183.0,209.0 L187.1,207.9 L191.2,206.3 L195.3,205.5 L199.4,202.7 L203.5,202.3 L207.6,201.3 L211.7,200.3 L215.8,199.1 L219.9,197.9 L224.0,196.6 L228.1,195.7 L232.2,194.6 L236.3,193.7 L240.4,192.5 L244.5,191.1 L248.6,190.5 L252.7,189.3 L256.8,188.2 L260.9,187.6 L265.0,186.7 L269.1,186.0 L273.2,185.3 L277.3,184.3 L281.4,183.4 L285.5,182.0 L289.6,181.3 L293.7,180.4 L297.8,179.4 L301.9,178.5 L306.0,177.8 L310.1,177.1 L314.2,176.5 L318.3,175.4 L322.4,175.5 L326.5,174.5 L330.6,173.3 L334.7,172.5 L338.8,172.1 L342.9,171.1 L347.0,170.3 L351.1,170.0 L355.2,169.1 L359.3,168.1 L363.4,167.2 L367.5,166.3 L371.6,165.1 L375.7,164.2 L379.8,160.8 L383.9,160.2 L388.0,158.9 L392.1,158.1 L396.2,157.0 L400.3,155.9 L404.4,155.1 L408.5,154.3 L412.6,153.1 L416.7,152.2 L420.8,151.1 L424.9,149.6 L429.0,149.0 L433.1,147.9 L437.2,146.9 L441.3,146.0 L445.4,144.7 L449.5,142.6 L453.6,142.2 L457.7,141.2 L461.8,139.7 L465.9,137.8 L470.0,136.8 L474.1,135.5 L478.2,134.3 L482.3,133.0 L486.4,131.5 L490.5,130.3 L494.6,129.0 L498.7,127.4 L502.8,126.5 L506.9,125.1 L511.0,124.1 L515.1,122.9 L519.2,121.6 L523.3,122.4 L527.4,121.8 L531.5,121.6 L535.6,120.1 L539.7,118.8 L543.8,117.5 L547.9,116.5 L552.0,114.7 L556.1,114.1 L560.2,112.8 L564.3,111.8 L568.4,110.6 L572.5,109.4 L576.6,108.3 L580.7,106.8 L584.8,105.7 L588.9,104.6 L593.0,103.3 L597.1,101.9 L601.2,100.4 L605.3,99.2 L609.4,98.1 L613.5,95.2 L617.6,93.8 L621.7,94.1 L625.8,91.1 L629.9,89.7 L634.0,88.6 L638.1,87.2 L642.2,86.2 L646.3,85.2 L650.4,83.8 L654.5,82.3 L658.6,81.1 L662.7,80.0 L666.8,79.0 L670.9,78.5 L675.0,78.7 L679.1,77.5 L683.2,76.1 L687.3,75.1 L691.4,73.6 L695.5,72.0 L699.6,70.8 L703.7,69.6 L707.8,68.2 L711.9,66.9 L716.0,65.8 L720.1,63.8 L724.2,62.3 L728.3,61.8 L732.4,60.4 L736.5,59.3 L740.6,58.1 L744.7,56.3 L748.8,55.6 L752.9,53.1 L757.0,53.3 L761.1,52.1 L765.2,51.2 L769.3,50.0 L773.4,48.2 L777.5,46.7 L781.6,46.2 L785.7,44.9 L789.8,43.3 L793.9,42.1 L798.0,40.8 L802.1,39.4 L806.2,38.1 L810.3,43.3 L814.4,42.1 L818.5,41.2 L822.6,39.9 L826.7,38.7 L830.8,37.4 L834.9,36.0 L839.0,41.9 L843.1,40.7 L847.2,39.5 L851.3,38.4 L855.4,37.1 L859.5,35.4 L863.6,35.4 L867.7,33.1 L871.8,30.9 L875.9,31.4 L880.0,28.2" stroke="#1f5fa8" stroke-width="2" fill="none" stroke-linejoin="round"/>
+<text x="60.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-02-04</text><text x="470.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-03-03</text><text x="880.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-06-02</text><text x="880" y="14" text-anchor="end" fill="#6b7684" font-size="11">H1趨勢 · 帳戶淨值 (USD)</text></svg>
+<h3 class="chart-h">月報酬</h3>
+<div style="overflow-x:auto;"><svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect width="900" height="220" fill="#ffffff" rx="10"/><line x1="60" x2="880" y1="170.0" y2="170.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="174.0" text-anchor="end" fill="#6b7684" font-size="11">$0</text><line x1="60" x2="880" y1="132.0" y2="132.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="136.0" text-anchor="end" fill="#6b7684" font-size="11">$10,826</text><line x1="60" x2="880" y1="94.0" y2="94.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="98.0" text-anchor="end" fill="#6b7684" font-size="11">$21,653</text><line x1="60" x2="880" y1="56.0" y2="56.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="60.0" text-anchor="end" fill="#6b7684" font-size="11">$32,479</text><line x1="60" x2="880" y1="18.0" y2="18.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="22.0" text-anchor="end" fill="#6b7684" font-size="11">$43,306</text>
+<line x1="60" x2="880" y1="170.0" y2="170.0" stroke="#b8c2d0" stroke-width="1"/>
+<rect x="60.0" y="18.0" width="40.0" height="152.0" fill="#1a9e5c" rx="2"/><rect x="104.0" y="40.1" width="40.0" height="129.9" fill="#1a9e5c" rx="2"/><rect x="148.0" y="99.3" width="40.0" height="70.7" fill="#1a9e5c" rx="2"/><rect x="192.0" y="141.2" width="40.0" height="28.8" fill="#1a9e5c" rx="2"/><rect x="236.0" y="167.8" width="40.0" height="2.2" fill="#1a9e5c" rx="2"/><text x="80.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 80.0,208)">2026-02</text><text x="124.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 124.0,208)">2026-03</text><text x="168.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 168.0,208)">2026-04</text><text x="212.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 212.0,208)">2026-05</text><text x="256.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 256.0,208)">2026-06</text>
+<text x="880" y="14" text-anchor="end" fill="#6b7684" font-size="11">月報酬 (USD)</text></svg></div>
+</div></section>
+<section class="detail-section"><div class="container"><h2>產品簡介</h2><p>黃金羅盤是一支以小時級別為核心節奏的網格加倉 EA，採用「雙向獨立網格 × 自動加倉 × 均價追蹤止損 × 首尾對沖保命」的四層架構。系統會於行情啟動時建立首單，行情拉開時依倍率自動加倉，並透過獲利金額出場與均價追蹤兩道結算機制鎖定利潤。當加倉層數累積到設定門檻時，自動啟用首尾對沖削單，把潛在風險上限預先封死。</p></div></section>
+<section class="detail-section"><div class="container"><h2>主要特色</h2><div class="feature-block"><div class="feature"><h4>雙向獨立網格架構</h4><p>多單、空單各自獨立挂單、獨立止盈、獨立風控，不會因單邊行情而互相干擾，能同時承接趨勢與震盪兩種型態。</p></div><div class="feature"><h4>彈性加倉與遞增控制</h4><p>提供「加倉倍率」與「加倉遞增」雙模式：倍率擴張加速加倉，固定遞增提供穩定節奏；可依風險偏好自由搭配。</p></div><div class="feature"><h4>獲利金額直接出場</h4><p>支援多單、空單、總單三組獨立的獲利金額出場門檻，達標即整批平倉，避免讓帳面獲利再回吐。</p></div><div class="feature"><h4>均價追蹤止損</h4><p>當持倉達到啟動張數後，自動以該方向的均價為基準啟動移動止盈，並依步長動態追蹤，鎖住已累積的浮盈。</p></div><div class="feature"><h4>首尾對沖保命機制</h4><p>加倉層數超過設定門檻時，系統會主動對沖首單與尾單，在帳面達到目標金額時整批退場，把馬丁式風險主動轉換為可控小額退場。</p></div><div class="feature"><h4>彈性手數模式</h4><p>可採固定基礎手數，或啟用「自動資金手數」依帳戶淨值動態縮放，並有單筆最大手數與單向最大層數硬上限。</p></div></div></div></section>
+<section class="detail-section"><div class="container"><h2>進場邏輯</h2><p>首單以雙向預掛思路建立，待行情明確發動後自動觸發進場；後續則依「加倉間距 + 間距倍率」逐層往不利方向佈設加倉，形成自我延伸的網格。多單與空單在進場層完全對稱，無人為方向預判。</p><div class="feature-block"><div class="feature"><h4>點差與滑點過濾</h4><p>進場前先檢查當前點差與滑點是否符合設定上限，避免極端報價下被動成交。</p></div><div class="feature"><h4>最小間距校驗</h4><p>所有挂單距離會自動比對經紀商最小有效距離；過小者自動修正並寫入日誌，確保挂單能順利建立。</p></div></div></div></section>
+<section class="detail-section"><div class="container"><h2>加倉與管理邏輯</h2><p>行情拉開時，系統依「加倉間距 × 間距倍率」逐層加倉，下一筆手數依「加倉倍率 + 加倉遞增」混合計算，並受「單筆最大手數」與「單向最大層數」雙重上限約束。當層數累積至首尾對沖啟動門檻，會自動切入保命模式。</p></div></section>
+<section class="detail-section"><div class="container"><h2>平倉與風控優先順序</h2>
+<p>系統內建多層止損與獲利保護機制，每個運行週期都會由上而下逐層檢查。</p>
+<table><thead><tr><th>順序</th><th>機制名稱</th><th>觸發條件（白話）</th><th>觸發動作</th></tr></thead><tbody><tr><td>1</td><td>統一止盈點數</td><td>每筆單獨設定的固定止盈點位，由伺服器執行。</td><td>該筆部位達標即平倉。</td></tr><tr><td>2</td><td>獲利金額出場</td><td>多單、空單或總體浮盈達到設定的美元門檻。</td><td>整批同向（或全部）平倉，鎖住獲利。</td></tr><tr><td>3</td><td>均價追蹤止盈</td><td>持倉張數達啟動門檻後，依均價啟動移動止盈，從高點回撤達回徹點觸發。</td><td>整批同向平倉，把鎖住的浮盈兌現。</td></tr><tr><td>4</td><td>首尾對沖削單</td><td>加倉層數超過啟動門檻，啟動首尾對沖保命；帳面達到首尾對沖目標金額。</td><td>對沖首尾單並整批退場，把潛在馬丁風險封死。</td></tr><tr><td>5</td><td>手動全平</td><td>使用者於控制面板按下「全平」。</td><td>立即結束所有持倉。</td></tr></tbody></table>
+</div></section>
+<section class="detail-section"><div class="container">
+<h2>實盤觀摩</h2>
+<div class="contact-cta">
+<div class="ctxt">
+<h3>📺 想看 黃金羅盤 實盤運行？</h3>
+<p>本 EA 設有實盤觀摩帳號可供觀看真實交易與部位變化。為控管權限，觀摩帳號採聯繫制發放，請與我們聯繫即可取得 MT4 / MT5 唯讀登入資訊。</p>
+</div>
+<a class="btn" href="../index.html#contact">聯繫索取觀摩帳號</a>
+</div>
+</div></section>
+<section class="detail-section"><div class="container"><h2>適用對象</h2><ul class='audience'><li>希望以網格加倉方式持續參與黃金行情，但又要求有明確保命退場機制的使用者。</li><li>可接受帳面浮虧、能承受波段震盪的中長線投資人。</li><li>熟悉 MT4 操作環境，具備 VPS 部署能力的使用者。</li><li>理解馬丁/網格類策略風險特性、預留充足保證金的使用者。</li></ul></div></section>
+<section class="detail-section"><div class="container"><h2>系統需求</h2><table><thead><tr><th>項目</th><th>說明</th></tr></thead><tbody><tr><td>交易平台</td><td>MetaTrader 4（MT4）。</td></tr><tr><td>可交易商品</td><td>以黃金 CFD 為主，亦可套用至主要外匯品種。</td></tr><tr><td>建議運行環境</td><td>24 小時不中斷的網路連線；建議使用 VPS。</td></tr><tr><td>圖表時間週期</td><td>建議掛載 H1（程式內部以小時節奏判斷），其他週期亦可運行。</td></tr><tr><td>建議資金規模</td><td>依「加倉倍率 × 單向最大層數」估算潛在曝險，建議帳戶餘額不低於估算保證金 3 倍以上。</td></tr></tbody></table></div></section>
+<section class="detail-section"><div class="container"><h2>使用須知</h2><div class="notice">本 EA 屬於網格／馬丁類型策略，極端單邊行情仍可能造成顯著回撤；首尾對沖機制可降低但不能完全消除此風險。</div><div class="notice">首次使用建議以最小手數、保守加倉倍率啟動，並於模擬或小額實單觀察 1–2 週後再放大規模。</div>
+<a class="back" href="../index.html#products">← 返回 EA 列表</a></div></section>
+<footer class="site"><div class="container">
+<div>© EZQUANT EA 系列 · 黃金 CFD 自動化交易程式</div>
+<div class="disclaimer">本網站所展示之實盤績效係取自實盤觀摩帳號歷史交易，僅供參考；過去績效不代表未來收益，CFD 商品具高度槓桿與波動風險，盈虧由使用者自行承擔。</div>
+</div></footer></body></html>

@@ -1,0 +1,106 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hybrid 順勢逆勢混合策略｜EZQUANT EA</title><style>
+:root{--bg:#f7f9fc;--card:#ffffff;--navy:#14365c;--blue:#1f5fa8;--gold:#c9a227;--green:#1a9e5c;--red:#d64545;--text:#333333;--muted:#6b7686;--border:#e3e8f0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC','Microsoft JhengHei',-apple-system,sans-serif;line-height:1.7;}
+a{color:var(--blue);text-decoration:none;}a:hover{color:var(--navy);}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+header.site{padding:18px 0;border-bottom:1px solid var(--border);background:#ffffff;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(20,54,92,.06);}
+header.site .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{font-size:22px;font-weight:700;letter-spacing:1px;background:linear-gradient(135deg,#c9a227,#e8c96a);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.brand small{display:block;font-size:12px;font-weight:400;letter-spacing:2px;color:var(--muted);margin-top:2px;-webkit-text-fill-color:var(--muted);}
+nav a{margin-left:18px;font-size:14px;color:var(--navy);font-weight:600;}nav a:hover{color:var(--blue);}
+.cta{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--blue);color:#fff;background:var(--blue);transition:transform .2s,box-shadow .2s;}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(31,95,168,.25);color:#fff;background:var(--navy);}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);}
+.btn.ghost:hover{background:var(--blue);color:#fff;}
+section{padding:52px 0;border-top:1px solid var(--border);}
+section h2{font-size:26px;margin:0 0 12px;color:var(--navy);font-weight:800;}section h2 .accent{color:var(--gold);}
+.detail-hero{padding:56px 0 36px;background:linear-gradient(180deg,#eef3fa,#f7f9fc);border-top:none;}
+.detail-hero .tags{display:flex;gap:8px;margin-bottom:16px;}
+.detail-hero h1{font-size:36px;margin:0 0 8px;color:var(--navy);font-weight:800;}.detail-hero .subtitle{color:var(--muted);font-size:17px;margin:0 0 20px;}
+.detail-hero .meta-row{display:flex;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;}
+.detail-hero .meta-row strong{color:var(--text);}
+.detail-section{padding:36px 0;border-top:1px solid var(--border);}
+.detail-section h2{margin:0 0 16px;font-size:24px;color:var(--navy);}
+.detail-section h2::before{content:"";display:inline-block;width:6px;height:22px;background:var(--blue);margin-right:12px;vertical-align:-4px;border-radius:2px;}
+.detail-section h3.chart-h{margin:28px 0 10px;font-size:16px;color:var(--navy);font-weight:600;}
+.feature-block{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.feature{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(20,54,92,.05);}
+.feature h4{margin:0 0 8px;color:var(--navy);font-size:16px;}.feature p{margin:0;color:var(--text);font-size:14px;}
+table{width:100%;border-collapse:collapse;margin:12px 0 8px;font-size:14px;}
+table th,table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+table th{background:#eef3fa;color:var(--navy);font-weight:600;}
+table tr:nth-child(even) td{background:#fafcff;}
+ul.audience{padding-left:20px;color:var(--text);}ul.audience li{margin:6px 0;}
+.notice{background:#fbf5e6;border:1px solid #efdca8;border-radius:10px;padding:16px 20px;color:#6b5a12;margin-top:12px;}.notice + .notice{margin-top:10px;}
+.back{display:inline-block;margin-top:24px;color:var(--muted);font-size:14px;}.back:hover{color:var(--blue);}
+.contact-cta{background:linear-gradient(135deg,#eef3fa,#f7f2df);border:1px solid #e3e8f0;border-radius:14px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;}
+.contact-cta .ctxt h3{margin:0 0 6px;color:var(--navy);font-size:20px;}
+.contact-cta .ctxt p{margin:0;color:var(--text);font-size:14px;max-width:640px;}
+.contact-cta a{white-space:nowrap;}
+.metgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px;}
+.met{background:#f4f7fc;border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.met .ml{color:var(--muted);font-size:12px;letter-spacing:1px;}
+.met .mv{color:var(--navy);font-size:20px;font-weight:700;margin:4px 0 2px;font-family:Menlo,Consolas,sans-serif;}
+.met .ms{color:#8a94a3;font-size:11px;}
+.tag{font-size:12px;padding:3px 10px;border-radius:999px;background:#eef3fa;border:1px solid #d7e2f2;color:var(--blue);}
+.tag.plat{background:#f2f4f7;border-color:var(--border);color:var(--muted);}
+footer.site{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;margin-top:40px;}
+footer.site .disclaimer{max-width:880px;margin:8px auto 0;font-size:12px;}
+@media (max-width:720px){.detail-hero h1{font-size:26px;}section h2{font-size:22px;}header.site .row{flex-direction:column;align-items:flex-start;}nav a{margin-left:0;margin-right:14px;}.contact-cta{flex-direction:column;align-items:flex-start;}.metgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}}
+</style></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT EA<small>CFD 自動化交易程式 · 黃金策略系列</small></div>
+<nav><a href="../index.html">首頁</a><a href="../index.html#products">EA 列表</a><a href="../index.html#contact">聯繫</a></nav>
+</div></header>
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">趨勢加倉 / 多策略融合</span><span class="tag plat">MT4 + MT5</span></div>
+<h1>Hybrid 順勢逆勢混合策略</h1>
+<p class="subtitle">順勢加碼 × 逆勢補單 × 七維度共振濾網</p>
+<div class="meta-row"><span>平台：<strong>MT4 + MT5</strong></span><span>商品：<strong>黃金 CFD 為主，亦可套用其他高波動商品</strong></span><span>分類：<strong>趨勢加倉 / 多策略融合</strong></span></div>
+<div class="cta"><a class="btn" href="../docs/Hybrid 順勢逆勢混合策略_EA產品說明_客戶版.docx" download>下載完整說明 (.docx)</a><a class="btn ghost" href="../index.html#products">回到列表</a></div>
+</div></section>
+<section class="detail-section"><div class="container">
+<h2>實盤績效</h2>
+<p style="color:var(--muted);margin:-4px 0 18px;">資料來源：實盤觀摩帳號交易記錄匯出 · 統計區間 2026-02-12 ~ 2026-06-01（109 天）· 共 3,154 筆交易。歷史績效不代表未來收益。</p>
+<div class="metgrid"><div class="met"><div class="ml">起始本金</div><div class="mv">$981,791</div><div class="ms">共 6 筆入金</div></div><div class="met"><div class="ml">總報酬率</div><div class="mv" style="color:var(--green);">+4.37%</div><div class="ms">淨利 ÷ 投入本金</div></div><div class="met"><div class="ml">年化報酬率</div><div class="mv">+15.39%</div><div class="ms"></div></div><div class="met"><div class="ml">淨利</div><div class="mv">+$42,890.52</div><div class="ms"></div></div><div class="met"><div class="ml">交易次數</div><div class="mv">3,154</div><div class="ms">已平倉筆數</div></div><div class="met"><div class="ml">勝率</div><div class="mv">70.7%</div><div class="ms">2,231 / 3,154</div></div><div class="met"><div class="ml">獲利因子 PF</div><div class="mv">1.24</div><div class="ms">毛利 ÷ 毛損</div></div><div class="met"><div class="ml">平均賺</div><div class="mv">+$98.75</div><div class="ms">2,231 筆</div></div><div class="met"><div class="ml">平均虧</div><div class="mv">-$193.89</div><div class="ms">915 筆</div></div><div class="met"><div class="ml">最大單筆獲利</div><div class="mv">+$16,640.00</div><div class="ms"></div></div><div class="met"><div class="ml">最大單筆虧損</div><div class="mv">-$16,492.88</div><div class="ms"></div></div><div class="met"><div class="ml">最大回撤</div><div class="mv">+$17,967.32 (1.8%)</div><div class="ms">Equity 峰值至谷底</div></div><div class="met"><div class="ml">運行期間</div><div class="mv">2026-02-12 ~ 2026-06-01</div><div class="ms">109 天</div></div></div>
+<h3 class="chart-h">帳戶淨值曲線</h3>
+<svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<defs><linearGradient id="gE_51850" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#1f5fa8" stop-opacity="0.35"/><stop offset="100%" stop-color="#1f5fa8" stop-opacity="0"/></linearGradient></defs>
+<rect width="900" height="280" fill="#ffffff" rx="10"/><line x1="60" x2="880" y1="242.0" y2="242.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="246.0" text-anchor="end" fill="#6b7684" font-size="11">$979,649</text><line x1="60" x2="880" y1="186.0" y2="186.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="190.0" text-anchor="end" fill="#6b7684" font-size="11">$991,443</text><line x1="60" x2="880" y1="130.0" y2="130.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="134.0" text-anchor="end" fill="#6b7684" font-size="11">$1,003,238</text><line x1="60" x2="880" y1="74.0" y2="74.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="78.0" text-anchor="end" fill="#6b7684" font-size="11">$1,015,032</text><line x1="60" x2="880" y1="18.0" y2="18.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="22.0" text-anchor="end" fill="#6b7684" font-size="11">$1,026,826</text>
+<path d="M60.0,231.8 L64.1,231.0 L68.2,230.3 L72.3,229.8 L76.4,229.2 L80.5,228.8 L84.6,228.7 L88.7,228.3 L92.8,227.9 L96.9,227.4 L101.0,227.8 L105.1,227.0 L109.2,227.1 L113.3,227.5 L117.4,227.5 L121.5,227.1 L125.6,226.9 L129.7,226.7 L133.8,226.5 L137.9,226.3 L142.0,226.2 L146.1,226.8 L150.2,226.6 L154.3,226.6 L158.4,226.1 L162.5,225.6 L166.6,225.3 L170.7,224.8 L174.8,224.8 L178.9,224.7 L183.0,224.2 L187.1,224.1 L191.2,224.1 L195.3,223.8 L199.4,223.0 L203.5,223.2 L207.6,222.6 L211.7,222.2 L215.8,221.8 L219.9,221.4 L224.0,216.1 L228.1,220.9 L232.2,226.6 L236.3,226.4 L240.4,226.1 L244.5,225.7 L248.6,225.2 L252.7,225.6 L256.8,225.1 L260.9,224.6 L265.0,224.3 L269.1,223.6 L273.2,223.2 L277.3,222.8 L281.4,222.5 L285.5,222.0 L289.6,221.6 L293.7,221.1 L297.8,220.8 L301.9,220.4 L306.0,219.8 L310.1,219.2 L314.2,218.9 L318.3,218.5 L322.4,218.1 L326.5,217.7 L330.6,217.5 L334.7,217.1 L338.8,216.1 L342.9,215.9 L347.0,214.1 L351.1,211.6 L355.2,211.5 L359.3,209.4 L363.4,206.6 L367.5,203.1 L371.6,204.2 L375.7,203.4 L379.8,200.9 L383.9,198.5 L388.0,197.3 L392.1,195.7 L396.2,195.2 L400.3,194.0 L404.4,194.5 L408.5,190.6 L412.6,189.8 L416.7,187.8 L420.8,185.7 L424.9,184.2 L429.0,182.5 L433.1,180.7 L437.2,179.0 L441.3,177.5 L445.4,178.3 L449.5,176.9 L453.6,171.4 L457.7,169.7 L461.8,169.0 L465.9,167.4 L470.0,165.4 L474.1,164.2 L478.2,162.1 L482.3,160.7 L486.4,158.9 L490.5,156.1 L494.6,154.0 L498.7,152.2 L502.8,150.0 L506.9,148.3 L511.0,146.0 L515.1,145.6 L519.2,143.0 L523.3,141.3 L527.4,139.2 L531.5,137.1 L535.6,134.9 L539.7,135.0 L543.8,143.5 L547.9,124.7 L552.0,112.8 L556.1,114.8 L560.2,111.9 L564.3,64.2 L568.4,61.9 L572.5,61.6 L576.6,61.3 L580.7,60.8 L584.8,60.1 L588.9,59.4 L593.0,59.3 L597.1,58.7 L601.2,58.1 L605.3,57.6 L609.4,57.0 L613.5,56.4 L617.6,56.2 L621.7,55.9 L625.8,55.3 L629.9,54.9 L634.0,54.5 L638.1,54.1 L642.2,53.5 L646.3,53.1 L650.4,52.8 L654.5,52.3 L658.6,51.8 L662.7,51.3 L666.8,50.6 L670.9,50.5 L675.0,50.1 L679.1,49.7 L683.2,49.4 L687.3,48.8 L691.4,48.5 L695.5,47.9 L699.6,47.7 L703.7,46.7 L707.8,46.3 L711.9,45.9 L716.0,45.5 L720.1,45.0 L724.2,44.6 L728.3,44.0 L732.4,42.7 L736.5,42.3 L740.6,41.8 L744.7,41.8 L748.8,41.3 L752.9,40.7 L757.0,40.4 L761.1,40.0 L765.2,39.7 L769.3,39.5 L773.4,39.1 L777.5,38.8 L781.6,38.3 L785.7,37.9 L789.8,41.1 L793.9,36.3 L798.0,43.2 L802.1,30.8 L806.2,34.9 L810.3,35.2 L814.4,34.6 L818.5,34.1 L822.6,33.8 L826.7,33.4 L830.8,33.1 L834.9,32.7 L839.0,32.2 L843.1,31.7 L847.2,31.3 L851.3,30.8 L855.4,30.5 L859.5,30.1 L863.6,29.7 L867.7,28.9 L871.8,28.2 L875.9,28.5 L880.0,28.2 L880.0,242.0 L60.0,242.0 Z" fill="url(#gE_51850)"/>
+<path d="M60.0,231.8 L64.1,231.0 L68.2,230.3 L72.3,229.8 L76.4,229.2 L80.5,228.8 L84.6,228.7 L88.7,228.3 L92.8,227.9 L96.9,227.4 L101.0,227.8 L105.1,227.0 L109.2,227.1 L113.3,227.5 L117.4,227.5 L121.5,227.1 L125.6,226.9 L129.7,226.7 L133.8,226.5 L137.9,226.3 L142.0,226.2 L146.1,226.8 L150.2,226.6 L154.3,226.6 L158.4,226.1 L162.5,225.6 L166.6,225.3 L170.7,224.8 L174.8,224.8 L178.9,224.7 L183.0,224.2 L187.1,224.1 L191.2,224.1 L195.3,223.8 L199.4,223.0 L203.5,223.2 L207.6,222.6 L211.7,222.2 L215.8,221.8 L219.9,221.4 L224.0,216.1 L228.1,220.9 L232.2,226.6 L236.3,226.4 L240.4,226.1 L244.5,225.7 L248.6,225.2 L252.7,225.6 L256.8,225.1 L260.9,224.6 L265.0,224.3 L269.1,223.6 L273.2,223.2 L277.3,222.8 L281.4,222.5 L285.5,222.0 L289.6,221.6 L293.7,221.1 L297.8,220.8 L301.9,220.4 L306.0,219.8 L310.1,219.2 L314.2,218.9 L318.3,218.5 L322.4,218.1 L326.5,217.7 L330.6,217.5 L334.7,217.1 L338.8,216.1 L342.9,215.9 L347.0,214.1 L351.1,211.6 L355.2,211.5 L359.3,209.4 L363.4,206.6 L367.5,203.1 L371.6,204.2 L375.7,203.4 L379.8,200.9 L383.9,198.5 L388.0,197.3 L392.1,195.7 L396.2,195.2 L400.3,194.0 L404.4,194.5 L408.5,190.6 L412.6,189.8 L416.7,187.8 L420.8,185.7 L424.9,184.2 L429.0,182.5 L433.1,180.7 L437.2,179.0 L441.3,177.5 L445.4,178.3 L449.5,176.9 L453.6,171.4 L457.7,169.7 L461.8,169.0 L465.9,167.4 L470.0,165.4 L474.1,164.2 L478.2,162.1 L482.3,160.7 L486.4,158.9 L490.5,156.1 L494.6,154.0 L498.7,152.2 L502.8,150.0 L506.9,148.3 L511.0,146.0 L515.1,145.6 L519.2,143.0 L523.3,141.3 L527.4,139.2 L531.5,137.1 L535.6,134.9 L539.7,135.0 L543.8,143.5 L547.9,124.7 L552.0,112.8 L556.1,114.8 L560.2,111.9 L564.3,64.2 L568.4,61.9 L572.5,61.6 L576.6,61.3 L580.7,60.8 L584.8,60.1 L588.9,59.4 L593.0,59.3 L597.1,58.7 L601.2,58.1 L605.3,57.6 L609.4,57.0 L613.5,56.4 L617.6,56.2 L621.7,55.9 L625.8,55.3 L629.9,54.9 L634.0,54.5 L638.1,54.1 L642.2,53.5 L646.3,53.1 L650.4,52.8 L654.5,52.3 L658.6,51.8 L662.7,51.3 L666.8,50.6 L670.9,50.5 L675.0,50.1 L679.1,49.7 L683.2,49.4 L687.3,48.8 L691.4,48.5 L695.5,47.9 L699.6,47.7 L703.7,46.7 L707.8,46.3 L711.9,45.9 L716.0,45.5 L720.1,45.0 L724.2,44.6 L728.3,44.0 L732.4,42.7 L736.5,42.3 L740.6,41.8 L744.7,41.8 L748.8,41.3 L752.9,40.7 L757.0,40.4 L761.1,40.0 L765.2,39.7 L769.3,39.5 L773.4,39.1 L777.5,38.8 L781.6,38.3 L785.7,37.9 L789.8,41.1 L793.9,36.3 L798.0,43.2 L802.1,30.8 L806.2,34.9 L810.3,35.2 L814.4,34.6 L818.5,34.1 L822.6,33.8 L826.7,33.4 L830.8,33.1 L834.9,32.7 L839.0,32.2 L843.1,31.7 L847.2,31.3 L851.3,30.8 L855.4,30.5 L859.5,30.1 L863.6,29.7 L867.7,28.9 L871.8,28.2 L875.9,28.5 L880.0,28.2" stroke="#1f5fa8" stroke-width="2" fill="none" stroke-linejoin="round"/>
+<text x="60.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-02-12</text><text x="470.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-03-10</text><text x="880.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-06-01</text><text x="880" y="14" text-anchor="end" fill="#6b7684" font-size="11">Hybrid · 帳戶淨值 (USD)</text></svg>
+<h3 class="chart-h">月報酬</h3>
+<div style="overflow-x:auto;"><svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect width="900" height="220" fill="#ffffff" rx="10"/><line x1="60" x2="880" y1="170.0" y2="170.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="174.0" text-anchor="end" fill="#6b7684" font-size="11">$0</text><line x1="60" x2="880" y1="132.0" y2="132.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="136.0" text-anchor="end" fill="#6b7684" font-size="11">$8,482</text><line x1="60" x2="880" y1="94.0" y2="94.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="98.0" text-anchor="end" fill="#6b7684" font-size="11">$16,963</text><line x1="60" x2="880" y1="56.0" y2="56.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="60.0" text-anchor="end" fill="#6b7684" font-size="11">$25,445</text><line x1="60" x2="880" y1="18.0" y2="18.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52" y="22.0" text-anchor="end" fill="#6b7684" font-size="11">$33,926</text>
+<line x1="60" x2="880" y1="170.0" y2="170.0" stroke="#b8c2d0" stroke-width="1"/>
+<rect x="60.0" y="153.1" width="40.0" height="16.9" fill="#1a9e5c" rx="2"/><rect x="104.0" y="18.0" width="40.0" height="152.0" fill="#1a9e5c" rx="2"/><rect x="148.0" y="157.5" width="40.0" height="12.5" fill="#1a9e5c" rx="2"/><rect x="192.0" y="159.4" width="40.0" height="10.6" fill="#1a9e5c" rx="2"/><rect x="236.0" y="169.8" width="40.0" height="0.2" fill="#1a9e5c" rx="2"/><text x="80.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 80.0,208)">2026-02</text><text x="124.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 124.0,208)">2026-03</text><text x="168.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 168.0,208)">2026-04</text><text x="212.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 212.0,208)">2026-05</text><text x="256.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 256.0,208)">2026-06</text>
+<text x="880" y="14" text-anchor="end" fill="#6b7684" font-size="11">月報酬 (USD)</text></svg></div>
+</div></section>
+<section class="detail-section"><div class="container"><h2>產品簡介</h2><p>Hybrid 是一支融合「順勢加碼」與「逆勢補單」雙模組的混合型策略 EA，提供 MT4 與 MT5 兩個版本。系統以 M5 級別的四條 EMA 均線為基礎，搭配 CCI、DeMarker、Bulls/Bears、Gator、KDJ 等多達七種濾網的共振判斷做為進場過濾，順勢時加碼放大利潤，逆勢時以網格分批接刀解套；最後由整體金額止盈、均價追蹤與動態移動止損負責結算與風控。</p></div></section>
+<section class="detail-section"><div class="container"><h2>主要特色</h2><div class="feature-block"><div class="feature"><h4>順勢 + 逆勢雙模組</h4><p>順勢模組於趨勢延伸時加碼放大獲利；逆勢模組於行情回撤時依網格分批補單，兼顧趨勢與震盪兩種行情。</p></div><div class="feature"><h4>七維度共振濾網</h4><p>可獨立開關 CCI/DeMarker、Bulls/Bears、Gator、MACD、ADX、KDJ、分形等濾網，組合出符合個人風格的進場節奏。</p></div><div class="feature"><h4>多空獨立魔術碼</h4><p>多單與空單使用獨立魔術碼分流，便於分別管理、分別結算，亦不影響其他 EA 同帳戶共用。</p></div><div class="feature"><h4>三層結算系統</h4><p>提供「整體金額止盈」「多/空獨立金額止盈」「均價追蹤止盈」三層結算，達到任一條件即整批退場。</p></div><div class="feature"><h4>動態移動止損</h4><p>達到啟動點數後啟用移動止損；以回撤點數為步長追蹤，鎖住已累積的浮盈。</p></div><div class="feature"><h4>手數與層數雙保護</h4><p>設定單筆最大手數、最大層數與最大點差過濾，避免極端報價或滑點下的失控加倉。</p></div></div></div></section>
+<section class="detail-section"><div class="container"><h2>進場邏輯</h2><p>系統先以 M5 上的四條 EMA 判斷趨勢方向，再由可組合的七種濾網同時投票確認動能、力量、震盪、結構等多維條件。多濾網共振一致時方視為有效訊號，避免單一指標誤判。</p><div class="feature-block"><div class="feature"><h4>點差與冷卻保護</h4><p>進場前檢查當前點差是否超過上限；整體平倉後依設定冷卻時間暫停新單，避免追單。</p></div><div class="feature"><h4>最大手數與層數截斷</h4><p>順勢與逆勢均有獨立的「單筆最大手數」與「最大層數」上限，超出即停止加倉。</p></div></div></div></section>
+<section class="detail-section"><div class="container"><h2>加倉與管理邏輯</h2><p>順勢方向以「順勢間距 × 順勢倍率」加碼，逆勢方向以「逆勢間距 × 逆勢倍率」補單；兩者皆受最大層數與最大手數雙重約束，避免曝險無限擴張。</p></div></section>
+<section class="detail-section"><div class="container"><h2>平倉與風控優先順序</h2>
+<p>系統內建多層止損與獲利保護機制，每個運行週期都會由上而下逐層檢查。</p>
+<table><thead><tr><th>順序</th><th>機制名稱</th><th>觸發條件（白話）</th><th>觸發動作</th></tr></thead><tbody><tr><td>1</td><td>點差過濾</td><td>當前點差超過上限。</td><td>停止新單與加倉，待點差回穩。</td></tr><tr><td>2</td><td>整體金額止盈</td><td>多+空整體浮盈達到設定美元門檻。</td><td>整批全平退場。</td></tr><tr><td>3</td><td>多/空獨立金額止盈</td><td>單一方向浮盈達門檻。</td><td>該方向整批平倉。</td></tr><tr><td>4</td><td>均價追蹤止盈</td><td>達到均價追蹤切換門檻後，自高點回撤達回撤點數。</td><td>該方向整批平倉，鎖住浮盈。</td></tr><tr><td>5</td><td>動態移動止損</td><td>達啟動點數後依步長追蹤。</td><td>止損動態跟進，逐步收緊。</td></tr></tbody></table><h2>模式對照</h2><table><thead><tr><th>項目</th><th>Pure 版</th><th>Pro 版</th></tr></thead><tbody><tr><td>定位</td><td>純策略核心版本，僅內建核心七濾網與雙模組架構。</td><td>進階整合版本，提供更完整的風控與面板擴充。</td></tr><tr><td>適用客戶</td><td>希望策略行為純粹、自行控管風險者。</td><td>希望開箱即用、需要多層保護的客戶。</td></tr></tbody></table>
+</div></section>
+<section class="detail-section"><div class="container">
+<h2>實盤觀摩</h2>
+<div class="contact-cta">
+<div class="ctxt">
+<h3>📺 想看 Hybrid 順勢逆勢混合策略 實盤運行？</h3>
+<p>本 EA 設有實盤觀摩帳號可供觀看真實交易與部位變化。為控管權限，觀摩帳號採聯繫制發放，請與我們聯繫即可取得 MT4 / MT5 唯讀登入資訊。</p>
+</div>
+<a class="btn" href="../index.html#contact">聯繫索取觀摩帳號</a>
+</div>
+</div></section>
+<section class="detail-section"><div class="container"><h2>適用對象</h2><ul class='audience'><li>希望同時掌握趨勢與震盪行情、不願錯過任一型態的交易者。</li><li>可接受逆勢補單帶來的浮虧、具備加倉資金管理觀念的使用者。</li><li>熟悉 MT4 / MT5 環境並能正確配置 EMA、濾網等參數的使用者。</li></ul></div></section>
+<section class="detail-section"><div class="container"><h2>系統需求</h2><table><thead><tr><th>項目</th><th>說明</th></tr></thead><tbody><tr><td>交易平台</td><td>MetaTrader 4（EA1/EA2 .mq4）與 MetaTrader 5（Hybrid_Pure.mq5）。</td></tr><tr><td>可交易商品</td><td>黃金 CFD 為主，亦可調整參數套用其他高波動商品。</td></tr><tr><td>MT5 帳戶類型</td><td>須為對沖（Hedging）帳戶。</td></tr><tr><td>建議運行環境</td><td>24 小時不中斷網路；建議使用 VPS。</td></tr><tr><td>建議掛載週期</td><td>M5（策略運算週期）。</td></tr><tr><td>建議資金規模</td><td>依逆勢最大層數 × 逆勢倍率估算潛在曝險，建議保證金預留充足。</td></tr></tbody></table></div></section>
+<section class="detail-section"><div class="container"><h2>使用須知</h2><div class="notice">本策略屬於含逆勢補單的混合型 EA，極端單邊行情仍可能造成顯著回撤。</div><div class="notice">建議首次部署使用 Pure 版以最小手數驗證行為，再依需求升級 Pro 版或放大規模。</div>
+<a class="back" href="../index.html#products">← 返回 EA 列表</a></div></section>
+<footer class="site"><div class="container">
+<div>© EZQUANT EA 系列 · 黃金 CFD 自動化交易程式</div>
+<div class="disclaimer">本網站所展示之實盤績效係取自實盤觀摩帳號歷史交易，僅供參考；過去績效不代表未來收益，CFD 商品具高度槓桿與波動風險，盈虧由使用者自行承擔。</div>
+</div></footer></body></html>
