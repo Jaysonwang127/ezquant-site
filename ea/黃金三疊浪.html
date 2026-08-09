@@ -1,0 +1,109 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>黃金三疊浪｜EZQUANT EA</title><style>
+:root{--bg:#f7f9fc;--card:#ffffff;--navy:#14365c;--blue:#1f5fa8;--gold:#c9a227;--green:#1a9e5c;--red:#d64545;--text:#333333;--muted:#6b7686;--border:#e3e8f0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC','Microsoft JhengHei',-apple-system,sans-serif;line-height:1.7;}
+a{color:var(--blue);text-decoration:none;}a:hover{color:var(--navy);}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+header.site{padding:18px 0;border-bottom:1px solid var(--border);background:#ffffff;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(20,54,92,.06);}
+header.site .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{font-size:22px;font-weight:700;letter-spacing:1px;background:linear-gradient(135deg,#c9a227,#e8c96a);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.brand small{display:block;font-size:12px;font-weight:400;letter-spacing:2px;color:var(--muted);margin-top:2px;-webkit-text-fill-color:var(--muted);}
+nav a{margin-left:18px;font-size:14px;color:var(--navy);font-weight:600;}nav a:hover{color:var(--blue);}
+.cta{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--blue);color:#fff;background:var(--blue);transition:transform .2s,box-shadow .2s;}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(31,95,168,.25);color:#fff;background:var(--navy);}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);}
+.btn.ghost:hover{background:var(--blue);color:#fff;}
+section{padding:52px 0;border-top:1px solid var(--border);}
+section h2{font-size:26px;margin:0 0 12px;color:var(--navy);font-weight:800;}section h2 .accent{color:var(--gold);}
+.detail-hero{padding:56px 0 36px;background:linear-gradient(180deg,#eef3fa,#f7f9fc);border-top:none;}
+.detail-hero .tags{display:flex;gap:8px;margin-bottom:16px;}
+.detail-hero h1{font-size:36px;margin:0 0 8px;color:var(--navy);font-weight:800;}.detail-hero .subtitle{color:var(--muted);font-size:17px;margin:0 0 20px;}
+.detail-hero .meta-row{display:flex;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;}
+.detail-hero .meta-row strong{color:var(--text);}
+.detail-section{padding:36px 0;border-top:1px solid var(--border);}
+.detail-section h2{margin:0 0 16px;font-size:24px;color:var(--navy);}
+.detail-section h2::before{content:"";display:inline-block;width:6px;height:22px;background:var(--blue);margin-right:12px;vertical-align:-4px;border-radius:2px;}
+.detail-section h3.chart-h{margin:28px 0 10px;font-size:16px;color:var(--navy);font-weight:600;}
+.feature-block{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.feature{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(20,54,92,.05);}
+.feature h4{margin:0 0 8px;color:var(--navy);font-size:16px;}.feature p{margin:0;color:var(--text);font-size:14px;}
+table{width:100%;border-collapse:collapse;margin:12px 0 8px;font-size:14px;}
+table th,table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+table th{background:#eef3fa;color:var(--navy);font-weight:600;}
+table tr:nth-child(even) td{background:#fafcff;}
+ul.audience{padding-left:20px;color:var(--text);}ul.audience li{margin:6px 0;}
+.notice{background:#fbf5e6;border:1px solid #efdca8;border-radius:10px;padding:16px 20px;color:#6b5a12;margin-top:12px;}.notice + .notice{margin-top:10px;}
+.pending-card{background:#f4f7fc;border:1px dashed #b9c6dc;border-radius:14px;padding:24px 28px;display:flex;gap:18px;align-items:flex-start;}
+.pending-card .badge{flex:0 0 auto;background:#eef3fa;border:1px solid #d7e2f2;color:var(--blue);font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;white-space:nowrap;}
+.pending-card p{margin:0;color:var(--text);font-size:14px;}
+.backtest-banner{background:#fbf5e6;border:1px solid #efdca8;color:#6b5a12;border-radius:10px;padding:12px 18px;font-size:13px;font-weight:600;margin-bottom:16px;}
+.four-piece{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px;}
+.four-piece span{background:#eef3fa;border:1px solid #d7e2f2;color:var(--navy);font-size:12px;padding:5px 12px;border-radius:8px;}
+.chart-note{color:#8a94a3;font-size:12px;margin:6px 0 0;}
+.back{display:inline-block;margin-top:24px;color:var(--muted);font-size:14px;}.back:hover{color:var(--blue);}
+.contact-cta{background:linear-gradient(135deg,#eef3fa,#f7f2df);border:1px solid #e3e8f0;border-radius:14px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;}
+.contact-cta .ctxt h3{margin:0 0 6px;color:var(--navy);font-size:20px;}
+.contact-cta .ctxt p{margin:0;color:var(--text);font-size:14px;max-width:640px;}
+.contact-cta a{white-space:nowrap;}
+.metgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px;}
+.met{background:#f4f7fc;border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.met .ml{color:var(--muted);font-size:12px;letter-spacing:1px;}
+.met .mv{color:var(--navy);font-size:20px;font-weight:700;margin:4px 0 2px;font-family:Menlo,Consolas,sans-serif;}
+.met .mv.pos{color:var(--green);}.met .mv.neg{color:var(--red);}
+.met .ms{color:#8a94a3;font-size:11px;}
+.tag{font-size:12px;padding:3px 10px;border-radius:999px;background:#eef3fa;border:1px solid #d7e2f2;color:var(--blue);}
+.tag.plat{background:#f2f4f7;border-color:var(--border);color:var(--muted);}
+footer.site{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;margin-top:40px;}
+footer.site .disclaimer{max-width:880px;margin:8px auto 0;font-size:12px;}
+@media (max-width:720px){.detail-hero h1{font-size:26px;}section h2{font-size:22px;}header.site .row{flex-direction:column;align-items:flex-start;}nav a{margin-left:0;margin-right:14px;}.contact-cta{flex-direction:column;align-items:flex-start;}.pending-card{flex-direction:column;}}
+</style></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT EA<small>CFD 自動化交易程式 · 黃金策略系列</small></div>
+<nav><a href="../index.html">首頁</a><a href="../index.html#products">EA 列表</a><a href="../index.html#contact">聯繫</a></nav>
+</div></header>
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">趨勢</span><span class="tag plat">MT5</span></div>
+<h1>黃金三疊浪</h1>
+<p class="subtitle">三重 EMA 趨勢追蹤 × 回踩金字塔加倉 × 多層獲利保護</p>
+<div class="meta-row"><span>平台：<strong>MT5</strong></span><span>商品：<strong>黃金 CFD (XAUUSD / Gold)</strong></span><span>分類：<strong>趨勢</strong></span></div>
+<div class="cta"><a class="btn" href="../docs/黃金三疊浪_EA產品說明_客戶版.docx" download>下載完整說明 (.docx)</a><a class="btn ghost" href="../index.html#products">回到列表</a></div>
+</div></section><section class="detail-section"><div class="container">
+<h2>回測績效</h2>
+<div class="backtest-banner">以下為策略測試器回測數據，非實盤交易。</div>
+<div class="four-piece"><span>品種：XAUUSD.BT</span><span>期間：2025-09-01 ~ 2026-02-28（6個月，最佳展示區間；取自2024-2026全區間報告之子區間）</span><span>點差／模型：固定點差 $0.13（XAUUSD.BT 匯入寫死值，非真實點差）</span><span>初始資金：$30,000</span></div>
+<div class="metgrid">
+<div class="met"><div class="ml">起始本金</div><div class="mv">$30,000</div><div class="ms">回測設定</div></div>
+<div class="met"><div class="ml">總報酬率</div><div class="mv pos">+2.52%</div><div class="ms">淨利 ÷ 投入本金</div></div>
+<div class="met"><div class="ml">淨利</div><div class="mv pos">+$747.38</div><div class="ms"></div></div>
+<div class="met"><div class="ml">交易次數</div><div class="mv">125</div><div class="ms">已平倉筆數</div></div>
+<div class="met"><div class="ml">勝率</div><div class="mv">43.2%</div><div class="ms"></div></div>
+<div class="met"><div class="ml">獲利因子 PF</div><div class="mv">1.74</div><div class="ms">毛利 ÷ 毛損</div></div>
+<div class="met"><div class="ml">平均賺</div><div class="mv pos">+$32.63</div><div class="ms"></div></div>
+<div class="met"><div class="ml">平均虧</div><div class="mv neg">-$14.29</div><div class="ms"></div></div>
+<div class="met"><div class="ml">最大回撤</div><div class="mv">-$280.30 (0.915%)</div><div class="ms">Balance 峰值至谷底</div></div>
+</div>
+<h3 class="chart-h">帳戶淨值曲線（回測）</h3>
+<svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<defs><linearGradient id="gE_55275" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#1f5fa8" stop-opacity="0.30"/><stop offset="100%" stop-color="#1f5fa8" stop-opacity="0"/></linearGradient></defs>
+<rect width="900" height="280" fill="#ffffff" rx="10"/><line x1="60.0" x2="880.0" y1="18.0" y2="18.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="22.0" text-anchor="end" fill="#6b7684" font-size="11">$30,640</text><line x1="60.0" x2="880.0" y1="74.0" y2="74.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="78.0" text-anchor="end" fill="#6b7684" font-size="11">$30,385</text><line x1="60.0" x2="880.0" y1="130.0" y2="130.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="134.0" text-anchor="end" fill="#6b7684" font-size="11">$30,129</text><line x1="60.0" x2="880.0" y1="186.0" y2="186.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="190.0" text-anchor="end" fill="#6b7684" font-size="11">$29,874</text><line x1="60.0" x2="880.0" y1="242.0" y2="242.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="246.0" text-anchor="end" fill="#6b7684" font-size="11">$29,619</text>
+<path d="M60.0,242.0 L66.6,227.2 L73.1,228.2 L79.7,228.7 L86.2,228.8 L92.8,222.9 L99.4,222.9 L105.9,230.0 L112.5,231.0 L119.0,231.3 L125.6,227.6 L132.2,228.2 L138.7,225.8 L145.3,221.4 L151.8,210.4 L158.4,203.1 L165.0,201.5 L171.5,201.4 L178.1,204.0 L184.6,204.5 L191.2,205.5 L197.8,205.3 L204.3,211.8 L210.9,219.3 L217.4,220.4 L224.0,220.6 L230.6,220.9 L237.1,218.2 L243.7,211.6 L250.2,210.9 L256.8,211.1 L263.4,209.3 L269.9,208.9 L276.5,208.1 L283.0,208.9 L289.6,210.7 L296.2,211.1 L302.7,212.5 L309.3,185.5 L315.8,131.4 L322.4,122.0 L329.0,128.7 L335.5,142.1 L342.1,126.8 L348.6,94.5 L355.2,94.8 L361.8,95.4 L368.3,95.6 L374.9,91.4 L381.4,92.0 L388.0,98.9 L394.6,96.9 L401.1,89.8 L407.7,86.3 L414.2,91.3 L420.8,92.5 L427.4,92.3 L433.9,98.9 L440.5,99.0 L447.0,105.7 L453.6,116.5 L460.2,116.6 L466.7,113.9 L473.3,114.3 L479.8,110.1 L486.4,110.4 L493.0,107.6 L499.5,107.6 L506.1,107.7 L512.6,114.5 L519.2,127.7 L525.8,127.5 L532.3,125.9 L538.9,124.9 L545.4,123.0 L552.0,123.0 L558.6,117.3 L565.1,100.2 L571.7,61.4 L578.2,61.7 L584.8,62.1 L591.4,59.5 L597.9,60.1 L604.5,48.1 L611.0,46.6 L617.6,18.0 L624.2,24.7 L630.7,32.0 L637.3,46.2 L643.8,52.8 L650.4,59.4 L657.0,55.3 L663.5,62.4 L670.1,63.7 L676.6,62.6 L683.2,57.5 L689.8,57.7 L696.3,57.6 L702.9,55.3 L709.4,52.8 L716.0,59.7 L722.6,60.3 L729.1,67.0 L735.7,67.6 L742.2,46.9 L748.8,47.1 L755.4,47.6 L761.9,48.4 L768.5,47.6 L775.0,48.3 L781.6,48.6 L788.2,55.3 L794.7,58.1 L801.3,59.3 L807.8,63.1 L814.4,64.6 L821.0,64.2 L827.5,62.5 L834.1,69.4 L840.6,70.0 L847.2,77.1 L853.8,78.0 L860.3,72.8 L866.9,79.5 L873.4,77.1 L880.0,78.1 L880.0,242.0 L60.0,242.0 Z" fill="url(#gE_55275)"/>
+<path d="M60.0,242.0 L66.6,227.2 L73.1,228.2 L79.7,228.7 L86.2,228.8 L92.8,222.9 L99.4,222.9 L105.9,230.0 L112.5,231.0 L119.0,231.3 L125.6,227.6 L132.2,228.2 L138.7,225.8 L145.3,221.4 L151.8,210.4 L158.4,203.1 L165.0,201.5 L171.5,201.4 L178.1,204.0 L184.6,204.5 L191.2,205.5 L197.8,205.3 L204.3,211.8 L210.9,219.3 L217.4,220.4 L224.0,220.6 L230.6,220.9 L237.1,218.2 L243.7,211.6 L250.2,210.9 L256.8,211.1 L263.4,209.3 L269.9,208.9 L276.5,208.1 L283.0,208.9 L289.6,210.7 L296.2,211.1 L302.7,212.5 L309.3,185.5 L315.8,131.4 L322.4,122.0 L329.0,128.7 L335.5,142.1 L342.1,126.8 L348.6,94.5 L355.2,94.8 L361.8,95.4 L368.3,95.6 L374.9,91.4 L381.4,92.0 L388.0,98.9 L394.6,96.9 L401.1,89.8 L407.7,86.3 L414.2,91.3 L420.8,92.5 L427.4,92.3 L433.9,98.9 L440.5,99.0 L447.0,105.7 L453.6,116.5 L460.2,116.6 L466.7,113.9 L473.3,114.3 L479.8,110.1 L486.4,110.4 L493.0,107.6 L499.5,107.6 L506.1,107.7 L512.6,114.5 L519.2,127.7 L525.8,127.5 L532.3,125.9 L538.9,124.9 L545.4,123.0 L552.0,123.0 L558.6,117.3 L565.1,100.2 L571.7,61.4 L578.2,61.7 L584.8,62.1 L591.4,59.5 L597.9,60.1 L604.5,48.1 L611.0,46.6 L617.6,18.0 L624.2,24.7 L630.7,32.0 L637.3,46.2 L643.8,52.8 L650.4,59.4 L657.0,55.3 L663.5,62.4 L670.1,63.7 L676.6,62.6 L683.2,57.5 L689.8,57.7 L696.3,57.6 L702.9,55.3 L709.4,52.8 L716.0,59.7 L722.6,60.3 L729.1,67.0 L735.7,67.6 L742.2,46.9 L748.8,47.1 L755.4,47.6 L761.9,48.4 L768.5,47.6 L775.0,48.3 L781.6,48.6 L788.2,55.3 L794.7,58.1 L801.3,59.3 L807.8,63.1 L814.4,64.6 L821.0,64.2 L827.5,62.5 L834.1,69.4 L840.6,70.0 L847.2,77.1 L853.8,78.0 L860.3,72.8 L866.9,79.5 L873.4,77.1 L880.0,78.1" stroke="#1f5fa8" stroke-width="2" fill="none" stroke-linejoin="round"/>
+<text x="60.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2025-09-01</text><text x="473.3" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2025-11-24</text><text x="880.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-02-26</text><text x="880" y="14" text-anchor="end" fill="#6b7684" font-size="11">黃金三疊浪 · 帳戶淨值 (USD，回測)</text></svg>
+<p class="chart-note">展示區間為 2024–2026 全報告之最佳 6 個月子區間（PF 與回撤複合排名最優）。統計已剔除 3 筆跨區間的「end of test」強制平倉。equity_curve 由逐筆平倉損益重建的 balance 曲線近似，未反映持倉期間的浮動盈虧；原報告全區間 equity 口徑最大回撤為 20.25%，與本區間數字口徑不同，不可直接比較。initial_deposit 沿用原報告 $30,000，return_pct 以區間起點 balance $29,618.60 為基準。</p>
+<h3 class="chart-h">月報酬（回測）</h3>
+<div style="overflow-x:auto;"><svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect width="900" height="220" fill="#ffffff" rx="10"/><line x1="60.0" x2="880.0" y1="18.0" y2="18.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="22.0" text-anchor="end" fill="#6b7684" font-size="11">$514</text><line x1="60.0" x2="880.0" y1="56.0" y2="56.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="60.0" text-anchor="end" fill="#6b7684" font-size="11">$351</text><line x1="60.0" x2="880.0" y1="94.0" y2="94.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="98.0" text-anchor="end" fill="#6b7684" font-size="11">$187</text><line x1="60.0" x2="880.0" y1="132.0" y2="132.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="136.0" text-anchor="end" fill="#6b7684" font-size="11">$24</text><line x1="60.0" x2="880.0" y1="170.0" y2="170.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="174.0" text-anchor="end" fill="#6b7684" font-size="11">$-139</text>
+<line x1="60.0" x2="880.0" y1="137.7" y2="137.7" stroke="#b8c2d0" stroke-width="1"/>
+<rect x="98.3" y="105.3" width="60.0" height="32.3" fill="#1a9e5c" rx="2"/><text x="128.3" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 128.3,208)">2025-09</text><rect x="235.0" y="18.0" width="60.0" height="119.7" fill="#1a9e5c" rx="2"/><text x="265.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 265.0,208)">2025-10</text><rect x="371.7" y="137.7" width="60.0" height="9.3" fill="#d64545" rx="2"/><text x="401.7" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 401.7,208)">2025-11</text><rect x="508.3" y="49.6" width="60.0" height="88.1" fill="#1a9e5c" rx="2"/><text x="538.3" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 538.3,208)">2025-12</text><rect x="645.0" y="137.7" width="60.0" height="24.4" fill="#d64545" rx="2"/><text x="675.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 675.0,208)">2026-01</text><rect x="781.7" y="137.7" width="60.0" height="32.3" fill="#d64545" rx="2"/><text x="811.7" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 811.7,208)">2026-02</text>
+<text x="880" y="14" text-anchor="end" fill="#6b7684" font-size="11">月報酬 (USD，回測)</text></svg></div>
+</div></section><section class="detail-section"><div class="container"><h2>產品簡介</h2><p>黃金三疊浪是一款專為黃金設計的全自動趨勢追蹤 EA。它以三條指數移動平均線（EMA 21 / 55 / 100）建構完整的進場、加倉與出場體系：順著大方向在突破時進場，回踩到更深的均線時順勢加碼，再以移動止盈讓獲利單跟隨趨勢奔跑。策略經過完整的歷史回測與樣本外驗證流程定版，核心邏輯已鎖定，使用者只需設定手數即可運行。</p></div></section><section class="detail-section"><div class="container"><h2>主要特色</h2><div class="feature-block"><div class="feature"><h4>EMA100 多空分界</h4><p>價格在 EMA100 之上只做多、之下只做空，從結構上避免逆勢交易。</p></div><div class="feature"><h4>突破進場，回踩加碼</h4><p>突破 EMA21 建立首倉後，若行情回踩 EMA55、EMA100 仍守住多空分界，EA 會依預設比例逐級加碼，攤低成本並放大趨勢段的獲利能力。</p></div><div class="feature"><h4>智能過濾假訊號</h4><p>內建均線糾結過濾（盤整期自動停手）、乖離過濾（不追高殺低）、點差過濾（行情異常不進場），三道閘門顯著減少震盪行情的無效交易。</p></div><div class="feature"><h4>多層獲利保護</h4><p>獲利達到門檻後自動啟動保本機制與 EMA21 移動止盈，止損只收緊、不放鬆。</p></div><div class="feature"><h4>虧損提前離場，獲利放膽持有</h4><p>仍在虧損的一輪回檔至中期均線即提前離場，縮小回撤；已進入獲利保護的持倉則保留完整趨勢空間。</p></div><div class="feature"><h4>突破就止損</h4><p>收盤價反向穿越多空分界線時，EA 果斷全部平倉；每筆訂單另掛固定初始止損兜底，雙重防護。</p></div><div class="feature"><h4>持倉自我對帳</h4><p>EA 每根 K 棒核對帳戶持倉與內部管理狀態，斷線、重啟、下單異常後自動認領或處理每一筆倉位。</p></div></div></div></section><section class="detail-section"><div class="container"><h2>進場邏輯</h2><p>EA 於每根 H1 K 棒收盤時判斷：當收盤價由下而上突破 EMA21（做多）或由上而下跌破 EMA21（做空），且價格位於 EMA100 的正確一側、均線間距與乖離條件同時滿足，即以市價開立首倉並掛上保護性止損。所有判斷以收盤價為準，不受盤中假突破干擾。</p></div></section><section class="detail-section"><div class="container"><h2>加倉與管理邏輯</h2><p>持倉期間若價格回踩觸及 EMA55，EA 開立第二層加碼單；若進一步觸及 EMA100（且未被反向突破），開立第三層。加碼手數依預設比例遞增，每層每輪只加一次，並受單筆最大手數（InpMaxLot）與交易商規格雙重限制。</p></div></section><section class="detail-section"><div class="container"><h2>平倉與風控優先順序</h2><p>系統內建多層止損與獲利保護機制，每個運行週期都會由上而下逐層檢查；任一層條件滿足即觸發對應動作，避免機制互相干擾。</p><table><thead><tr><th>順序</th><th>機制名稱</th><th>觸發條件（白話）</th><th>觸發動作</th></tr></thead><tbody><tr><td>1</td><td>保本止損</td><td>獲利達內部門檻後，回踩觸及對應均線。</td><td>止損移至開倉價之上，該筆訂單立於不敗。</td></tr><tr><td>2</td><td>EMA21 移動止盈</td><td>獲利單持續獲利延伸。</td><td>止損跟隨 EMA21 動態上移，逐步鎖利。</td></tr><tr><td>3</td><td>虧損提前離場</td><td>仍在虧損的一輪收盤跌回 EMA55。</td><td>全部離場，不與弱勢行情糾纏。</td></tr><tr><td>4</td><td>反向全平</td><td>收盤價反向穿越 EMA100。</td><td>全部持倉立即離場。</td></tr><tr><td>5</td><td>初始止損</td><td>每筆訂單進場即掛的固定止損。</td><td>極端行情下的最後防線。</td></tr></tbody></table></div></section><section class="detail-section"><div class="container">
+<h2>實盤觀摩</h2>
+<div class="contact-cta">
+<div class="ctxt"><h3>想看 黃金三疊浪 實盤運行？</h3><p>本 EA 實盤觀摩帳號籌備中，目前尚無法提供觀看連結。如需了解目前測試/上線進度，請透過原本管道與我們聯繫，我們會主動更新最新資料。</p></div>
+<a class="btn" href="../index.html#contact">聯繫索取最新進度</a>
+</div>
+</div></section><section class="detail-section"><div class="container"><h2>適用對象</h2><ul class='audience'><li>認同趨勢追蹤邏輯、能接受「震盪期小幅回撤、趨勢期集中獲利」資金曲線型態的交易者。</li><li>希望全自動執行、不想盯盤與手動干預的使用者。</li><li>具備基本 MT5 操作能力，會設定手數與掛載 EA 即可。</li></ul></div></section><section class="detail-section"><div class="container"><h2>系統需求</h2><table><thead><tr><th>項目</th><th>說明</th></tr></thead><tbody><tr><td>交易平台</td><td>MetaTrader 5，帳戶需為對沖（Hedging）模式。</td></tr><tr><td>可交易商品</td><td>XAUUSD（黃金現貨 CFD），圖表任意週期皆可（EA 內部自動以 H1 運行）。</td></tr><tr><td>建議資金</td><td>0.01 手起跳建議 3,000 USD 以上，手數放大請等比例增加資金。</td></tr><tr><td>建議運行環境</td><td>VPS 保持 24 小時連線。</td></tr><tr><td>可調參數</td><td>首倉手數（InpBaseLot）、最大手數（InpMaxLot）、多空開關、最大點差（InpMaxSpreadPts）、魔術碼（InpMagic）。</td></tr></tbody></table></div></section><section class="detail-section"><div class="container"><h2>使用須知</h2><div class="notice">本 EA 屬趨勢追蹤型策略，獲利主要來自黃金的持續性單邊行情；長期橫盤震盪下可能出現連續數月的小幅虧損，此為策略特性而非故障，請以足夠的資金與時間週期（建議一年以上）評估績效。</div><div class="notice">策略定位為多策略組合中的趨勢衛星：風險控制紮實、回撤低，但單獨運行的獲利彈性有限，建議搭配其他不同邏輯策略分散使用；加碼機制會在回踩時放大持倉，請務必依自身資金規模設定首倉手數，切勿重倉；策略對點差與滑點敏感，上線前建議先以模擬帳戶運行數週。</div>
+<a class="back" href="../index.html#products">← 返回 EA 列表</a></div></section><footer class="site"><div class="container">
+<div>© EZQUANT EA 系列 · 黃金 CFD 自動化交易程式</div>
+<div class="disclaimer">本網站所展示之實盤績效係取自實盤觀摩帳號歷史交易，僅供參考；過去績效不代表未來收益，CFD 商品具高度槓桿與波動風險，盈虧由使用者自行承擔。</div>
+</div></footer></body></html>

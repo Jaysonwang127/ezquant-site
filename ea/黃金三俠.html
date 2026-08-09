@@ -1,0 +1,84 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>黃金三俠｜EZQUANT EA</title><style>
+:root{--bg:#f7f9fc;--card:#ffffff;--navy:#14365c;--blue:#1f5fa8;--gold:#c9a227;--green:#1a9e5c;--red:#d64545;--text:#333333;--muted:#6b7686;--border:#e3e8f0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC','Microsoft JhengHei',-apple-system,sans-serif;line-height:1.7;}
+a{color:var(--blue);text-decoration:none;}a:hover{color:var(--navy);}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+header.site{padding:18px 0;border-bottom:1px solid var(--border);background:#ffffff;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(20,54,92,.06);}
+header.site .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{font-size:22px;font-weight:700;letter-spacing:1px;background:linear-gradient(135deg,#c9a227,#e8c96a);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.brand small{display:block;font-size:12px;font-weight:400;letter-spacing:2px;color:var(--muted);margin-top:2px;-webkit-text-fill-color:var(--muted);}
+nav a{margin-left:18px;font-size:14px;color:var(--navy);font-weight:600;}nav a:hover{color:var(--blue);}
+.cta{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--blue);color:#fff;background:var(--blue);transition:transform .2s,box-shadow .2s;}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(31,95,168,.25);color:#fff;background:var(--navy);}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);}
+.btn.ghost:hover{background:var(--blue);color:#fff;}
+section{padding:52px 0;border-top:1px solid var(--border);}
+section h2{font-size:26px;margin:0 0 12px;color:var(--navy);font-weight:800;}section h2 .accent{color:var(--gold);}
+.detail-hero{padding:56px 0 36px;background:linear-gradient(180deg,#eef3fa,#f7f9fc);border-top:none;}
+.detail-hero .tags{display:flex;gap:8px;margin-bottom:16px;}
+.detail-hero h1{font-size:36px;margin:0 0 8px;color:var(--navy);font-weight:800;}.detail-hero .subtitle{color:var(--muted);font-size:17px;margin:0 0 20px;}
+.detail-hero .meta-row{display:flex;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;}
+.detail-hero .meta-row strong{color:var(--text);}
+.detail-section{padding:36px 0;border-top:1px solid var(--border);}
+.detail-section h2{margin:0 0 16px;font-size:24px;color:var(--navy);}
+.detail-section h2::before{content:"";display:inline-block;width:6px;height:22px;background:var(--blue);margin-right:12px;vertical-align:-4px;border-radius:2px;}
+.detail-section h3.chart-h{margin:28px 0 10px;font-size:16px;color:var(--navy);font-weight:600;}
+.feature-block{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.feature{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(20,54,92,.05);}
+.feature h4{margin:0 0 8px;color:var(--navy);font-size:16px;}.feature p{margin:0;color:var(--text);font-size:14px;}
+table{width:100%;border-collapse:collapse;margin:12px 0 8px;font-size:14px;}
+table th,table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+table th{background:#eef3fa;color:var(--navy);font-weight:600;}
+table tr:nth-child(even) td{background:#fafcff;}
+ul.audience{padding-left:20px;color:var(--text);}ul.audience li{margin:6px 0;}
+.notice{background:#fbf5e6;border:1px solid #efdca8;border-radius:10px;padding:16px 20px;color:#6b5a12;margin-top:12px;}.notice + .notice{margin-top:10px;}
+.pending-card{background:#f4f7fc;border:1px dashed #b9c6dc;border-radius:14px;padding:24px 28px;display:flex;gap:18px;align-items:flex-start;}
+.pending-card .badge{flex:0 0 auto;background:#eef3fa;border:1px solid #d7e2f2;color:var(--blue);font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;white-space:nowrap;}
+.pending-card p{margin:0;color:var(--text);font-size:14px;}
+.backtest-banner{background:#fbf5e6;border:1px solid #efdca8;color:#6b5a12;border-radius:10px;padding:12px 18px;font-size:13px;font-weight:600;margin-bottom:16px;}
+.four-piece{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px;}
+.four-piece span{background:#eef3fa;border:1px solid #d7e2f2;color:var(--navy);font-size:12px;padding:5px 12px;border-radius:8px;}
+.chart-note{color:#8a94a3;font-size:12px;margin:6px 0 0;}
+.back{display:inline-block;margin-top:24px;color:var(--muted);font-size:14px;}.back:hover{color:var(--blue);}
+.contact-cta{background:linear-gradient(135deg,#eef3fa,#f7f2df);border:1px solid #e3e8f0;border-radius:14px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;}
+.contact-cta .ctxt h3{margin:0 0 6px;color:var(--navy);font-size:20px;}
+.contact-cta .ctxt p{margin:0;color:var(--text);font-size:14px;max-width:640px;}
+.contact-cta a{white-space:nowrap;}
+.metgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px;}
+.met{background:#f4f7fc;border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.met .ml{color:var(--muted);font-size:12px;letter-spacing:1px;}
+.met .mv{color:var(--navy);font-size:20px;font-weight:700;margin:4px 0 2px;font-family:Menlo,Consolas,sans-serif;}
+.met .mv.pos{color:var(--green);}.met .mv.neg{color:var(--red);}
+.met .ms{color:#8a94a3;font-size:11px;}
+.tag{font-size:12px;padding:3px 10px;border-radius:999px;background:#eef3fa;border:1px solid #d7e2f2;color:var(--blue);}
+.tag.plat{background:#f2f4f7;border-color:var(--border);color:var(--muted);}
+footer.site{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;margin-top:40px;}
+footer.site .disclaimer{max-width:880px;margin:8px auto 0;font-size:12px;}
+@media (max-width:720px){.detail-hero h1{font-size:26px;}section h2{font-size:22px;}header.site .row{flex-direction:column;align-items:flex-start;}nav a{margin-left:0;margin-right:14px;}.contact-cta{flex-direction:column;align-items:flex-start;}.pending-card{flex-direction:column;}}
+</style></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT EA<small>CFD 自動化交易程式 · 黃金策略系列</small></div>
+<nav><a href="../index.html">首頁</a><a href="../index.html#products">EA 列表</a><a href="../index.html#contact">聯繫</a></nav>
+</div></header>
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">突破/關口</span><span class="tag plat">MT5</span></div>
+<h1>黃金三俠</h1>
+<p class="subtitle">#2588 / #888 / #999 三引擎並行 × 關口模型</p>
+<div class="meta-row"><span>平台：<strong>MT5</strong></span><span>商品：<strong>黃金 CFD (XAUUSD / Gold)</strong></span><span>分類：<strong>突破/關口</strong></span></div>
+<div class="cta"><a class="btn" href="../docs/黃金三俠_EA產品說明_客戶版.docx" download>下載完整說明 (.docx)</a><a class="btn ghost" href="../index.html#products">回到列表</a></div>
+</div></section><section class="detail-section"><div class="container">
+<h2>績效資料準備中</h2>
+<div class="pending-card"><div class="badge">績效資料準備中</div>
+<p>黃金三俠 為新上架產品，目前尚無適合展示的正報酬回測區間，實盤觀摩帳號亦在籌備中，暫無績效數據可公開展示。如需了解目前測試進度，歡迎透過原本聯絡管道與我們聯繫。</p>
+</div></div></section><section class="detail-section"><div class="container"><h2>產品簡介</h2><p>黃金三俠是一支以「關口模型」為核心的多策略 EA，內含 #2588 主力、#888 延伸、#999 激進 三組獨立引擎，三劍合一、並行作戰。系統以主關口步長劃分價格區間，當行情穿越關口並通過 K 線過濾與時段過濾後，三組引擎依各自的手數、止損、移動止盈條件分別建倉，形成多時間框架、多激進度的並行佈局。</p></div></section><section class="detail-section"><div class="container"><h2>主要特色</h2><div class="feature-block"><div class="feature"><h4>三引擎並行架構</h4><p>主力 #2588 取穩定，延伸 #888 補位 M15，激進 #999 抓爆發；各引擎魔術碼獨立，可分別開關。</p></div><div class="feature"><h4>關口模型進場</h4><p>以主關口步長劃分價格區間（IGM/FG/SG），結合「距上下關口距離」進場區間判斷，避免追高殺低。</p></div><div class="feature"><h4>K 線型態過濾</h4><p>可依前一根 K 線陰陽、穿越方向、實體偏移上限等條件過濾，提升進場品質。</p></div><div class="feature"><h4>時段與跳空保護</h4><p>提供換線後 N 秒入場窗口與跳空上限參數，避免行情斷層中誤入場。</p></div><div class="feature"><h4>Trail + Breakeven 雙保護</h4><p>每組引擎獨立配置「移動止盈啟動 / 回撤距離」與「保本觸發 / 鎖利點數」，獲利保護分層執行。</p></div><div class="feature"><h4>多時段啟用控制</h4><p>可依交易時段啟用/關閉策略，配合券商時區精準避開低流動性時段。</p></div></div></div></section><section class="detail-section"><div class="container"><h2>進場邏輯</h2><p>系統將價格依主關口步長劃為等距區間，再以子關口偏移細分。當價格穿越關口、且前一根 K 線型態與穿越方向符合設定，並落在指定的進場距離區間內時，視為有效訊號。</p><div class="feature-block"><div class="feature"><h4>換線入場窗</h4><p>僅在 K 線換線後設定秒數內接受進場，避免行情中段亂入。</p></div><div class="feature"><h4>跳空保護</h4><p>若行情跳空大於設定上限，本筆訊號作廢。</p></div><div class="feature"><h4>實體偏移過濾</h4><p>K 線實體偏移超過上限即視為追價過頭，不進場。</p></div></div></div></section><section class="detail-section"><div class="container"><h2>加倉與管理邏輯</h2><p>三組引擎各自獨立進場、獨立部位、獨立止損與止盈；不會在同一引擎內進行馬丁或網格加倉，曝險可預期。</p></div></section><section class="detail-section"><div class="container"><h2>平倉與風控優先順序</h2><p>系統內建多層止損與獲利保護機制，每個運行週期都會由上而下逐層檢查；任一層條件滿足即觸發對應動作，避免機制互相干擾。</p><table><thead><tr><th>順序</th><th>機制名稱</th><th>觸發條件（白話）</th><th>觸發動作</th></tr></thead><tbody><tr><td>1</td><td>硬止損</td><td>達到引擎設定的止損點數。</td><td>該筆部位平倉。</td></tr><tr><td>2</td><td>保本觸發</td><td>浮盈達 ProtectTrig 設定點數。</td><td>止損上移至成本上方並鎖住 ProtectLock 點數獲利。</td></tr><tr><td>3</td><td>移動止盈</td><td>浮盈達 TrailTrig 後啟動，自高點回撤達 TrailDist。</td><td>依高點減回撤推進止損。</td></tr><tr><td>4</td><td>硬止盈</td><td>達到引擎設定的止盈點數（安全網）。</td><td>該筆部位平倉。</td></tr></tbody></table><h2>模式對照</h2><table><thead><tr><th>引擎</th><th>魔術碼</th><th>定位</th><th>建議配置</th></tr></thead><tbody><tr><td>#2588 主力</td><td>2588</td><td>穩定型部位，主要獲利來源。</td><td>TrailTrig 600 / TrailDist 250。</td></tr><tr><td>#888 延伸</td><td>888</td><td>M15 延伸，跟進主力方向。</td><td>TrailTrig 500 / TrailDist 220。</td></tr><tr><td>#999 激進</td><td>999</td><td>激進型，捕捉短線爆發。</td><td>止損 700，止盈 10000 作為安全網。</td></tr></tbody></table></div></section><section class="detail-section"><div class="container">
+<h2>實盤觀摩</h2>
+<div class="contact-cta">
+<div class="ctxt"><h3>想看 黃金三俠 實盤運行？</h3><p>本 EA 實盤觀摩帳號籌備中，目前尚無法提供觀看連結。如需了解目前測試/上線進度，請透過原本管道與我們聯繫，我們會主動更新最新資料。</p></div>
+<a class="btn" href="../index.html#contact">聯繫索取最新進度</a>
+</div>
+</div></section><section class="detail-section"><div class="container"><h2>適用對象</h2><ul class='audience'><li>希望以多策略並行降低單一邏輯失效風險的使用者。</li><li>熟悉 MT5 並能依券商規格調整關口步長與時段設定的使用者。</li><li>追求中性曝險、單筆固定手數可控風險的投資人。</li></ul></div></section><section class="detail-section"><div class="container"><h2>系統需求</h2><table><thead><tr><th>項目</th><th>說明</th></tr></thead><tbody><tr><td>交易平台</td><td>MetaTrader 5（MT5）。</td></tr><tr><td>可交易商品</td><td>黃金 CFD（XAUUSD）。</td></tr><tr><td>MT5 帳戶類型</td><td>對沖（Hedging）。</td></tr><tr><td>建議運行環境</td><td>VPS 24 小時運行。</td></tr><tr><td>建議掛載週期</td><td>M15 為主，依各引擎設定可獨立調整。</td></tr><tr><td>建議資金規模</td><td>三引擎各 0.01 手起步，建議帳戶最低 500 USD；放大規模時依比例增加。</td></tr></tbody></table></div></section><section class="detail-section"><div class="container"><h2>使用須知</h2><div class="notice">三引擎同時啟用時最大曝險為三倍單引擎部位，請務必依資金規模調整手數。</div><div class="notice">關口步長需依券商報價精度（2 位 / 3 位小數）對齊；切換券商時需重新檢視參數。</div>
+<a class="back" href="../index.html#products">← 返回 EA 列表</a></div></section><footer class="site"><div class="container">
+<div>© EZQUANT EA 系列 · 黃金 CFD 自動化交易程式</div>
+<div class="disclaimer">本網站所展示之實盤績效係取自實盤觀摩帳號歷史交易，僅供參考；過去績效不代表未來收益，CFD 商品具高度槓桿與波動風險，盈虧由使用者自行承擔。</div>
+</div></footer></body></html>

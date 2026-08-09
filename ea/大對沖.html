@@ -1,0 +1,106 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>大對沖｜EZQUANT EA</title><style>
+:root{--bg:#f7f9fc;--card:#ffffff;--navy:#14365c;--blue:#1f5fa8;--gold:#c9a227;--green:#1a9e5c;--red:#d64545;--text:#333333;--muted:#6b7686;--border:#e3e8f0;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC','Microsoft JhengHei',-apple-system,sans-serif;line-height:1.7;}
+a{color:var(--blue);text-decoration:none;}a:hover{color:var(--navy);}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+header.site{padding:18px 0;border-bottom:1px solid var(--border);background:#ffffff;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(20,54,92,.06);}
+header.site .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{font-size:22px;font-weight:700;letter-spacing:1px;background:linear-gradient(135deg,#c9a227,#e8c96a);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.brand small{display:block;font-size:12px;font-weight:400;letter-spacing:2px;color:var(--muted);margin-top:2px;-webkit-text-fill-color:var(--muted);}
+nav a{margin-left:18px;font-size:14px;color:var(--navy);font-weight:600;}nav a:hover{color:var(--blue);}
+.cta{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--blue);color:#fff;background:var(--blue);transition:transform .2s,box-shadow .2s;}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(31,95,168,.25);color:#fff;background:var(--navy);}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);}
+.btn.ghost:hover{background:var(--blue);color:#fff;}
+section{padding:52px 0;border-top:1px solid var(--border);}
+section h2{font-size:26px;margin:0 0 12px;color:var(--navy);font-weight:800;}section h2 .accent{color:var(--gold);}
+.detail-hero{padding:56px 0 36px;background:linear-gradient(180deg,#eef3fa,#f7f9fc);border-top:none;}
+.detail-hero .tags{display:flex;gap:8px;margin-bottom:16px;}
+.detail-hero h1{font-size:36px;margin:0 0 8px;color:var(--navy);font-weight:800;}.detail-hero .subtitle{color:var(--muted);font-size:17px;margin:0 0 20px;}
+.detail-hero .meta-row{display:flex;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;}
+.detail-hero .meta-row strong{color:var(--text);}
+.detail-section{padding:36px 0;border-top:1px solid var(--border);}
+.detail-section h2{margin:0 0 16px;font-size:24px;color:var(--navy);}
+.detail-section h2::before{content:"";display:inline-block;width:6px;height:22px;background:var(--blue);margin-right:12px;vertical-align:-4px;border-radius:2px;}
+.detail-section h3.chart-h{margin:28px 0 10px;font-size:16px;color:var(--navy);font-weight:600;}
+.feature-block{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.feature{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(20,54,92,.05);}
+.feature h4{margin:0 0 8px;color:var(--navy);font-size:16px;}.feature p{margin:0;color:var(--text);font-size:14px;}
+table{width:100%;border-collapse:collapse;margin:12px 0 8px;font-size:14px;}
+table th,table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+table th{background:#eef3fa;color:var(--navy);font-weight:600;}
+table tr:nth-child(even) td{background:#fafcff;}
+ul.audience{padding-left:20px;color:var(--text);}ul.audience li{margin:6px 0;}
+.notice{background:#fbf5e6;border:1px solid #efdca8;border-radius:10px;padding:16px 20px;color:#6b5a12;margin-top:12px;}.notice + .notice{margin-top:10px;}
+.backtest-banner{background:#fbf5e6;border:1px solid #efdca8;color:#6b5a12;border-radius:10px;padding:12px 18px;font-size:13px;font-weight:600;margin-bottom:16px;}
+.four-piece{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px;}
+.four-piece span{background:#eef3fa;border:1px solid #d7e2f2;color:var(--navy);font-size:12px;padding:5px 12px;border-radius:8px;}
+.chart-note{color:#8a94a3;font-size:12px;margin:6px 0 0;}
+.back{display:inline-block;margin-top:24px;color:var(--muted);font-size:14px;}.back:hover{color:var(--blue);}
+.contact-cta{background:linear-gradient(135deg,#eef3fa,#f7f2df);border:1px solid #e3e8f0;border-radius:14px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;}
+.contact-cta .ctxt h3{margin:0 0 6px;color:var(--navy);font-size:20px;}
+.contact-cta .ctxt p{margin:0;color:var(--text);font-size:14px;max-width:640px;}
+.contact-cta a{white-space:nowrap;}
+.metgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px;}
+.met{background:#f4f7fc;border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.met .ml{color:var(--muted);font-size:12px;letter-spacing:1px;}
+.met .mv{color:var(--navy);font-size:20px;font-weight:700;margin:4px 0 2px;font-family:Menlo,Consolas,sans-serif;}
+.met .mv.pos{color:var(--green);}.met .mv.neg{color:var(--red);}
+.met .ms{color:#8a94a3;font-size:11px;}
+.tag{font-size:12px;padding:3px 10px;border-radius:999px;background:#eef3fa;border:1px solid #d7e2f2;color:var(--blue);}
+.tag.plat{background:#f2f4f7;border-color:var(--border);color:var(--muted);}
+footer.site{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;margin-top:40px;}
+footer.site .disclaimer{max-width:880px;margin:8px auto 0;font-size:12px;}
+@media (max-width:720px){.detail-hero h1{font-size:26px;}section h2{font-size:22px;}header.site .row{flex-direction:column;align-items:flex-start;}nav a{margin-left:0;margin-right:14px;}.contact-cta{flex-direction:column;align-items:flex-start;}}
+</style></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT EA<small>CFD 自動化交易程式 · 黃金策略系列</small></div>
+<nav><a href="../index.html">首頁</a><a href="../index.html#products">EA 列表</a><a href="../index.html#contact">聯繫</a></nav>
+</div></header>
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">網格/對沖</span><span class="tag plat">MT5</span></div>
+<h1>大對沖</h1>
+<p class="subtitle">雙向馬丁網格 × 多空對沖保命</p>
+<div class="meta-row"><span>平台：<strong>MT5</strong></span><span>商品：<strong>黃金 CFD (XAUUSD / Gold)</strong></span><span>分類：<strong>網格/對沖</strong></span></div>
+<div class="cta"><a class="btn" href="../docs/大對沖_EA產品說明_客戶版.docx" download>下載完整說明 (.docx)</a><a class="btn ghost" href="../index.html#products">回到列表</a></div>
+</div></section><section class="detail-section"><div class="container">
+<h2>回測績效</h2>
+<div class="backtest-banner">以下為策略測試器回測數據，非實盤交易。</div>
+<div class="four-piece"><span>品種：XAUUSD.BT</span><span>期間：2026.01.01 - 2026.06.25</span><span>點差／模型：固定點差$0.13（XAUUSD.BT非真實點差）</span><span>初始資金：$100,000</span></div>
+<div class="metgrid">
+<div class="met"><div class="ml">起始本金</div><div class="mv">$100,000</div><div class="ms">回測設定</div></div>
+<div class="met"><div class="ml">總報酬率</div><div class="mv pos">+86.79%</div><div class="ms">淨利 ÷ 投入本金</div></div>
+<div class="met"><div class="ml">淨利</div><div class="mv pos">+$86,790.21</div><div class="ms"></div></div>
+<div class="met"><div class="ml">交易次數</div><div class="mv">110,529</div><div class="ms">已平倉筆數</div></div>
+<div class="met"><div class="ml">勝率</div><div class="mv">59.42%</div><div class="ms"></div></div>
+<div class="met"><div class="ml">獲利因子 PF</div><div class="mv">1.159</div><div class="ms">毛利 ÷ 毛損</div></div>
+<div class="met"><div class="ml">平均賺</div><div class="mv pos">+$9.61</div><div class="ms"></div></div>
+<div class="met"><div class="ml">平均虧</div><div class="mv neg">-$12.16</div><div class="ms"></div></div>
+<div class="met"><div class="ml">最大回撤</div><div class="mv neg">-$51,394.38 (28.99%)</div><div class="ms">Balance 峰值至谷底，回撤幅度較高，請留意</div></div>
+</div>
+<h3 class="chart-h">帳戶淨值曲線（回測）</h3>
+<svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<defs><linearGradient id="gE_dadueichong" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#1f5fa8" stop-opacity="0.30"/><stop offset="100%" stop-color="#1f5fa8" stop-opacity="0"/></linearGradient></defs>
+<rect width="900" height="280" fill="#ffffff" rx="10"/><line x1="60.0" x2="880.0" y1="18.0" y2="18.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="22.0" text-anchor="end" fill="#6b7684" font-size="11">$204,451</text><line x1="60.0" x2="880.0" y1="74.0" y2="74.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="78.0" text-anchor="end" fill="#6b7684" font-size="11">$175,692</text><line x1="60.0" x2="880.0" y1="130.0" y2="130.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="134.0" text-anchor="end" fill="#6b7684" font-size="11">$146,934</text><line x1="60.0" x2="880.0" y1="186.0" y2="186.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="190.0" text-anchor="end" fill="#6b7684" font-size="11">$118,176</text><line x1="60.0" x2="880.0" y1="242.0" y2="242.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="246.0" text-anchor="end" fill="#6b7684" font-size="11">$89,418</text>
+<path d="M60.0,221.4 L64.1,218.6 L68.2,217.1 L72.4,215.5 L76.5,213.3 L80.6,211.0 L84.7,209.4 L88.8,207.8 L93.0,206.0 L97.1,203.8 L101.2,202.0 L105.3,199.9 L109.4,198.1 L113.6,196.3 L117.7,194.3 L121.8,192.6 L125.9,190.9 L130.1,189.2 L134.2,186.9 L138.3,183.6 L142.4,175.1 L146.5,179.3 L150.7,177.3 L154.8,242.0 L158.9,239.9 L163.0,237.7 L167.1,234.9 L171.3,231.4 L175.4,229.6 L179.5,228.2 L183.6,226.2 L187.7,224.2 L191.9,222.2 L196.0,219.8 L200.1,217.5 L204.2,215.0 L208.3,212.8 L212.5,211.0 L216.6,209.1 L220.7,206.1 L224.8,202.5 L228.9,200.3 L233.1,197.8 L237.2,195.5 L241.3,193.4 L245.4,191.1 L249.5,189.0 L253.7,186.9 L257.8,184.2 L261.9,182.0 L266.0,179.9 L270.2,177.2 L274.3,175.4 L278.4,173.5 L282.5,171.6 L286.6,169.6 L290.8,167.4 L294.9,165.9 L299.0,163.8 L303.1,161.8 L307.2,160.1 L311.4,158.3 L315.5,156.0 L319.6,153.9 L323.7,152.3 L327.8,149.9 L332.0,147.9 L336.1,145.8 L340.2,141.4 L344.3,139.3 L348.4,137.3 L352.6,135.2 L356.7,133.2 L360.8,131.2 L364.9,129.5 L369.0,127.5 L373.2,121.8 L377.3,121.3 L381.4,118.8 L385.5,116.6 L389.6,114.9 L393.8,112.6 L397.9,110.6 L402.0,108.6 L406.1,106.5 L410.3,104.3 L414.4,102.7 L418.5,101.1 L422.6,98.9 L426.7,96.9 L430.9,153.2 L435.0,151.3 L439.1,149.3 L443.2,147.5 L447.3,144.8 L451.5,142.9 L455.6,141.2 L459.7,138.6 L463.8,136.8 L467.9,134.9 L472.1,133.1 L476.2,131.4 L480.3,129.2 L484.4,127.3 L488.5,125.7 L492.7,123.6 L496.8,122.0 L500.9,120.3 L505.0,118.6 L509.1,117.0 L513.3,114.9 L517.4,113.3 L521.5,111.5 L525.6,109.8 L529.7,107.3 L533.9,105.2 L538.0,103.2 L542.1,101.4 L546.2,98.2 L550.4,96.8 L554.5,95.2 L558.6,93.4 L562.7,87.8 L566.8,86.2 L571.0,84.0 L575.1,81.4 L579.2,79.7 L583.3,77.9 L587.4,76.1 L591.6,73.8 L595.7,71.7 L599.8,70.1 L603.9,67.6 L608.0,65.3 L612.2,62.7 L616.3,61.2 L620.4,58.9 L624.5,56.9 L628.6,54.8 L632.8,53.0 L636.9,50.8 L641.0,48.8 L645.1,46.8 L649.2,45.1 L653.4,43.0 L657.5,40.6 L661.6,39.4 L665.7,37.1 L669.8,35.6 L674.0,33.7 L678.1,32.0 L682.2,30.2 L686.3,28.1 L690.5,26.4 L694.6,24.7 L698.7,23.3 L702.8,21.7 L706.9,18.0 L711.1,73.1 L715.2,71.8 L719.3,69.9 L723.4,68.1 L727.5,66.5 L731.7,64.8 L735.8,62.9 L739.9,61.2 L744.0,106.6 L748.1,116.3 L752.3,114.3 L756.4,111.1 L760.5,110.4 L764.6,108.1 L768.7,106.5 L772.9,105.0 L777.0,102.6 L781.1,99.4 L785.2,97.7 L789.3,96.0 L793.5,92.8 L797.6,90.9 L801.7,87.9 L805.8,85.9 L809.9,84.4 L814.1,82.6 L818.2,81.0 L822.3,79.0 L826.4,77.4 L830.6,75.9 L834.7,74.4 L838.8,72.5 L842.9,70.7 L847.0,68.9 L851.2,67.1 L855.3,65.1 L859.4,63.5 L863.5,61.3 L867.6,59.4 L871.8,57.5 L875.9,55.3 L880.0,52.4 L880.0,242.0 L60.0,242.0 Z" fill="url(#gE_dadueichong)"/>
+<path d="M60.0,221.4 L64.1,218.6 L68.2,217.1 L72.4,215.5 L76.5,213.3 L80.6,211.0 L84.7,209.4 L88.8,207.8 L93.0,206.0 L97.1,203.8 L101.2,202.0 L105.3,199.9 L109.4,198.1 L113.6,196.3 L117.7,194.3 L121.8,192.6 L125.9,190.9 L130.1,189.2 L134.2,186.9 L138.3,183.6 L142.4,175.1 L146.5,179.3 L150.7,177.3 L154.8,242.0 L158.9,239.9 L163.0,237.7 L167.1,234.9 L171.3,231.4 L175.4,229.6 L179.5,228.2 L183.6,226.2 L187.7,224.2 L191.9,222.2 L196.0,219.8 L200.1,217.5 L204.2,215.0 L208.3,212.8 L212.5,211.0 L216.6,209.1 L220.7,206.1 L224.8,202.5 L228.9,200.3 L233.1,197.8 L237.2,195.5 L241.3,193.4 L245.4,191.1 L249.5,189.0 L253.7,186.9 L257.8,184.2 L261.9,182.0 L266.0,179.9 L270.2,177.2 L274.3,175.4 L278.4,173.5 L282.5,171.6 L286.6,169.6 L290.8,167.4 L294.9,165.9 L299.0,163.8 L303.1,161.8 L307.2,160.1 L311.4,158.3 L315.5,156.0 L319.6,153.9 L323.7,152.3 L327.8,149.9 L332.0,147.9 L336.1,145.8 L340.2,141.4 L344.3,139.3 L348.4,137.3 L352.6,135.2 L356.7,133.2 L360.8,131.2 L364.9,129.5 L369.0,127.5 L373.2,121.8 L377.3,121.3 L381.4,118.8 L385.5,116.6 L389.6,114.9 L393.8,112.6 L397.9,110.6 L402.0,108.6 L406.1,106.5 L410.3,104.3 L414.4,102.7 L418.5,101.1 L422.6,98.9 L426.7,96.9 L430.9,153.2 L435.0,151.3 L439.1,149.3 L443.2,147.5 L447.3,144.8 L451.5,142.9 L455.6,141.2 L459.7,138.6 L463.8,136.8 L467.9,134.9 L472.1,133.1 L476.2,131.4 L480.3,129.2 L484.4,127.3 L488.5,125.7 L492.7,123.6 L496.8,122.0 L500.9,120.3 L505.0,118.6 L509.1,117.0 L513.3,114.9 L517.4,113.3 L521.5,111.5 L525.6,109.8 L529.7,107.3 L533.9,105.2 L538.0,103.2 L542.1,101.4 L546.2,98.2 L550.4,96.8 L554.5,95.2 L558.6,93.4 L562.7,87.8 L566.8,86.2 L571.0,84.0 L575.1,81.4 L579.2,79.7 L583.3,77.9 L587.4,76.1 L591.6,73.8 L595.7,71.7 L599.8,70.1 L603.9,67.6 L608.0,65.3 L612.2,62.7 L616.3,61.2 L620.4,58.9 L624.5,56.9 L628.6,54.8 L632.8,53.0 L636.9,50.8 L641.0,48.8 L645.1,46.8 L649.2,45.1 L653.4,43.0 L657.5,40.6 L661.6,39.4 L665.7,37.1 L669.8,35.6 L674.0,33.7 L678.1,32.0 L682.2,30.2 L686.3,28.1 L690.5,26.4 L694.6,24.7 L698.7,23.3 L702.8,21.7 L706.9,18.0 L711.1,73.1 L715.2,71.8 L719.3,69.9 L723.4,68.1 L727.5,66.5 L731.7,64.8 L735.8,62.9 L739.9,61.2 L744.0,106.6 L748.1,116.3 L752.3,114.3 L756.4,111.1 L760.5,110.4 L764.6,108.1 L768.7,106.5 L772.9,105.0 L777.0,102.6 L781.1,99.4 L785.2,97.7 L789.3,96.0 L793.5,92.8 L797.6,90.9 L801.7,87.9 L805.8,85.9 L809.9,84.4 L814.1,82.6 L818.2,81.0 L822.3,79.0 L826.4,77.4 L830.6,75.9 L834.7,74.4 L838.8,72.5 L842.9,70.7 L847.0,68.9 L851.2,67.1 L855.3,65.1 L859.4,63.5 L863.5,61.3 L867.6,59.4 L871.8,57.5 L875.9,55.3 L880.0,52.4" stroke="#1f5fa8" stroke-width="2" fill="none" stroke-linejoin="round"/>
+<text x="60.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-01-01</text><text x="472.1" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-03-05</text><text x="880.0" y="268" text-anchor="middle" fill="#6b7684" font-size="11">2026-06-24</text><text x="880" y="14" text-anchor="end" fill="#6b7684" font-size="11">大對沖 · 帳戶淨值 (USD，回測)</text></svg>
+<p class="chart-note">資料來源：STARTRADER MT5 對帳單 2026H1（WEB2_大對沖_2026H1_20260805_170508.htm）。equity_curve 為平倉後 balance 序列降採樣至 200 點（強制含首尾真實值）；monthly 為逐筆平倉盈虧按月加總。已核對：monthly 加總與 equity_curve 首尾差皆等於 net_profit（誤差 < $1）。最大回撤達 28.99%，風險偏高，請審慎評估資金配置。</p>
+<h3 class="chart-h">月報酬（回測）</h3>
+<div style="overflow-x:auto;"><svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect width="900" height="220" fill="#ffffff" rx="10"/><line x1="60.0" x2="880.0" y1="18.0" y2="18.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="22.0" text-anchor="end" fill="#6b7684" font-size="11">$56,214</text><line x1="60.0" x2="880.0" y1="56.0" y2="56.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="60.0" text-anchor="end" fill="#6b7684" font-size="11">$39,592</text><line x1="60.0" x2="880.0" y1="94.0" y2="94.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="98.0" text-anchor="end" fill="#6b7684" font-size="11">$22,971</text><line x1="60.0" x2="880.0" y1="132.0" y2="132.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="136.0" text-anchor="end" fill="#6b7684" font-size="11">$6,349</text><line x1="60.0" x2="880.0" y1="170.0" y2="170.0" stroke="#dfe5ec" stroke-dasharray="3 4"/><text x="52.0" y="174.0" text-anchor="end" fill="#6b7684" font-size="11">$-10,273</text>
+<line x1="60.0" x2="880.0" y1="146.5" y2="146.5" stroke="#b8c2d0" stroke-width="1"/>
+<rect x="98.3" y="127.2" width="60.0" height="19.3" fill="#1a9e5c" rx="2"/><text x="128.3" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 128.3,208)">2026-01</text><rect x="235.0" y="18.0" width="60.0" height="128.5" fill="#1a9e5c" rx="2"/><text x="265.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 265.0,208)">2026-02</text><rect x="371.7" y="95.5" width="60.0" height="51.1" fill="#1a9e5c" rx="2"/><text x="401.7" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 401.7,208)">2026-03</text><rect x="508.3" y="146.5" width="60.0" height="14.7" fill="#d64545" rx="2"/><text x="538.3" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 538.3,208)">2026-04</text><rect x="645.0" y="146.5" width="60.0" height="23.5" fill="#d64545" rx="2"/><text x="675.0" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 675.0,208)">2026-05</text><rect x="781.7" y="108.8" width="60.0" height="37.7" fill="#1a9e5c" rx="2"/><text x="811.7" y="208" text-anchor="middle" fill="#6b7684" font-size="10" transform="rotate(-30 811.7,208)">2026-06</text>
+<text x="880" y="14" text-anchor="end" fill="#6b7684" font-size="11">月報酬 (USD，回測)</text></svg></div>
+</div></section><section class="detail-section"><div class="container"><h2>產品簡介</h2><p>大對沖是一支以「雙向同時持倉」為設計核心的對沖網格 EA。系統會在多單與空單兩個方向同時建立網格，並依設定條件互相對沖、互為保護。當任一方向達到鎖利條件時整批退場，另一方向則依均價追蹤或反向行情自行解套。適合震盪行情中需要持續維持市場存在感、且能接受雙向同時加倉的使用者。</p></div></section><section class="detail-section"><div class="container"><h2>主要特色</h2><div class="feature-block"><div class="feature"><h4>雙向同時持倉</h4><p>多單空單同時運行，行情往任一方向走都能立即捕捉，不錯失機會。</p></div><div class="feature"><h4>多空獨立風控</h4><p>多單、空單各自獨立計算止盈止損與手數，不互相干擾。</p></div><div class="feature"><h4>整體止損保護</h4><p>提供「多空全部止損金額」設定，達到極端虧損即整批退場保命。</p></div><div class="feature"><h4>可調加倉節奏</h4><p>首單距離、加倉間距、加倉倍率均可獨立設定，配合不同行情型態。</p></div><div class="feature"><h4>跟蹤止損</h4><p>支援以 K 線或分形作為跟蹤止損依據，達啟動條件後均價保利。</p></div><div class="feature"><h4>交易時段過濾</h4><p>可指定僅於特定時段交易，避開低流動性與重大新聞時段。</p></div></div></div></section><section class="detail-section"><div class="container"><h2>進場邏輯</h2><p>首單於行情啟動後依「FirstStep」距離掛出，建立雙向同時持倉。後續加倉依「Step / MinDistance」逐層擴張，最大層數受「iCount」與「單向最大層數」限制。</p><div class="feature-block"><div class="feature"><h4>做多/做空獨立開關</h4><p>可單獨關閉某一方向，例如僅做多或僅做空。</p></div><div class="feature"><h4>順勢加倉選項</h4><p>可選擇是否允許順勢方向加倉，控制曝險風格。</p></div></div></div></section><section class="detail-section"><div class="container"><h2>加倉與管理邏輯</h2><p>加倉手數依「加倉倍數 × 加倉遞增」混合計算，並受「單向最大層數」與「單筆最大手數」上限保護。每加倉至新層級時，系統會以最新均價重新計算止盈位置。</p></div></section><section class="detail-section"><div class="container"><h2>平倉與風控優先順序</h2><p>系統內建多層止損與獲利保護機制，每個運行週期都會由上而下逐層檢查；任一層條件滿足即觸發對應動作，避免機制互相干擾。</p><table><thead><tr><th>順序</th><th>機制名稱</th><th>觸發條件（白話）</th><th>觸發動作</th></tr></thead><tbody><tr><td>1</td><td>多空全部止損</td><td>整體浮虧達設定金額。</td><td>全部部位立即平倉，保命退場。</td></tr><tr><td>2</td><td>單邊整體止盈</td><td>單一方向浮盈達設定金額。</td><td>該方向整批平倉鎖利。</td></tr><tr><td>3</td><td>跟蹤止損</td><td>達啟動條件後依 K 線/分形/點數模式追蹤。</td><td>止損動態跟進。</td></tr><tr><td>4</td><td>暫停加倉</td><td>浮虧達 MaxLoss 設定值。</td><td>暫停加倉，等待行情回穩。</td></tr><tr><td>5</td><td>時段過濾</td><td>落於交易時段外。</td><td>不新增掛單。</td></tr></tbody></table></div></section><section class="detail-section"><div class="container">
+<h2>實盤觀摩</h2>
+<div class="contact-cta">
+<div class="ctxt"><h3>想看 大對沖 實盤運行？</h3><p>本 EA 實盤觀摩帳號籌備中，目前尚無法提供觀看連結。如需了解目前測試/上線進度，請透過原本管道與我們聯繫，我們會主動更新最新資料。</p></div>
+<a class="btn" href="../index.html#contact">聯繫索取最新進度</a>
+</div>
+</div></section><section class="detail-section"><div class="container"><h2>適用對象</h2><ul class='audience'><li>希望於震盪行情中持續維持雙向持倉的使用者。</li><li>可承受雙邊同時加倉、預留充足保證金的投資人。</li><li>熟悉 MT5 操作與馬丁/網格策略風險特性的使用者。</li></ul></div></section><section class="detail-section"><div class="container"><h2>系統需求</h2><table><thead><tr><th>項目</th><th>說明</th></tr></thead><tbody><tr><td>交易平台</td><td>MetaTrader 5（MT5）。客戶版 docx 原文誤植 MT4，經對照原始碼（EZQuantBTC.mq5/.ex5）核實僅提供 MT5 版本，以實際交付檔案為準。</td></tr><tr><td>可交易商品</td><td>黃金 CFD 與主要外匯品種。</td></tr><tr><td>建議運行環境</td><td>VPS 24 小時運行。</td></tr><tr><td>建議掛載週期</td><td>任一週期皆可。</td></tr><tr><td>建議資金規模</td><td>至少預留可承受「雙向 × 加倉倍率 × 最大層數」的保證金。</td></tr></tbody></table></div></section><section class="detail-section"><div class="container"><h2>使用須知</h2><div class="notice">雙向同時持倉的曝險為單向策略的兩倍，請務必依資金規模調整。</div><div class="notice">極端單邊行情下對沖效益會降低，「多空全部止損金額」為最後一道保命防線。</div>
+<a class="back" href="../index.html#products">← 返回 EA 列表</a></div></section><footer class="site"><div class="container">
+<div>© EZQUANT EA 系列 · 黃金 CFD 自動化交易程式</div>
+<div class="disclaimer">本網站所展示之實盤績效係取自實盤觀摩帳號歷史交易，僅供參考；過去績效不代表未來收益，CFD 商品具高度槓桿與波動風險，盈虧由使用者自行承擔。</div>
+</div></footer></body></html>
