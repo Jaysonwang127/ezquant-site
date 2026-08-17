@@ -1,0 +1,121 @@
+<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Golden Falcon｜EZQUANT 黄金 EA</title>
+<link rel="stylesheet" href="../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>黄金 CFD 量化策略库</small></div>
+<nav><a href="../index.html">首页</a><a href="../index.html#products">策略库</a><a href="../index.html#pricing">授权方案</a><a href="../index.html#partner">渠道合作</a><a class="nav-cta" href="../index.html#contact">微信咨询</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">突破关口</span><span class="tag">阶梯马丁移动止盈</span><span class="tag plat">MT5</span><span class="risk r3">进取</span></div>
+<h1>Golden Falcon</h1>
+<p class="subtitle">M1 突破捕捉，阶梯加仓，移动止盈锁利</p>
+<div class="meta-row"><div>品种：<strong>XAUUSD（黄金）</strong></div><div>周期：<strong>M1</strong></div><div>建议最低资金：<strong>$2,000 起</strong></div><div>建议杠杆：<strong>1:100 以上</strong></div></div>
+<div class="cta"><a class="btn" href="../index.html#contact">微信咨询 / 申请观摩</a><a class="btn ghost" href="../index.html#pricing">查看授权方案</a></div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>产品简介</h2>
+<p>Golden Falcon 是一款专为黄金（XAUUSD）设计的 M1 短周期突破策略，捕捉价格突破上一根 K 线区间时的动能，顺势进场。若行情逆势运行，策略以阶梯式加仓跟进，并通过移动止盈机制在浮盈回落时整组锁定获利，追求高频次、短持仓的资金周转效率。</p>
+<p>策略内建双组（A / B）独立运作机制，两组各自判断进场时机、各自管理加仓与出场，互不干扰，可在同一账户上并行捕捉不同批次的突破机会。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>主要特色</h2>
+<div class="feature-block">
+<div class="feature"><h4>区间突破进场</h4><p>以上一根 K 线的价格区间（实体或全幅可选）作为突破基准，价格向上或向下突破即顺势进场，每根 K 线仅触发一次。</p></div>
+<div class="feature"><h4>多重进场滤网</h4><p>叠加均线方向、波动率（ATR）门槛、震荡指标（CCI/RSI）区间限制与更高周期方向确认，过滤低质量突破信号。</p></div>
+<div class="feature"><h4>追踪式阶梯加仓</h4><p>行情逆势运行时不是固定点位机械补仓，而是以追踪掛单方式动态跟随价格极值，在合适的回撤点位分批加仓，手数按预设序列递进。</p></div>
+<div class="feature"><h4>移动止盈整组锁利</h4><p>持仓浮盈达到激活门槛后启动移动止盈，止盈线只上不下，浮盈回落触及止盈线即整组一次性平仓。</p></div>
+<div class="feature"><h4>分型与统一止损双重保护</h4><p>在整组浮亏达到预设金额时触发保护性平仓，避免单组头寸无限承受浮亏。</p></div>
+<div class="feature"><h4>双组并行运作</h4><p>A、B 两组各自独立判断进场与管理仓位，互不共用方向、不互相对冲，提升资金使用节奏。</p></div>
+</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>进场逻辑</h2>
+<p>策略以 M1 周期为基础，逐根记录上一根 K 线的价格区间，作为本根 K 线的突破基准；价格向上突破区间上沿即做多，向下突破区间下沿即做空。为避免低质量信号，进场前依序通过以下条件确认：</p>
+<table>
+<tr><th>确认项</th><th>作用</th></tr>
+<tr><td>均线方向</td><td>价格须位于均线同向一侧，逆均线方向不开仓</td></tr>
+<tr><td>波动率门槛（ATR）</td><td>当根波动幅度须达到设定倍数，过滤盘整期假突破</td></tr>
+<tr><td>震荡指标区间（CCI / RSI，可选开关）</td><td>指标须落在中性区间内才允许开出首单</td></tr>
+<tr><td>更高周期方向确认（可选开关）</td><td>以更高周期指标辅助确认多空方向</td></tr>
+<tr><td>时段限制</td><td>预设时间区间内不开新的首单</td></tr>
+</table>
+<p>同一根 K 线内，一组开仓后另一组不会在同根 K 线重复进场；某组刚平仓的那根 K 线也不会立即重新开仓，避免信号重叠。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>加仓与持仓管理</h2>
+<p>加仓采用追踪掛单机制，而非价格触及固定距离即市价补仓：</p>
+<table>
+<tr><th>步骤</th><th>说明</th></tr>
+<tr><td>1. 设定基准</td><td>以上一单成交价为基准，按预设阶梯间隔计算触发区域</td></tr>
+<tr><td>2. 启动追踪</td><td>价格逆势运行进入触发区域后启动追踪，持续记录逆势方向的极值价</td></tr>
+<tr><td>3. 动态挂单</td><td>挂单价随极值价同步移动，始终维持在极值价回撤一段固定点数处</td></tr>
+<tr><td>4. 加仓成交</td><td>价格回撤触及挂单价即成交，手数按预设序列逐级放大</td></tr>
+</table>
+<p>加仓手数按预设序列取值，序列使用完毕后策略不再继续加仓，剩余仓位交由移动止盈或统一止损机制处理。持仓期间的追踪状态会持续保存，供策略在运行中随时读取。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>平仓与风控优先级</h2>
+<p>策略每个 tick 检查以下条件，按优先级顺序执行，命中即触发对应动作：</p>
+<table>
+<tr><th>优先级</th><th>条件</th><th>动作</th></tr>
+<tr><td>1</td><td>价格出现顶/底分型信号，且整组浮亏达到预设金额</td><td>保护性平仓（该组全部仓位）</td></tr>
+<tr><td>2</td><td>整组浮亏达到统一止损金额</td><td>止损平仓（该组全部仓位）</td></tr>
+<tr><td>3</td><td>浮盈达到激活门槛后，回落触及移动止盈线</td><td>整组一次性平仓锁利（唯一的获利出场方式）</td></tr>
+</table>
+<p>移动止盈的止盈线只随浮盈上移，不会下调；基准价在未加仓时为首单成交价，加仓后改用加权均价计算。平仓采用批量委托并具备失败重试机制，确保极端行情下仍能完成离场。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>风险等级与资金建议</h2>
+<p>Golden Falcon 属于逆势阶梯加仓型策略：单组仓位在行情逆势运行时会分批加码，持仓期间不挂靠券商端止损止盈，保护机制完全依赖策略程序持续在线运行判断。若中途断线，已开仓位将失去程序化保护，因此本策略风险定位为「进取」。资金与杠杆需求会随加仓层数与手数序列设置显著变化，以下为一般性建议，实际须依个人手数与加仓参数调整。</p>
+<table>
+<tr><th>风险等级</th><th>建议最低资金</th><th>建议杠杆</th><th>预期最大回撤区间</th></tr>
+<tr><td>进取（本策略默认配置）</td><td>$2,000 起</td><td>1:100 以上</td><td>依参数而定</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>适用对象</h2>
+<ul class="audience">
+<li>能接受马丁式阶梯加仓、追求短周期高频波段收益的投资人</li>
+<li>可长期维持 VPS 与网络稳定在线、确保策略持续运行的用户</li>
+<li>具备一定资金规模、能承受加仓阶段浮亏波动的投资人</li>
+<li>希望在黄金短周期突破行情中捕捉动能的量化策略使用者</li>
+<li>愿意先在模拟或观摩账户上验证参数再上实盘的稳健型使用者</li>
+</ul>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>系统需求</h2>
+<table>
+<tr><th>项目</th><th>要求</th></tr>
+<tr><td>交易平台</td><td>MT5</td></tr>
+<tr><td>品种</td><td>XAUUSD（黄金）</td></tr>
+<tr><td>运行周期</td><td>M1</td></tr>
+<tr><td>运行环境</td><td>建议使用稳定 VPS，全天候在线运行</td></tr>
+<tr><td>账户类型</td><td>需支持所需最小手数与加仓层数的账户，具体以实际手数序列为准</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>使用须知</h2>
+<div class="notice">本策略持仓期间不挂靠券商端止损止盈，仓位保护完全依赖策略程序持续运行判断；断线或平台异常期间，已开仓位不受保护，请务必确保运行环境稳定。</div>
+<div class="notice">加仓阶段浮亏会随行情逆势延伸而扩大，实际所需资金与预期回撤高度依赖手数序列与加仓层数设置，上线前请与顾问核实参数配置，并建议先于观摩或模拟账户验证。</div>
+<div class="notice">历史逻辑与结构不代表未来收益，市场环境变化可能影响策略表现，请依自身风险承受能力审慎评估后再决定是否使用。</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>想看它实盘怎么跑？</h3><p>加微信 <strong>ezmoney50</strong>，备注「Golden Falcon」，即可申请观摩账号（MT4/MT5 只读登录）与授权方案。合作用户另有专属方案。</p></div><a class="btn" href="../index.html#contact">微信咨询</a></div>
+<a class="back" href="../index.html#products">← 返回策略库</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · 黄金 CFD 量化策略库 · 微信 ezmoney50</div>
+<div class="disclaimer">本站展示之历史绩效仅供参考，过去绩效不代表未来收益。差价合约（CFD）具高杠杆与高波动风险，可能损失全部本金，请依自身风险承受能力审慎决策，盈亏由使用者自行承担。本站不构成任何投资建议。</div>
+</div></footer></body></html>

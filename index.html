@@ -1,329 +1,153 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EZQUANT EA 系列｜黃金 CFD 自動化交易程式</title><style>
-:root{--bg:#f7f9fc;--card:#ffffff;--navy:#14365c;--blue:#1f5fa8;--gold:#c9a227;--green:#1a9e5c;--red:#d64545;--text:#333333;--muted:#6b7686;--border:#e3e8f0;}
-*{box-sizing:border-box;}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC','Microsoft JhengHei',-apple-system,sans-serif;line-height:1.7;}
-a{color:var(--blue);text-decoration:none;}a:hover{color:var(--navy);}
-.container{max-width:1180px;margin:0 auto;padding:0 24px;}
-header.site{padding:18px 0;border-bottom:1px solid var(--border);background:#ffffff;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(20,54,92,.06);}
-header.site .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-.brand{font-size:22px;font-weight:700;letter-spacing:1px;background:linear-gradient(135deg,#c9a227,#e8c96a);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.brand small{display:block;font-size:12px;font-weight:400;letter-spacing:2px;color:var(--muted);margin-top:2px;-webkit-text-fill-color:var(--muted);}
-nav a{margin-left:18px;font-size:14px;color:var(--navy);font-weight:600;}nav a:hover{color:var(--blue);}
-.hero{padding:64px 0 48px;background:linear-gradient(180deg,#eef3fa,#f7f9fc);}
-.hero h1{font-size:40px;line-height:1.3;margin:0 0 16px;font-weight:800;color:var(--navy);}
-.hero h1 span{color:var(--blue);}
-.hero p{font-size:17px;color:var(--muted);max-width:740px;}
-.hero .cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;}
-.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--blue);color:#fff;background:var(--blue);transition:transform .2s,box-shadow .2s;}
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(31,95,168,.25);color:#fff;background:var(--navy);}
-.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);}
-.btn.ghost:hover{background:var(--blue);color:#fff;}
-section{padding:52px 0;border-top:1px solid var(--border);}
-section h2{font-size:26px;margin:0 0 12px;color:var(--navy);font-weight:800;}section h2 .accent{color:var(--gold);}
-section p.lead{color:var(--muted);max-width:740px;}
-.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;}
-.stat .sl{font-size:12px;color:var(--muted);letter-spacing:1.5px;}
-.stat .sv{font-size:30px;font-weight:800;color:var(--navy);}
-.stat .ss{font-size:11px;color:var(--muted);}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 24px;align-items:center;}
-.chip{padding:6px 14px;border:1px solid var(--border);border-radius:999px;font-size:13px;color:var(--muted);cursor:pointer;background:#fff;}
-.chip.active,.chip:hover{color:#fff;background:var(--blue);border-color:var(--blue);}
-.search{flex:1;min-width:200px;padding:9px 14px;border-radius:8px;border:1px solid var(--border);background:#fff;color:var(--text);}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
-.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s;box-shadow:0 1px 3px rgba(20,54,92,.06);}
-.card:hover{box-shadow:0 14px 30px rgba(20,54,92,.14);transform:translateY(-3px);}
-.card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--catclr,var(--blue));}
-.card h3{margin:10px 0 4px;font-size:19px;color:var(--navy);}.card .sub{color:var(--muted);font-size:13px;margin:0 0 14px;min-height:38px;}
-.card .perf{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0 12px;padding:10px;background:#f4f7fc;border:1px solid var(--border);border-radius:8px;}
-.card .perf .p{text-align:center;}
-.card .perf .pl{display:block;color:var(--muted);font-size:10px;letter-spacing:1px;}
-.card .perf .pv{display:block;color:var(--navy);font-size:14px;font-weight:700;margin-top:2px;}
-.card .perf .pv.pos{color:var(--green);} .card .perf .pv.neg{color:var(--red);}
-.card .perf-badge{margin:10px 0 12px;padding:12px 10px;text-align:center;background:#f4f7fc;border:1px dashed var(--border);border-radius:8px;color:var(--muted);font-size:13px;font-weight:600;}
-.card .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;}
-.tag{font-size:12px;padding:3px 10px;border-radius:999px;background:#eef3fa;border:1px solid #d7e2f2;color:var(--blue);}
-.tag.sub-tag{background:#fbf5e6;border-color:#efdca8;color:#8a6d10;}
-.tag.plat{background:#f2f4f7;border-color:var(--border);color:var(--muted);}
-.card .actions{margin-top:14px;display:flex;gap:8px;}
-.card .actions a{flex:1;text-align:center;padding:8px 10px;border-radius:8px;font-size:13px;border:1px solid var(--border);color:var(--navy);}
-.card .actions a.primary{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600;}
-.card .actions a.primary:hover{background:var(--navy);}
-.feature-block{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
-.feature{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(20,54,92,.05);}
-.feature h4{margin:0 0 8px;color:var(--navy);font-size:16px;}.feature p{margin:0;color:var(--text);font-size:14px;}
-.contact-cta{background:linear-gradient(135deg,#eef3fa,#f7f2df);border:1px solid #e3e8f0;border-radius:14px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;}
-.contact-cta .ctxt h3{margin:0 0 6px;color:var(--navy);font-size:20px;}
-.contact-cta .ctxt p{margin:0;color:var(--text);font-size:14px;max-width:640px;}
-.contact-cta a{white-space:nowrap;}
-footer.site{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;margin-top:40px;}
-footer.site .disclaimer{max-width:880px;margin:8px auto 0;font-size:12px;}
-@media (max-width:900px){.grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}}
-@media (max-width:600px){.hero h1{font-size:28px;}section h2{font-size:22px;}.grid{grid-template-columns:1fr;}.stats{gap:18px;}.stat .sv{font-size:24px;}header.site .row{flex-direction:column;align-items:flex-start;}nav a{margin-left:0;margin-right:14px;}.contact-cta{flex-direction:column;align-items:flex-start;}}
-</style></head><body>
+<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EZQUANT｜黄金 CFD 量化策略库 · 8 套黄金 EA · 观摩账号实时验证</title>
+<meta name="description" content="EZQUANT 黄金 EA 策略库：8 套专为 XAUUSD 设计的 MT4/MT5 自动化交易策略，按风险等级分级，观摩账号实时可查，按月/季/年授权。微信 ezmoney50。">
+<link rel="stylesheet" href="assets/style.css"></head><body>
 <header class="site"><div class="container row">
-<div class="brand">EZQUANT EA<small>CFD 自動化交易程式 · 黃金策略系列</small></div>
-<nav><a href="index.html">首頁</a><a href="index.html#products">EA 列表</a><a href="index.html#contact">聯繫</a></nav>
+<div class="brand">EZQUANT<small>黄金 CFD 量化策略库</small></div>
+<nav><a href="#products">策略库</a><a href="#pricing">授权方案</a><a href="#partner">渠道合作</a><a class="nav-cta" href="#contact">微信咨询</a></nav>
 </div></header>
+
 <section class="hero"><div class="container">
-<h1>以 <span>策略 × 風控 × 自動化</span><br>參與黃金 CFD 雙向行情</h1>
-<p>EZQUANT EA 系列涵蓋突破、趨勢、馬丁、網格等多種策略，皆專為 MetaTrader 4 / 5 黃金 CFD 設計。每支 EA 皆有實盤觀摩帳號與績效記錄。</p>
-<div class="stats">
-<div class="stat"><div class="sl">EA 數量</div><div class="sv">20</div></div>
-<div class="stat"><div class="sl">累積淨利</div><div class="sv">+$240,307</div><div class="ss">12 支實盤統計</div></div>
-<div class="stat"><div class="sl">平均報酬率</div><div class="sv">+39.1%</div><div class="ss">12 支實盤統計</div></div>
-<div class="stat"><div class="sl">累積交易數</div><div class="sv">54,285</div><div class="ss">12 支實盤統計</div></div>
+<span class="kicker">XAUUSD Quant Strategies</span>
+<h1>8 套黄金 EA · <span>按风险分级</span> · 观摩账号实时验证</h1>
+<p>EZQUANT 专注 XAUUSD 一个品种。策略库按「稳健 / 均衡 / 进取」三级标注，每套 EA 附完整逻辑说明与只读观摩账号，先看它怎么跑，再决定要不要用。按月、按季、按年授权，随时可停。</p>
+<div class="cta"><a href="#contact" class="btn">微信咨询 · ezmoney50</a><a href="#products" class="btn ghost">浏览策略库</a></div>
+<div class="hero-stats">
+<div class="hs"><div class="v">8</div><div class="l">在售策略</div></div>
+<div class="hs"><div class="v">3</div><div class="l">风险等级</div></div>
+<div class="hs"><div class="v">XAUUSD</div><div class="l">专注单一品种</div></div>
+<div class="hs"><div class="v">MT4 / MT5</div><div class="l">双平台支持</div></div>
 </div>
-<div class="cta" style="margin-top:36px;"><a href="#products" class="btn">瀏覽所有 EA</a><a href="#contact" class="btn ghost">聯繫索取觀摩</a></div>
 </div></section>
 
-<section id="products"><div class="container">
-<h2>所有 <span class="accent">EA 產品</span></h2>
-<p class="lead">每張卡片顯示該 EA 的實盤累積淨利、勝率與交易數（新增 EA 標示回測/績效整理進度），點進去可看完整策略說明。</p>
-<div class="filters"><button class="chip active" data-cat="all">全部</button>
-<button class="chip" data-cat="趨勢">趨勢</button>
-<button class="chip" data-cat="突破/關口">突破/關口</button>
-<button class="chip" data-cat="網格/對沖">網格/對沖</button>
-<button class="chip" data-cat="馬丁">馬丁</button>
-<button class="chip" data-cat="震盪/自適應">震盪/自適應</button><input type="text" id="q" class="search" placeholder="搜尋 EA 名稱或關鍵字..."></div>
-<div class="grid" id="grid"><article class="card" data-cat="突破/關口" data-name="黃金波動" style="--catclr:#14365c">
-<h3>黃金波動</h3>
-<p class="sub">黃金 CFD 自動化交易程式</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+28.6%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">69.5%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">2,166</span></div>
+<section style="padding-top:0;background:transparent;"><div class="container">
+<div class="steps">
+<div class="step"><span class="n">1</span><h4>加微信，说明你的资金规模与风险偏好</h4><p>我们按你的情况建议 1–2 套 EA，而不是让你自己在一堆策略里猜。</p></div>
+<div class="step"><span class="n">2</span><h4>看观摩账号</h4><p>MT4/MT5 只读登录，看实时持仓、历史成交与回撤，不看截图。</p></div>
+<div class="step"><span class="n">3</span><h4>选择授权周期，开始运行</h4><p>提供安装与参数配置协助，运行中有问题一对一处理。合作用户另有专属方案。</p></div>
 </div>
-<div class="meta"><span class="tag">突破/關口</span><span class="tag sub-tag">突破挂單 / 雙向</span><span class="tag plat">MT4 + MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金波動.html">查看詳情</a><a href="docs/黃金波動_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="網格/對沖" data-name="黃金羅盤" style="--catclr:#6b7280">
-<h3>黃金羅盤</h3>
-<p class="sub">為交易找方向 · 黃金網格加倉 × 首尾對沖保命</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+54.6%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">82.3%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">6,144</span></div>
-</div>
-<div class="meta"><span class="tag">網格/對沖</span><span class="tag sub-tag">網格加倉 / 對沖</span><span class="tag plat">MT4</span></div>
-<div class="actions"><a class="primary" href="ea/黃金羅盤.html">查看詳情</a><a href="docs/黃金羅盤_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="趨勢" data-name="Hybrid 順勢逆勢混合策略" style="--catclr:#1f5fa8">
-<h3>Hybrid 順勢逆勢混合策略</h3>
-<p class="sub">順勢加碼 × 逆勢補單 × 七維度共振濾網</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+4.4%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">70.7%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">3,154</span></div>
-</div>
-<div class="meta"><span class="tag">趨勢</span><span class="tag sub-tag">趨勢加倉 / 多策略融合</span><span class="tag plat">MT4 + MT5</span></div>
-<div class="actions"><a class="primary" href="ea/hybrid.html">查看詳情</a><a href="docs/Hybrid 順勢逆勢混合策略_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="趨勢" data-name="黃金鷹眼" style="--catclr:#1f5fa8">
-<h3>黃金鷹眼</h3>
-<p class="sub">銳利狙擊 · 趨勢 + 震盪雙引擎一次一單</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+153.2%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">74.6%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">465</span></div>
-</div>
-<div class="meta"><span class="tag">趨勢</span><span class="tag sub-tag">趨勢 / 一次一單</span><span class="tag plat">MT4 + MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金鷹眼.html">查看詳情</a><a href="docs/黃金鷹眼_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="突破/關口" data-name="黃金四騎士" style="--catclr:#14365c">
-<h3>黃金四騎士</h3>
-<p class="sub">#2588 / #888 / #999 / #369 四引擎並行作戰</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+94.0%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">64.5%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">11,913</span></div>
-</div>
-<div class="meta"><span class="tag">突破/關口</span><span class="tag sub-tag">關口突破 / 多策略</span><span class="tag plat">MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金四騎士.html">查看詳情</a><a href="docs/黃金四騎士_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="突破/關口" data-name="黃金捕手" style="--catclr:#14365c">
-<h3>黃金捕手</h3>
-<p class="sub">黃金多重突破過濾 × 完整風控閉環</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv neg">-12.8%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">69.4%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">49</span></div>
-</div>
-<div class="meta"><span class="tag">突破/關口</span><span class="tag sub-tag">突破 / 旗艦版</span><span class="tag plat">MT4</span></div>
-<div class="actions"><a class="primary" href="ea/黃金捕手.html">查看詳情</a><a href="docs/黃金捕手_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="震盪/自適應" data-name="金色傳說" style="--catclr:#c9a227">
-<h3>金色傳說</h3>
-<p class="sub">自適應波動率 × 雙風險管理 × 可調持倉上限</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+66.3%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">77.5%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">235</span></div>
-</div>
-<div class="meta"><span class="tag">震盪/自適應</span><span class="tag sub-tag">趨勢震盪 / 自適應</span><span class="tag plat">MT4 + MT5</span></div>
-<div class="actions"><a class="primary" href="ea/金色傳說.html">查看詳情</a><a href="docs/金色傳說_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="馬丁" data-name="未來馬丁" style="--catclr:#d64545">
-<h3>未來馬丁</h3>
-<p class="sub">三窗時段過濾 × 鎖倉解套馬丁</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+4.1%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">58.5%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">16,539</span></div>
-</div>
-<div class="meta"><span class="tag">馬丁</span><span class="tag sub-tag">馬丁 / 時段策略</span><span class="tag plat">MT5（含 MT4 無顯版備援）</span></div>
-<div class="actions"><a class="primary" href="ea/未來馬丁.html">查看詳情</a><a href="docs/未來馬丁_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="趨勢" data-name="黃金舵手" style="--catclr:#1f5fa8">
-<h3>黃金舵手</h3>
-<p class="sub">穩握方向 · 宏微觀通道 × 一單一結趨勢策略</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+15.4%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">76.8%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">151</span></div>
-</div>
-<div class="meta"><span class="tag">趨勢</span><span class="tag sub-tag">趨勢 / 一次一單</span><span class="tag plat">MT4 + MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金舵手.html">查看詳情</a><a href="docs/黃金舵手_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="趨勢" data-name="順勢之星" style="--catclr:#1f5fa8">
-<h3>順勢之星</h3>
-<p class="sub">順勢之星 EA · M5 共振濾網 × 順勢加倉 × 逆勢解套</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+33.6%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">69.4%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">7,626</span></div>
-</div>
-<div class="meta"><span class="tag">趨勢</span><span class="tag sub-tag">趨勢加倉 / 多濾網</span><span class="tag plat">MT4 + MT5</span></div>
-<div class="actions"><a class="primary" href="ea/順勢之星.html">查看詳情</a><a href="docs/順勢之星_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="震盪/自適應" data-name="黃金寶馬" style="--catclr:#c9a227">
-<h3>黃金寶馬</h3>
-<p class="sub">布林通道入場 × 多模式加倉</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+24.5%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">66.5%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">2,585</span></div>
-</div>
-<div class="meta"><span class="tag">震盪/自適應</span><span class="tag sub-tag">震盪 / 多模式加倉</span><span class="tag plat">MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金寶馬.html">查看詳情</a><a href="docs/黃金寶馬_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="趨勢" data-name="黃金獵針" style="--catclr:#1f5fa8">
-<h3>黃金獵針</h3>
-<p class="sub">高 TF 趨勢過濾 × 多時段精準狙擊</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+3.0%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">64.2%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">3,258</span></div>
-</div>
-<div class="meta"><span class="tag">趨勢</span><span class="tag sub-tag">趨勢狙擊 / 時段過濾</span><span class="tag plat">MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金獵針.html">查看詳情</a><a href="docs/黃金獵針_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="網格/對沖" data-name="大對沖" style="--catclr:#6b7280">
-<h3>大對沖</h3>
-<p class="sub">雙向馬丁網格 × 多空對沖保命</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+86.79%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">59.42%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">110,529</span></div>
-</div><div style="text-align:center;color:#8a94a3;font-size:10px;margin:-8px 0 12px;">回測</div>
-<div class="meta"><span class="tag">網格/對沖</span><span class="tag sub-tag">雙向同時持倉</span><span class="tag plat">MT5</span></div>
-<div class="actions"><a class="primary" href="ea/大對沖.html">查看詳情</a><a href="docs/大對沖_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="網格/對沖" data-name="盈利無限" style="--catclr:#6b7280">
-<h3>盈利無限</h3>
-<p class="sub">多空獨立網格 × 逃生模式風控</p>
-<div class="perf-badge">績效資料準備中</div>
-<div class="meta"><span class="tag">網格/對沖</span><span class="tag sub-tag">逃生模式馬丁</span><span class="tag plat">MT4</span></div>
-<div class="actions"><a class="primary" href="ea/盈利無限.html">查看詳情</a><a href="docs/盈利無限_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-
-<article class="card" data-cat="趨勢" data-name="黃金戰神" style="--catclr:#1f5fa8">
-<h3>黃金戰神</h3>
-<p class="sub">M15 趨勢 + 震盪雙引擎</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+126.92%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">71.4%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">42</span></div>
-</div><div style="text-align:center;color:#8a94a3;font-size:10px;margin:-8px 0 12px;">回測</div>
-<div class="meta"><span class="tag">趨勢</span><span class="tag sub-tag">一次一單 / 雙引擎</span><span class="tag plat">MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金戰神.html">查看詳情</a><a href="docs/黃金戰神_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="馬丁" data-name="馬丁大帝" style="--catclr:#d64545">
-<h3>馬丁大帝</h3>
-<p class="sub">經典馬丁加倉 × 均價保利</p>
-<div class="perf-badge">績效資料準備中</div>
-<div class="meta"><span class="tag">馬丁</span><span class="tag sub-tag">經典雙向馬丁</span><span class="tag plat">MT4</span></div>
-<div class="actions"><a class="primary" href="ea/馬丁大帝.html">查看詳情</a><a href="docs/馬丁大帝_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="突破/關口" data-name="黃金回馬槍" style="--catclr:#14365c">
-<h3>黃金回馬槍</h3>
-<p class="sub">物理突破 × AI 神經大腦</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+38.13%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">68.8%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">80</span></div>
-</div><div style="text-align:center;color:#8a94a3;font-size:10px;margin:-8px 0 12px;">回測</div>
-<div class="meta"><span class="tag">突破/關口</span><span class="tag sub-tag">自學習突破濾網</span><span class="tag plat">MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金回馬槍.html">查看詳情</a><a href="docs/黃金回馬槍_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="震盪/自適應" data-name="金色傳說・穩健版" style="--catclr:#c9a227">
-<h3>金色傳說・穩健版</h3>
-<p class="sub">五張持倉上限 × 風控加強</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+0.33%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">84.6%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">558</span></div>
-</div><div style="text-align:center;color:#8a94a3;font-size:10px;margin:-8px 0 12px;">回測</div>
-<div class="meta"><span class="tag">震盪/自適應</span><span class="tag sub-tag">持倉硬上限</span><span class="tag plat">MT5</span></div>
-<div class="actions"><a class="primary" href="ea/金色傳說穩健版.html">查看詳情</a><a href="docs/金色傳說穩健版_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="趨勢" data-name="黃金三疊浪" style="--catclr:#1f5fa8">
-<h3>黃金三疊浪</h3>
-<p class="sub">三重 EMA 趨勢追蹤 × 金字塔加倉</p>
-<div class="perf">
-<div class="p"><span class="pl">報酬率</span><span class="pv pos">+2.52%</span></div>
-<div class="p"><span class="pl">勝率</span><span class="pv">43.2%</span></div>
-<div class="p"><span class="pl">交易數</span><span class="pv">125</span></div>
-</div><div style="text-align:center;color:#8a94a3;font-size:10px;margin:-8px 0 12px;">回測</div>
-<div class="meta"><span class="tag">趨勢</span><span class="tag sub-tag">回踩金字塔加倉</span><span class="tag plat">MT5</span></div>
-<div class="actions"><a class="primary" href="ea/黃金三疊浪.html">查看詳情</a><a href="docs/黃金三疊浪_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article>
-<article class="card" data-cat="趨勢" data-name="黃金追風" style="--catclr:#1f5fa8">
-<h3>黃金追風</h3>
-<p class="sub">SuperTrend 指標 × 一次一單</p>
-<div class="perf-badge">績效資料準備中</div>
-<div class="meta"><span class="tag">趨勢</span><span class="tag sub-tag">趨勢 / 一次一單</span><span class="tag plat">MT4</span></div>
-<div class="actions"><a class="primary" href="ea/黃金追風.html">查看詳情</a><a href="docs/黃金追風_EA產品說明_客戶版.docx" download>下載說明</a></div>
-</article></div>
 </div></section>
 
-<section><div class="container">
-<h2>為什麼選擇 <span class="accent">EZQUANT EA</span></h2>
+<section id="products" class="alt"><div class="container">
+<span class="kicker">Strategy Library</span>
+<h2>策略库 <span class="accent">8 套黄金 EA</span></h2>
+<p class="lead">每张卡片标注风险等级、策略类型、平台与建议最低资金。风险等级判准：<strong>稳健</strong>＝一次一单＋硬止损；<strong>均衡</strong>＝有限层加仓＋整体止损；<strong>进取</strong>＝网格 / 马丁 / 加仓无硬止损，回撤可能很深，请务必按建议资金运行。</p>
+<div class="filters"><button class="chip active" data-cat="all">全部</button><button class="chip" data-cat="r1">稳健</button><button class="chip" data-cat="r2">均衡</button><button class="chip" data-cat="r3">进取</button><span style="color:var(--muted);font-size:13px;margin-left:auto">策略库持续更新，历史策略已陆续下架</span></div>
+<div class="grid" id="grid">
+<article class="card" data-risk="r1" data-name="金鼎 GoldTripod" style="--catclr:#1a9e5c">
+<div class="meta" style="margin-top:0"><span class="risk r1">稳健</span><span class="tag">趋势</span><span class="tag plat">MT5</span></div>
+<h3>金鼎 GoldTripod</h3>
+<p class="sub">三腿独立黄金趋势系统，无加仓无网格</p>
+<div class="facts"><div class="p"><span class="pl">周期</span><span class="pv">多周期</span></div><div class="p"><span class="pl">建议资金</span><span class="pv">$10,000 起</span></div><div class="p"><span class="pl">类型</span><span class="pv">三腿独立无加仓</span></div></div>
+<div class="actions"><a class="primary" href="ea/goldtripod.html">查看详情</a><a href="#contact">微信咨询</a></div>
+</article>
+<article class="card" data-risk="r2" data-name="百炼成金" style="--catclr:#d9901a">
+<div class="meta" style="margin-top:0"><span class="risk r2">均衡</span><span class="tag">多策略</span><span class="tag plat">MT5</span></div>
+<h3>百炼成金</h3>
+<p class="sub">近 90 支样本外精选子策略分散组合</p>
+<div class="facts"><div class="p"><span class="pl">周期</span><span class="pv">M15</span></div><div class="p"><span class="pl">建议资金</span><span class="pv">$50,000 起</span></div><div class="p"><span class="pl">类型</span><span class="pv">波动自适应</span></div></div>
+<div class="actions"><a class="primary" href="ea/bailian.html">查看详情</a><a href="#contact">微信咨询</a></div>
+</article>
+<article class="card" data-risk="r2" data-name="两仪" style="--catclr:#d9901a">
+<div class="meta" style="margin-top:0"><span class="risk r2">均衡</span><span class="tag">突破关口</span><span class="tag plat">MT5</span></div>
+<h3>两仪</h3>
+<p class="sub">顺势突破为主，回踩引擎可选配开启</p>
+<div class="facts"><div class="p"><span class="pl">周期</span><span class="pv">M1 挂机</span></div><div class="p"><span class="pl">建议资金</span><span class="pv">$2,000 起</span></div><div class="p"><span class="pl">类型</span><span class="pv">枢轴突破+回踩</span></div></div>
+<div class="actions"><a class="primary" href="ea/liangyi.html">查看详情</a><a href="#contact">微信咨询</a></div>
+</article>
+<article class="card" data-risk="r3" data-name="金蛇出洞" style="--catclr:#d64545">
+<div class="meta" style="margin-top:0"><span class="risk r3">进取</span><span class="tag">突破关口</span><span class="tag plat">MT5</span></div>
+<h3>金蛇出洞</h3>
+<p class="sub">黄金盘整突破，反手捕捉单边行情</p>
+<div class="facts"><div class="p"><span class="pl">周期</span><span class="pv">H1</span></div><div class="p"><span class="pl">建议资金</span><span class="pv">$10,000 起</span></div><div class="p"><span class="pl">类型</span><span class="pv">盘整突破反手</span></div></div>
+<div class="actions"><a class="primary" href="ea/jinshe.html">查看详情</a><a href="#contact">微信咨询</a></div>
+</article>
+<article class="card" data-risk="r3" data-name="黄金双卫" style="--catclr:#d64545">
+<div class="meta" style="margin-top:0"><span class="risk r3">进取</span><span class="tag">网格对冲</span><span class="tag plat">MT4 + MT5</span></div>
+<h3>黄金双卫</h3>
+<p class="sub">网格加仓型黄金策略，动态波动自适应</p>
+<div class="facts"><div class="p"><span class="pl">周期</span><span class="pv">M5</span></div><div class="p"><span class="pl">建议资金</span><span class="pv">$3,000 起</span></div><div class="p"><span class="pl">类型</span><span class="pv">动态波动网格加仓</span></div></div>
+<div class="actions"><a class="primary" href="ea/shuangwei.html">查看详情</a><a href="#contact">微信咨询</a></div>
+</article>
+<article class="card" data-risk="r3" data-name="H1趋势" style="--catclr:#d64545">
+<div class="meta" style="margin-top:0"><span class="risk r3">进取</span><span class="tag">网格对冲</span><span class="tag plat">MT4 + MT5</span></div>
+<h3>H1趋势</h3>
+<p class="sub">网格加仓 · 首尾对冲保命机制</p>
+<div class="facts"><div class="p"><span class="pl">周期</span><span class="pv">H1</span></div><div class="p"><span class="pl">建议资金</span><span class="pv">$5,000 起</span></div><div class="p"><span class="pl">类型</span><span class="pv">首尾对冲保命</span></div></div>
+<div class="actions"><a class="primary" href="ea/h1trend.html">查看详情</a><a href="#contact">微信咨询</a></div>
+</article>
+<article class="card" data-risk="r3" data-name="财富顺势刷单" style="--catclr:#d64545">
+<div class="meta" style="margin-top:0"><span class="risk r3">进取</span><span class="tag">网格对冲</span><span class="tag plat">MT4 + MT5</span></div>
+<h3>财富顺势刷单</h3>
+<p class="sub">顺势加仓放大利润，逆势网格解套</p>
+<div class="facts"><div class="p"><span class="pl">周期</span><span class="pv">M5</span></div><div class="p"><span class="pl">建议资金</span><span class="pv">$5,000 起</span></div><div class="p"><span class="pl">类型</span><span class="pv">顺势加仓网格解套</span></div></div>
+<div class="actions"><a class="primary" href="ea/caifu.html">查看详情</a><a href="#contact">微信咨询</a></div>
+</article>
+<article class="card" data-risk="r3" data-name="Golden Falcon" style="--catclr:#d64545">
+<div class="meta" style="margin-top:0"><span class="risk r3">进取</span><span class="tag">突破关口</span><span class="tag plat">MT5</span></div>
+<h3>Golden Falcon</h3>
+<p class="sub">黄金 M1 突破＋阶梯加仓＋移动止盈</p>
+<div class="facts"><div class="p"><span class="pl">周期</span><span class="pv">M1</span></div><div class="p"><span class="pl">建议资金</span><span class="pv">$2,000 起</span></div><div class="p"><span class="pl">类型</span><span class="pv">阶梯加仓移动止盈</span></div></div>
+<div class="actions"><a class="primary" href="ea/goldenfalcon.html">查看详情</a><a href="#contact">微信咨询</a></div>
+</article>
+</div>
+</div></section>
+
+<section id="pricing"><div class="container">
+<span class="kicker">Licensing</span>
+<h2>授权 <span class="accent">方案</span></h2>
+<p class="lead">单套 EA 授权价（绑定账号）。所有周期均含安装配置协助、参数建议与版本更新。<strong>合作用户另有专属方案，微信详询。</strong></p>
+<div class="pricing">
+<!-- 价格为暂定值，待确认 -->
+<div class="price"><div class="pt">月付</div><div class="pp">$99<small> / 月</small></div><div class="pd">先跑一个月看看，随时可停</div></div>
+<div class="price hot"><div class="pt">季付</div><div class="pp">$249<small> / 季</small></div><div class="pd">相当于 $83 / 月，兼顾灵活与成本</div></div>
+<div class="price"><div class="pt">年付</div><div class="pp">$799<small> / 年</small></div><div class="pd">相当于 $67 / 月，含优先支持</div></div>
+</div>
+<p style="color:var(--muted);font-size:13px;margin-top:14px;">※ 授权与观摩账号申请均通过微信办理；本站不设线上支付。</p>
+</div></section>
+
+<section class="alt"><div class="container">
+<span class="kicker">Why Us</span>
+<h2>为什么选 <span class="accent">EZQUANT</span></h2>
 <div class="feature-block" style="margin-top:18px;">
-<div class="feature"><h4>策略多元</h4><p>涵蓋突破、趨勢、震盪、馬丁、網格等不同流派，可依風險偏好與市場狀況自由搭配。</p></div>
-<div class="feature"><h4>邏輯透明</h4><p>每支 EA 皆附說明文件，清楚揭露進場邏輯、加倉節奏、風控優先順序，沒有黑箱。</p></div>
-<div class="feature"><h4>實盤可驗證</h4><p>已上架 EA 均有實盤觀摩帳號與交易記錄佐證，新增 EA 亦持續補齊回測與實盤資料。</p></div>
-<div class="feature"><h4>風控優先</h4><p>所有策略均內建多層止損與獲利保護機制，馬丁/網格類另附逃生模式或硬止損上限。</p></div>
-<div class="feature"><h4>雙平台支援</h4><p>主力產品同時提供 MT4 與 MT5 版本，對沖與淨倉帳戶皆有對應方案。</p></div>
-<div class="feature"><h4>持續迭代</h4><p>定期針對市場結構變化推出優化版本，老客戶可獲取後續更新。</p></div>
+<div class="feature"><h4>只做黄金</h4><p>所有策略只针对 XAUUSD 的波动结构设计与验证，不做「全品种通吃」。</p></div>
+<div class="feature"><h4>先看再买</h4><p>每套 EA 都有只读观摩账号，实时持仓、历史成交与回撤全部可查。</p></div>
+<div class="feature"><h4>风险分级</h4><p>稳健 / 均衡 / 进取三级明确标注，附建议最低资金，不让新手拿到不该拿的策略。</p></div>
+<div class="feature"><h4>逻辑透明</h4><p>每套 EA 附完整说明：进场、加仓、平仓、风控优先级逐条写清，没有黑箱。</p></div>
+<div class="feature"><h4>不合格就下架</h4><p>策略库持续复盘，表现不达标的策略直接下架，不靠数量撑门面。</p></div>
+<div class="feature"><h4>一对一配置</h4><p>按你的资金规模与风险偏好建议策略与参数，运行中问题一对一处理。</p></div>
 </div></div></section>
 
-<section id="contact"><div class="container">
-<h2>聯繫 <span class="accent">索取觀摩帳號</span></h2>
-<p class="lead">想看任一 EA 的實盤運行嗎？請透過下列方式聯繫，我們會提供對應 EA 的觀摩帳號（MT4 / MT5 唯讀登入資訊）以供即時觀看。</p>
-<div class="contact-cta" style="margin-top:20px;">
-<div class="ctxt">
-<h3>聯繫資訊</h3>
-<p>※ 聯繫方式即將公布，請暫時透過您原本與本團隊的聯絡管道索取。</p>
+<section id="partner" class="dark"><div class="container">
+<span class="kicker">Partnership</span>
+<h2>渠道 <span class="accent">合作</span></h2>
+<p class="lead">如果你有客户资源或团队，欢迎聊聊长期合作。</p>
+<div class="feature-block" style="margin-top:18px;">
+<div class="feature"><h4>条件透明、顶格</h4><p>合作条件一次讲清，不分层、不截留，长期稳定。</p></div>
+<div class="feature"><h4>全套支持</h4><p>全部 EA、观摩账号、说明文档与素材，协助你完成成交与售后。</p></div>
+<div class="feature"><h4>发展路径</h4><p>业绩稳定的合作伙伴，有进一步的发展路径与更多资源支持。</p></div>
+<div class="feature"><h4>已有团队优先</h4><p>已有团队或客户基础者，欢迎微信私聊细谈。</p></div>
 </div>
-<a class="btn ghost" href="#products">回到 EA 列表</a>
+<div style="margin-top:18px;"><a class="btn" href="#contact">微信私聊 · 备注「渠道」</a></div>
+</div></section>
+
+<section id="contact" class="dark"><div class="container">
+<span class="kicker">Contact</span>
+<h2>微信 <span class="accent">咨询</span></h2>
+<p class="lead">申请观摩账号、了解授权与合作方案，请加微信。备注「EA」或你感兴趣的策略名称。</p>
+<div class="contact-cta" style="margin-top:20px;">
+<div class="wx">
+<div class="qr"><img src="assets/wechat_qr.png" alt="微信二维码" onerror="this.parentNode.textContent='微信扫码：ezmoney50'"></div>
+<div><div class="id">ezmoney50<button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText('ezmoney50');this.textContent='已复制'">复制</button><small>微信号 · 扫码或搜索添加</small></div>
+<p style="margin:12px 0 0;font-size:14px;max-width:520px;">回复较慢时请耐心等待，一般在工作时间内回复。观摩账号为只读登录，无法交易；请勿向任何人透露你自己的交易账号密码。</p></div>
+</div>
 </div></div></section>
 
 <footer class="site"><div class="container">
-<div>© EZQUANT EA 系列 · 黃金 CFD 自動化交易程式</div>
-<div class="disclaimer">本網站所展示之實盤績效係取自實盤觀摩帳號歷史交易，僅供參考；過去績效不代表未來收益，CFD 商品具高度槓桿與波動風險，盈虧由使用者自行承擔。</div>
-</div></footer><script>
-const chips=document.querySelectorAll('.chip');const cards=document.querySelectorAll('#grid .card');const q=document.getElementById('q');let curCat='all';
-function filter(){const term=q.value.trim().toLowerCase();cards.forEach(c=>{const okCat=(curCat==='all'||c.dataset.cat===curCat);const okTerm=(!term||c.dataset.name.toLowerCase().includes(term)||c.textContent.toLowerCase().includes(term));c.style.display=(okCat&&okTerm)?'flex':'none';});}
-chips.forEach(ch=>ch.addEventListener('click',()=>{chips.forEach(c=>c.classList.remove('active'));ch.classList.add('active');curCat=ch.dataset.cat;filter();}));
-q.addEventListener('input',filter);
+<div>© EZQUANT · 黄金 CFD 量化策略库 · 微信 ezmoney50</div>
+<div class="disclaimer">本站展示之历史绩效仅供参考，过去绩效不代表未来收益。差价合约（CFD）具高杠杆与高波动风险，可能损失全部本金，请依自身风险承受能力审慎决策，盈亏由使用者自行承担。本站仅提供交易软件授权与技术说明，不构成任何投资建议，不接受资金托管或代客操作。</div>
+</div></footer>
+<script>
+const chips=document.querySelectorAll('.chip'),cards=document.querySelectorAll('#grid .card');
+chips.forEach(ch=>ch.addEventListener('click',()=>{chips.forEach(c=>c.classList.remove('active'));ch.classList.add('active');const k=ch.dataset.cat;cards.forEach(c=>{c.style.display=(k==='all'||c.dataset.risk===k)?'flex':'none';});}));
 </script></body></html>

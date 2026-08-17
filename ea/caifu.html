@@ -1,0 +1,106 @@
+<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>财富顺势刷单｜EZQUANT 黄金 EA</title>
+<link rel="stylesheet" href="../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>黄金 CFD 量化策略库</small></div>
+<nav><a href="../index.html">首页</a><a href="../index.html#products">策略库</a><a href="../index.html#pricing">授权方案</a><a href="../index.html#partner">渠道合作</a><a class="nav-cta" href="../index.html#contact">微信咨询</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">网格对冲</span><span class="tag">顺势加仓网格解套</span><span class="tag plat">MT4 + MT5</span><span class="risk r3">进取</span></div>
+<h1>财富顺势刷单</h1>
+<p class="subtitle">顺势放大，逆势网格解套</p>
+<div class="meta-row"><div>品种：<strong>XAUUSD（黄金）</strong></div><div>周期：<strong>M5</strong></div><div>建议最低资金：<strong>$5,000 起（依加仓层数与手数结构而定）</strong></div><div>建议杠杆：<strong>1:100 起，建议依加仓深度预留保证金</strong></div></div>
+<div class="cta"><a class="btn" href="../index.html#contact">微信咨询 / 申请观摩</a><a class="btn ghost" href="../index.html#pricing">查看授权方案</a></div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>产品简介</h2>
+<p>财富顺势刷单是一款以 M5 为核心节奏的顺势刷单型 EA。系统以四条 EMA（13/21/34/55）构成基础趋势判断，搭配七维度共振滤网作为进场过滤条件；顺势方向依倍率加仓放大利润，逆势方向以网格分批加仓解套。配合均价止盈、移动止损与全局金额平仓，构成完整的进场、加仓、出场、防御闭环。</p>
+<p>本页数据来源：实盘观摩账号交易记录，统计区间 2026-02-03 ~ 2026-06-02（119 天），品种 XAUUSD，共 7,626 笔交易，最大回撤约 8.1%。历史绩效不代表未来收益，仅供参考。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>主要特色</h2>
+<div class="feature-block">
+<div class="feature"><h4>七维度共振滤网</h4><p>CCI/DeMarker、Bulls/Bears、Gator、MACD、ADX、KDJ、分形等七种滤网可独立开关，组合出个性化进场节奏。</p></div>
+<div class="feature"><h4>顺势 + 逆势双模组</h4><p>顺势方向以动能加仓放大获利，逆势方向以网格加仓解套，兼顾趋势与震荡行情。</p></div>
+<div class="feature"><h4>均价止盈 + 移动止损</h4><p>均价止盈锁定整体利润，移动止损跟踪高点推进，形成双重保护。</p></div>
+<div class="feature"><h4>全局金额平仓</h4><p>达到设定的全局盈利金额即整批离场锁利；全局亏损金额上限（默认关闭）可视需要开启。</p></div>
+<div class="feature"><h4>整批冷却机制</h4><p>整批平仓后进入冷却期，避免立即追单造成连续亏损。</p></div>
+<div class="feature"><h4>最大点差与手数限制</h4><p>最大点差参数过滤极端报价；最大手数参数限制单笔加仓上限。</p></div>
+</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>进场逻辑</h2>
+<p>系统以 EMA13/21/34/55 排列判断趋势方向，并由已开启的滤网共同投票确认动能、力量、震荡等多维条件；多滤网共振一致时才视为有效信号。</p>
+<table><thead><tr><th>检查项</th><th>说明</th></tr></thead><tbody>
+<tr><td>点差过滤</td><td>进场前检查当前点差是否超过最大点差限制，超过则暂停开新单。</td></tr>
+<tr><td>冷却保护</td><td>整批平仓后在冷却时间内不开新单，避免立即追单。</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>加仓与持仓管理</h2>
+<p>顺势方向按设定间距与顺势加仓倍数逐层加仓放大利润；逆势方向按网格间距与逆势加仓倍数逐层加仓摊平成本。两个方向的加仓层数与单笔手数均受最大手数参数约束；系统默认未设加仓层数上限，实际风险随行情延续程度增加，需自行评估资金承受能力。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>平仓与风控优先级</h2>
+<p>系统内建多层止损与获利保护机制，每个运行周期均由上而下逐层检查。</p>
+<table><thead><tr><th>顺序</th><th>机制名称</th><th>触发条件（简述）</th><th>触发动作</th></tr></thead><tbody>
+<tr><td>1</td><td>点差过滤</td><td>点差超过最大点差限制。</td><td>暂停新单与加仓。</td></tr>
+<tr><td>2</td><td>全局止盈</td><td>整体浮盈达到设定的全局盈利金额。</td><td>整批离场锁利。</td></tr>
+<tr><td>3</td><td>全局止损</td><td>整体浮亏达到设定的全局亏损金额（默认关闭，需手动开启）。</td><td>整批离场止损。</td></tr>
+<tr><td>4</td><td>均价止盈</td><td>持仓均价达到设定的均价止盈点数。</td><td>整批离场。</td></tr>
+<tr><td>5</td><td>移动止损</td><td>浮盈达到移动止损起步点数后启用。</td><td>按移动止损步长跟踪推进止损。</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>风险等级与资金建议</h2>
+<p>本 EA 含逆势网格加仓模块，且默认未设加仓层数上限、全局止损默认关闭，极端单边行情可能造成较大浮亏，风险等级归类为「进取」。以下资金与杠杆建议仅为参考区间，须依实际加仓参数与账户风险承受能力调整。</p>
+<table><thead><tr><th>风险等级</th><th>建议最低资金</th><th>建议杠杆</th><th>预期最大回撤区间</th></tr></thead><tbody>
+<tr><td>进取（本 EA 默认参数）</td><td>$5,000 起</td><td>1:100 起</td><td>依参数而定；实盘观摩样本区间约 8.1%，不代表极端行情表现</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>适用对象</h2>
+<ul class="audience">
+<li>希望同时把握趋势与震荡行情、不愿错过任一型态的交易者。</li>
+<li>可接受逆势加仓带来的浮亏、具备加仓资金管理观念的使用者。</li>
+<li>熟悉 MT4 / MT5 操作、能自行设定多滤网组合的使用者。</li>
+<li>能持续监控账户、愿意主动设置全局止损上限的使用者。</li>
+</ul>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>系统需求</h2>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody>
+<tr><td>交易平台</td><td>MT5 主版本，另提供 MT4 版本。</td></tr>
+<tr><td>可交易品种</td><td>黄金 CFD（XAUUSD）。</td></tr>
+<tr><td>MT5 账户类型</td><td>对冲（Hedging）模式。</td></tr>
+<tr><td>建议运行环境</td><td>VPS 24 小时不间断运行。</td></tr>
+<tr><td>建议挂载周期</td><td>M5。</td></tr>
+<tr><td>建议资金规模</td><td>依逆势最大加仓层数与加仓倍数估算潜在曝险，预留充足保证金。</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>使用须知</h2>
+<div class="notice">本策略含逆势网格加仓，极端单边行情可能造成显著浮亏，务必自行设置全局止损上限。</div>
+<div class="notice">滤网组合会直接影响进场频率与信号品质，建议先用默认组合观察运行情况，再逐步调整。</div>
+<div class="notice">页面展示的历史绩效数据取自实盘观摩账号，统计区间与样本有限，不代表未来收益，请审慎评估自身风险承受能力。</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>想看它实盘怎么跑？</h3><p>加微信 <strong>ezmoney50</strong>，备注「财富顺势刷单」，即可申请观摩账号（MT4/MT5 只读登录）与授权方案。合作用户另有专属方案。</p></div><a class="btn" href="../index.html#contact">微信咨询</a></div>
+<a class="back" href="../index.html#products">← 返回策略库</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · 黄金 CFD 量化策略库 · 微信 ezmoney50</div>
+<div class="disclaimer">本站展示之历史绩效仅供参考，过去绩效不代表未来收益。差价合约（CFD）具高杠杆与高波动风险，可能损失全部本金，请依自身风险承受能力审慎决策，盈亏由使用者自行承担。本站不构成任何投资建议。</div>
+</div></footer></body></html>

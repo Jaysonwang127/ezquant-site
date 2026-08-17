@@ -1,0 +1,111 @@
+<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>两仪｜EZQUANT 黄金 EA</title>
+<link rel="stylesheet" href="../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>黄金 CFD 量化策略库</small></div>
+<nav><a href="../index.html">首页</a><a href="../index.html#products">策略库</a><a href="../index.html#pricing">授权方案</a><a href="../index.html#partner">渠道合作</a><a class="nav-cta" href="../index.html#contact">微信咨询</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">突破关口</span><span class="tag">枢轴突破+回踩</span><span class="tag plat">MT5</span><span class="risk r2">均衡</span></div>
+<h1>两仪</h1>
+<p class="subtitle">顺势枢轴突破，回踩引擎可选配</p>
+<div class="meta-row"><div>品种：<strong>XAUUSD（黄金）</strong></div><div>周期：<strong>M1 挂机（信号 D1/H4/H1，副引擎 M15）</strong></div><div>建议最低资金：<strong>$2,000 起</strong></div><div>建议杠杆：<strong>1:100 或以上（对冲账户）</strong></div></div>
+<div class="cta"><a class="btn" href="../index.html#contact">微信咨询 / 申请观摩</a><a class="btn ghost" href="../index.html#pricing">查看授权方案</a></div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>产品简介</h2>
+<p>两仪是一套面向 XAUUSD（黄金）的双引擎程序化策略，核心是顺势枢轴突破：以价格结构上的枢纽高低点为基准，突破确认后顺势进场，不做逆势摊平、不做马丁加码。主引擎由多套子策略并行运作，各自独立开仓、独立止损，彼此互不干扰；出场采用分层管理，先以移动保本锁定浮盈，再由结构性移动止损与移动止盈接手，兼顾抗噪与保护已实现收益。</p>
+<p>两仪同时内建一个可选配的第二引擎，作为超卖回踩型的补充信号，默认关闭，可依账户风险偏好按需开启。EA 另内建重大经济数据公布前后的自动过滤，降低数据行情下的滑价与异常波动风险。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>主要特色</h2>
+<div class="feature-block">
+<div class="feature"><h4>枢轴顺势突破</h4><p>以价格结构上的枢纽高低点为基准，收盘确认突破后以挂单方式顺势进场，不追涨杀跌式抢入。</p></div>
+<div class="feature"><h4>多套子策略并行</h4><p>主引擎内含多套参数各异的子策略同时运作，各自独立开仓与止损，通过分散触发条件降低单一信号的依赖。</p></div>
+<div class="feature"><h4>无逆势加码、无马丁</h4><p>每一单都是独立仓位、独立硬性止损，不做套牢摊平或倍数加仓，风险不随浮亏扩大。</p></div>
+<div class="feature"><h4>分层出场保护浮盈</h4><p>移动保本、结构性移动止损、移动止盈依优先级接力，逐步锁定已实现收益。</p></div>
+<div class="feature"><h4>可选配第二引擎</h4><p>内建超卖回踩型信号作为补充引擎，默认关闭，可依账户风险偏好按需开启，不影响主引擎运作。</p></div>
+<div class="feature"><h4>重大数据自动过滤</h4><p>CPI、PPI、非农、零售、FOMC 等重大数据公布前后自动暂停新单，降低数据行情异常波动的冲击。</p></div>
+</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>进场逻辑</h2>
+<p>主引擎在挂机周期（M1）持续扫描各子策略的信号条件，以近期枢纽高点／低点为基准，价格突破并收盘确认后，以挂单方式顺势进场；未成交的挂单在有效期内未触发则自动撤销，不会滞留在盘面上累积风险。多套子策略参数各异（涵盖不同信号周期与突破条件），各自独立判断、独立下单，彼此不共用仓位或止损。</p>
+<p>第二引擎（默认关闭）为超卖回踩型信号，基于动量指标判断超卖区间后的结构性回升，顺势跟进，逻辑与主引擎的突破触发机制不同，用于在盘整或回调阶段补充交易机会。</p>
+<table><tr><th>引擎</th><th>触发方式</th><th>状态</th></tr>
+<tr><td>主引擎</td><td>枢纽高低点突破，收盘确认后挂单进场</td><td>默认开启</td></tr>
+<tr><td>第二引擎（选配）</td><td>超卖区间回踩，顺势跟进</td><td>默认关闭，可选开启</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>加仓与持仓管理</h2>
+<p>两仪不做逆势摊平、不做马丁式倍数加仓。每一笔交易都是独立开仓、独立硬性止损，仓位大小不随浮亏调整。由于主引擎包含多套子策略并行运作，账户可能同时持有多笔独立仓位（各自止损独立生效），这是分散触发条件、提高信号覆盖度的设计结果，而非加码摊平。第二引擎若开启，以独立仓位与独立止损运作，与主引擎互不共用风险敞口。</p>
+<table><tr><th>项目</th><th>说明</th></tr>
+<tr><td>加仓方式</td><td>无（不做逆势摊平、不做马丁）</td></tr>
+<tr><td>并行仓位</td><td>主引擎多套子策略可同时持有各自独立仓位</td></tr>
+<tr><td>止损设置</td><td>每笔独立硬性止损，不随浮亏放大风险</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>平仓与风控优先级</h2>
+<p>出场按以下顺序分层处理，优先锁定浮盈、再由结构性保护接手：</p>
+<table><tr><th>优先级</th><th>机制</th><th>说明</th></tr>
+<tr><td>1</td><td>移动保本</td><td>浮盈达到设定比例后，止损移至成本价附近，锁定不亏</td></tr>
+<tr><td>2</td><td>结构性移动止损</td><td>依价格结构（高低点）动态收紧止损，跟随行情保护已实现浮盈</td></tr>
+<tr><td>3</td><td>移动止盈</td><td>行情顺势延续时同步上移止盈目标</td></tr>
+<tr><td>4</td><td>固定止损／止盈</td><td>未触发上述机制时的兜底出场</td></tr>
+</table>
+<p>此外，EA 会在周五收盘前、以及 CPI、PPI、非农、零售、FOMC 等重大数据公布前后自动暂停新单，降低数据行情下的异常波动与滑价风险。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>风险等级与资金建议</h2>
+<p>两仪评级为<strong>均衡（r2）</strong>：每笔交易均为独立硬性止损，不做逆势加码或马丁摊平，单笔风险可控；但主引擎多套子策略可同时并行持仓，账户层面的敞口会随同时在场的仓位数量而放大，波动与回撤会高于单一仓位策略，因此不列为最保守的稳健等级。</p>
+<table><tr><th>风险等级</th><th>建议最低资金</th><th>建议杠杆</th><th>预期最大回撤区间</th></tr>
+<tr><td>均衡（r2）</td><td>$2,000 起</td><td>1:100 或以上</td><td>依参数而定；回测参考（XAUUSD，固定点差 $0.13，0.03 手，$10,000 本金）：2025 全年最大回撤约 $1,221，2026 上半年约 $978</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>适用对象</h2>
+<ul class="audience">
+<li>希望以顺势突破逻辑参与黄金行情、不依赖人工盯盘的投资者</li>
+<li>能接受多笔独立仓位同时在场、追求较高交易频率的账户</li>
+<li>偏好清晰止损纪律、拒绝马丁摊平与无限加仓机制的用户</li>
+<li>希望后续可自行选配补充引擎、灵活调整交易频率的进阶用户</li>
+</ul>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>系统需求</h2>
+<table><tr><th>项目</th><th>要求</th></tr>
+<tr><td>平台</td><td>MT5</td></tr>
+<tr><td>账户类型</td><td>对冲（Hedging）账户</td></tr>
+<tr><td>品种</td><td>XAUUSD（黄金）</td></tr>
+<tr><td>挂载周期</td><td>M1（内部信号周期由各子策略自行判断）</td></tr>
+<tr><td>VPS</td><td>建议使用，确保 24 小时挂机稳定运行</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>使用须知</h2>
+<div class="notice">两仪主引擎包含多套子策略并行运作，账户可能同时持有多笔独立仓位，请以账户总敞口（而非单笔仓位）评估风险承受能力。</div>
+<div class="notice">第二引擎默认关闭，如需开启请评估账户整体风险承受度后再行调整，不建议在未理解其触发逻辑前直接启用。</div>
+<div class="notice">历史与回测表现不代表未来收益，黄金 CFD 波动较大，请依自身资金状况与风险承受能力审慎使用。</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>想看它实盘怎么跑？</h3><p>加微信 <strong>ezmoney50</strong>，备注「两仪」，即可申请观摩账号（MT4/MT5 只读登录）与授权方案。合作用户另有专属方案。</p></div><a class="btn" href="../index.html#contact">微信咨询</a></div>
+<a class="back" href="../index.html#products">← 返回策略库</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · 黄金 CFD 量化策略库 · 微信 ezmoney50</div>
+<div class="disclaimer">本站展示之历史绩效仅供参考，过去绩效不代表未来收益。差价合约（CFD）具高杠杆与高波动风险，可能损失全部本金，请依自身风险承受能力审慎决策，盈亏由使用者自行承担。本站不构成任何投资建议。</div>
+</div></footer></body></html>

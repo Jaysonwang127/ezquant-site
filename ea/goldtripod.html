@@ -1,0 +1,116 @@
+<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>金鼎 GoldTripod｜EZQUANT 黄金 EA</title>
+<link rel="stylesheet" href="../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>黄金 CFD 量化策略库</small></div>
+<nav><a href="../index.html">首页</a><a href="../index.html#products">策略库</a><a href="../index.html#pricing">授权方案</a><a href="../index.html#partner">渠道合作</a><a class="nav-cta" href="../index.html#contact">微信咨询</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">趋势</span><span class="tag">三腿独立无加仓</span><span class="tag plat">MT5</span><span class="risk r1">稳健</span></div>
+<h1>金鼎 GoldTripod</h1>
+<p class="subtitle">三腿独立运作，只做首单不加仓不网格</p>
+<div class="meta-row"><div>品种：<strong>XAUUSD（黄金）</strong></div><div>周期：<strong>不限（三腿各自内建周期）</strong></div><div>建议最低资金：<strong>$10,000 起</strong></div><div>建议杠杆：<strong>1:100 以上</strong></div></div>
+<div class="cta"><a class="btn" href="../index.html#contact">微信咨询 / 申请观摩</a><a class="btn ghost" href="../index.html#pricing">查看授权方案</a></div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>产品简介</h2>
+<p>金鼎 GoldTripod 是一支专为黄金设计的全自动交易系统。名称取自“三足鼎立”——系统内含三条各自独立运作的策略腿，分别捕捉不同性格的行情机会：第一足以多指标共振后顺势进场、节奏较慢；第二足以波动自适应的区间突破进场、节奏中等；第三足以趋势过滤下的顺势首单进场、节奏较快。</p>
+<p>三条腿使用各自独立的识别码、周期与资金配置，讯号互不参照、持仓互不干扰。此特性经实测验证：三腿分别单独运行的损益总和，与三腿同时运行的实际结果完全一致。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>主要特色</h2>
+<div class="feature-block">
+<div class="feature"><h4>只做首单，不加仓不马丁不网格</h4><p>每条腿同时最多持有一笔仓位，全系统最多三笔。没有亏损摊平、没有倍数加码，结构上不存在这类机制带来的爆仓风险。</p></div>
+<div class="feature"><h4>三腿独立，风险分散</h4><p>三条腿的进场条件与持仓周期各不相同，不会在同一时点集体进场。任何一条腿都可以独立关闭，不影响其他两条。</p></div>
+<div class="feature"><h4>全自动运行</h4><p>挂载后即自行运作，无需人工判断或手动下单，不建立图表物件，不占用图表资源。</p></div>
+<div class="feature"><h4>波动自适应</h4><p>止损、止盈与进场门槛会随市场波动度自动调整，高波动时放宽、低波动时收紧，无需手动更换参数。</p></div>
+<div class="feature"><h4>参数出厂即优化</h4><p>所有策略参数已完成校准与验证，使用者只需设定手数与启用开关即可运行。</p></div>
+</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>进场逻辑</h2>
+<p>三条策略腿各自独立判断进场，互不参照：</p>
+<table>
+<tr><th>策略腿</th><th>进场性格</th><th>节奏</th></tr>
+<tr><td>第一足 · 共振</td><td>多指标同向共振后顺势进场</td><td>较慢，讯号精选</td></tr>
+<tr><td>第二足 · 突破</td><td>波动自适应的区间突破</td><td>中等</td></tr>
+<tr><td>第三足 · 潮汐</td><td>趋势过滤下的顺势首单</td><td>较快，交易频繁</td></tr>
+</table>
+<p>三条腿使用各自独立的识别码（Magic），可挂载于同一张 XAUUSD 图表，不需要也不建议重复挂载多张图表。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>加仓与持仓管理</h2>
+<p>本系统不设加仓、不设马丁、不设网格。每条腿同时最多持有一笔仓位，全系统最多同时持有三笔。三条腿的手数需依资金规模等比例调整，不建议只放大单一条腿的手数，以免破坏三腿之间的风险平衡。</p>
+<table>
+<tr><th>本金</th><th>第一足手数</th><th>第二足手数</th><th>第三足手数</th></tr>
+<tr><td>$10,000</td><td>0.10</td><td>0.05</td><td>0.01</td></tr>
+<tr><td>$20,000</td><td>0.20</td><td>0.10</td><td>0.02</td></tr>
+<tr><td>$50,000</td><td>0.50</td><td>0.25</td><td>0.05</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>平仓与风控优先级</h2>
+<p>系统内建多层止损机制，按以下优先级依序判断，无需另行设定：</p>
+<table>
+<tr><th>优先级</th><th>机制</th><th>说明</th></tr>
+<tr><td>1</td><td>单笔止损</td><td>每笔仓位设有独立止损，随波动度自适应调整</td></tr>
+<tr><td>2</td><td>移动止盈</td><td>价格朝有利方向推进后动态锁利</td></tr>
+<tr><td>3</td><td>分批止盈</td><td>达到阶段获利目标时分批了结</td></tr>
+<tr><td>4</td><td>总额保护</td><td>账户层级的整体保护机制</td></tr>
+</table>
+<p>建议使用者另行自订两条停机线：单腿净值回撤达 20% 时关闭该腿观察；黄金 M15 周期 ATR(14) 五日中位数低于 $4（判定为低波动盘整）时建议全部停止运行，待波动回升后再恢复。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>风险等级与资金建议</h2>
+<p>本系统结构上只做单笔首单、不加仓不网格、内建多层止损，风险等级评定为“稳健”。但本系统属趋势型策略，在低波动盘整行情下会明显转弱甚至出现亏损期，属策略固有特性而非系统缺陷，需配合建议资金规模与停机线使用。</p>
+<table>
+<tr><th>风险等级</th><th>建议最低资金</th><th>建议杠杆</th><th>预期最大回撤区间</th></tr>
+<tr><td>稳健</td><td>$10,000 起</td><td>1:100 以上</td><td>依参数而定（回测区间最大回撤约 2,614）</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>适用对象</h2>
+<ul class="audience">
+<li>希望以全自动方式参与黄金行情、不想盯盘的使用者</li>
+<li>能接受单月或单年可能亏损、以较长周期评估绩效的使用者</li>
+<li>资金规模 $10,000 以上，可依比例调整手数的使用者</li>
+<li>能配合停机线与定期检视执行风险控管的使用者</li>
+</ul>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>系统需求</h2>
+<table>
+<tr><th>项目</th><th>要求</th></tr>
+<tr><td>交易平台</td><td>MetaTrader 5</td></tr>
+<tr><td>账户类型</td><td>对冲（Hedging）账户，净额（Netting）账户不支持</td></tr>
+<tr><td>交易品种</td><td>XAUUSD（黄金），两位小数报价</td></tr>
+<tr><td>建议点差</td><td>$0.30/oz 以内</td></tr>
+<tr><td>运行环境</td><td>建议使用 VPS，确保 24 小时不断线</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>使用须知</h2>
+<div class="notice">本系统为趋势型策略，在黄金进入低波动盘整期间表现会明显转弱甚至亏损，属固有特性而非系统瑕疵，请配合建议的停机线执行风险控管。</div>
+<div class="notice">历史回测与过往表现不代表未来收益。差价合约交易具有高杠杆与高波动风险，可能导致本金全部损失，请务必使用可承受损失的闲置资金，并先在模拟账户充分测试后再考虑实盘使用。</div>
+<div class="notice">参数已出厂优化，建议仅调整手数与启用开关，其余参数请勿自行更动，以免破坏三腿之间的风险平衡。</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>想看它实盘怎么跑？</h3><p>加微信 <strong>ezmoney50</strong>，备注「金鼎 GoldTripod」，即可申请观摩账号（MT4/MT5 只读登录）与授权方案。合作用户另有专属方案。</p></div><a class="btn" href="../index.html#contact">微信咨询</a></div>
+<a class="back" href="../index.html#products">← 返回策略库</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · 黄金 CFD 量化策略库 · 微信 ezmoney50</div>
+<div class="disclaimer">本站展示之历史绩效仅供参考，过去绩效不代表未来收益。差价合约（CFD）具高杠杆与高波动风险，可能损失全部本金，请依自身风险承受能力审慎决策，盈亏由使用者自行承担。本站不构成任何投资建议。</div>
+</div></footer></body></html>

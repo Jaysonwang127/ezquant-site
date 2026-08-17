@@ -1,0 +1,116 @@
+<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>金蛇出洞｜EZQUANT 黄金 EA</title>
+<link rel="stylesheet" href="../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>黄金 CFD 量化策略库</small></div>
+<nav><a href="../index.html">首页</a><a href="../index.html#products">策略库</a><a href="../index.html#pricing">授权方案</a><a href="../index.html#partner">渠道合作</a><a class="nav-cta" href="../index.html#contact">微信咨询</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">突破关口</span><span class="tag">盘整突破反手</span><span class="tag plat">MT5</span><span class="risk r3">进取</span></div>
+<h1>金蛇出洞</h1>
+<p class="subtitle">蛰伏后突破，反向讯号全平反手</p>
+<div class="meta-row"><div>品种：<strong>XAUUSD（黄金）</strong></div><div>周期：<strong>H1</strong></div><div>建议最低资金：<strong>$10,000 起</strong></div><div>建议杠杆：<strong>1:100 以上</strong></div></div>
+<div class="cta"><a class="btn" href="../index.html#contact">微信咨询 / 申请观摩</a><a class="btn ghost" href="../index.html#pricing">查看授权方案</a></div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>产品简介</h2>
+<p>金蛇出洞是一支以「窄幅盘整后突破」为核心逻辑的黄金交易策略。它同时监看两种经典的盘整突破讯号，捕捉行情从蛰伏转为单边的瞬间进场；当反向讯号出现时，会将整篮持仓全数平仓并立即反手，使仓位始终站在最新讯号的一侧。</p>
+<p>出场采「先落袋一半、剩余追踪」的两段式设计，并内建整篮浮亏上限作为最后一道保险丝，兼顾趋势捕捉与风险约束。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>主要特色</h2>
+<div class="feature-block">
+<div class="feature"><h4>双讯号共振</h4><p>同时监看窄幅棒突破与盘整区间突破两种经典形态，以更高时间框辅助判断，提升讯号可靠度。</p></div>
+<div class="feature"><h4>波动自适应</h4><p>盘整区间宽度与贴近程度皆以日线 ATR 动态衡量，自动适应不同波动环境，不使用固定点数。</p></div>
+<div class="feature"><h4>反向全平反手</h4><p>出现反向讯号即整篮平仓并立即反手建立新篮，仓位方向始终跟随最新讯号。</p></div>
+<div class="feature"><h4>两段式出场</h4><p>价格到达目标时先落袋一半，剩余部位以追踪止盈方式运行，且止损下限锁定在均价，避免获利回吐为亏损。</p></div>
+<div class="feature"><h4>整篮浮亏上限</h4><p>内建整篮最大浮亏金额保护，作为极端行情下的最后一道保险丝。</p></div>
+<div class="feature"><h4>只认收盘讯号</h4><p>所有进出场讯号均以收盘价确认，不追盘中假突破，降低杂讯干扰。</p></div>
+</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>进场逻辑</h2>
+<p>策略同时监看两种以收盘价确认的突破讯号，不追盘中假突破：</p>
+<table>
+<tr><th>讯号源</th><th>逻辑说明</th></tr>
+<tr><td>窄幅棒突破</td><td>在较高时间框辨识窄幅整理棒，图表周期收盘突破窄幅棒上缘做多、跌破下缘做空；突破后需回抽中线才会重新武装，避免连续重复触发。</td></tr>
+<tr><td>盘整区间突破</td><td>侦测最近数根 K 线形成的窄幅盘整区，且区间贴近前一日高点或低点；收盘突破区间上缘做多、跌破下缘做空。区间宽度与贴近程度以日线 ATR 动态衡量。</td></tr>
+</table>
+<p>另保留一组以成交量分布关键价位为讯号的研究性模块，预设关闭，仅供进阶研究使用。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>加仓与持仓管理</h2>
+<p>两个讯号源共用同一个持仓篮，每张订单固定手数。</p>
+<table>
+<tr><th>情形</th><th>处理方式</th></tr>
+<tr><td>同向讯号</td><td>加仓，出场基准改为新的加权均价</td></tr>
+<tr><td>反向讯号</td><td>整篮全平，并立即反手开立新篮</td></tr>
+<tr><td>篮内单数上限</td><td>同篮最多加仓至设定上限，防止失控加仓</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>平仓与风控优先级</h2>
+<p>出场逻辑由上而下逐层检查：</p>
+<table>
+<tr><th>优先级</th><th>条件</th><th>处理方式</th></tr>
+<tr><td>1</td><td>价格到达「均价 ± 倍率 × 首单讯号范围」</td><td>平掉半篮先行落袋</td></tr>
+<tr><td>2</td><td>剩余仓位追踪止盈</td><td>以「范围 × 倍率」回撤距离追踪，止损下限锁在均价保本</td></tr>
+<tr><td>3</td><td>反向讯号出现</td><td>全平反手</td></tr>
+<tr><td>4</td><td>整篮浮亏达设定金额上限</td><td>全平，作为最后一道保险丝</td></tr>
+</table>
+<p>请注意：本策略没有传统的每单固定止损，亏损出场依靠反向讯号与整篮浮亏上限控制。</p>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>风险等级与资金建议</h2>
+<p>本策略无固定每单止损，采用同向加仓、反向讯号全平反手的仓位管理方式，篮内最多可加仓至设定单数，风险特性偏进取；剧烈反复行情下单篮浮亏可能直接触及整篮浮亏上限。</p>
+<table>
+<tr><th>风险等级</th><th>建议最低资金</th><th>建议杠杆</th><th>预期最大回撤</th></tr>
+<tr><td>进取</td><td>$10,000 起</td><td>1:100 以上</td><td>依参数而定</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>适用对象</h2>
+<ul class="audience">
+<li>能接受无固定单笔止损、以整篮浮亏上限控制风险的投资者</li>
+<li>偏好捕捉黄金单边突破行情，可承受盘整期反复反手成本的投资者</li>
+<li>具备一定风险承受能力，资金规模可支撑多单加仓篮的投资者</li>
+<li>倾向长期挂载 VPS 稳定运行、定期检视回撤的投资者</li>
+</ul>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>系统需求</h2>
+<table>
+<tr><th>项目</th><th>要求</th></tr>
+<tr><td>交易平台</td><td>MetaTrader 5</td></tr>
+<tr><td>交易品种</td><td>XAUUSD（黄金）</td></tr>
+<tr><td>图表周期</td><td>H1</td></tr>
+<tr><td>点差要求</td><td>建议低点差账户，交易频率较高，点差成本对绩效影响显著</td></tr>
+<tr><td>运行环境</td><td>建议使用 VPS 24 小时稳定运行，避免断线错过反向讯号</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<h2>使用须知</h2>
+<div class="notice">本策略无固定每单止损，虧损控制依靠反向讯号与整篮浮亏上限；请勿关闭整篮浮亏保护，否则将失去最后一道风险保险丝。</div>
+<div class="notice">在盘整反复的行情中会较频繁地停损反手，此阶段回撤可能高于同期获利；策略在明确单边行情表现较佳，震荡行情可能出现阶段性亏损，过去表现不代表未来结果。</div>
+<div class="notice">本页仅描述策略逻辑与运行方式，不构成投资建议；交易黄金差价合约具高风险，请自行评估风险承受能力后审慎决策。</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>想看它实盘怎么跑？</h3><p>加微信 <strong>ezmoney50</strong>，备注「金蛇出洞」，即可申请观摩账号（MT4/MT5 只读登录）与授权方案。合作用户另有专属方案。</p></div><a class="btn" href="../index.html#contact">微信咨询</a></div>
+<a class="back" href="../index.html#products">← 返回策略库</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · 黄金 CFD 量化策略库 · 微信 ezmoney50</div>
+<div class="disclaimer">本站展示之历史绩效仅供参考，过去绩效不代表未来收益。差价合约（CFD）具高杠杆与高波动风险，可能损失全部本金，请依自身风险承受能力审慎决策，盈亏由使用者自行承担。本站不构成任何投资建议。</div>
+</div></footer></body></html>
