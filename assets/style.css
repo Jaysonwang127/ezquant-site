@@ -155,3 +155,15 @@ footer.site .disclaimer{max-width:900px;margin:10px auto 0;font-size:12px;color:
 .perf-table td.num{font-family:Menlo,Consolas,monospace;text-align:right;white-space:nowrap;}
 .perf-table td.pos{color:var(--green);font-weight:700;}
 .perf-note{color:var(--muted);font-size:12px;margin-top:10px;line-height:1.7;}
+
+/* ---- 关于我们 ---- */
+.about-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin:26px 0 30px;}
+.about-stats .as{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 18px;text-align:center;box-shadow:0 2px 6px rgba(11,26,46,.05);border-top:3px solid var(--gold);}
+.about-stats .as .v{font-size:32px;font-weight:900;color:var(--navy);font-family:Menlo,Consolas,monospace;line-height:1.1;}
+.about-stats .as .l{font-size:12px;color:var(--muted);letter-spacing:1px;margin-top:6px;}
+.about-body{max-width:820px;}
+.about-body p{font-size:15.5px;color:var(--text);margin:0 0 14px;}
+.about-body strong{color:var(--navy);}
+.about-nos{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 16px;}
+.about-nos span{background:var(--navy);color:#fff;font-size:13.5px;font-weight:700;padding:7px 18px;border-radius:999px;letter-spacing:.5px;}
+.about-tail{color:var(--muted)!important;font-size:14px!important;}
