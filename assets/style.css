@@ -176,3 +176,7 @@ footer.site .disclaimer{max-width:900px;margin:10px auto 0;font-size:12px;color:
 .about-nos span{background:transparent;border:1.5px solid var(--gold);color:var(--gold2);font-size:14.5px;font-weight:800;padding:9px 24px;border-radius:999px;letter-spacing:1px;}
 .about-tail{color:#9fb0c8!important;font-size:14.5px!important;margin:0!important;}
 @media (max-width:640px){.about h2{font-size:27px;}.about-stats .as{border-right:0;border-bottom:1px solid rgba(255,255,255,.08);}.about-stats .as .v{font-size:34px;}}
+
+.perf-cond{display:flex;flex-wrap:wrap;gap:10px 26px;margin:0 0 14px;padding:12px 16px;background:#f4f7fc;border:1px solid var(--border);border-radius:10px;font-size:13.5px;color:var(--text);}
+.perf-cond span{white-space:nowrap;}
+.perf-cond b{color:var(--muted);font-weight:600;margin-right:6px;font-size:12px;letter-spacing:1px;}
