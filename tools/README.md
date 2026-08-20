@@ -63,10 +63,29 @@ Equity Drawdown Maximal」本来就是含未平仓浮亏的口径，跟网站上
 | `gen_perf.py` | 生成 7 支 EA 页面的 `#s1` 区块 + 首页卡片绩效块 |
 | `gen_risk_matrix.py` | 生成风控矩阵到 `tools/out/`（内部用，不公开） |
 | `check_consistency.py` | 跨页数字矛盾检查 |
-| `mt5_report_to_json.py` | MT5 HTML 报表 → performance.json 片段 |
+| `mt5_report_to_json.py` | MT5 HTML 报表 → performance.json 片段（网站回测绩效用）|
+| `tg_card.py` | 观摩账号报表 → 以**建议本金**为分母的绩效卡数字（TG 绩效卡用）|
 | `mcp/` | 接 MT5 MCP（只读）的设定与界线 |
 | `audit/RISK_AUDIT.md` | EA 原始码风控稽核流程与提示词 |
 | `ea-repo-scaffold/bootstrap.sh` | 建立独立的 EA 原始码 repo 骨架 |
+
+---
+
+## TG 绩效卡
+
+对外报的百分比，分母用**建议本金**，不是观摩账号自己的本金：
+
+```
+python3 tools/tg_card.py --slug caifu --label "2026 年至今" 观摩账号报表.html
+python3 tools/tg_card.py --slug caifu --json 观摩账号报表.html   # 供程式消费
+```
+
+前提是观摩账号跑的手数即建议本金对应的手数（已确认），所以净利与浮亏
+金额可直接换分母，不需再按手数比例缩放。
+
+⚠ **报酬率与回撤必须共用同一个分母。** 只换报酬率不换回撤，绩效卡会
+看起来比实际安全 —— 这是本工具把两者绑在一起算的原因。若换算后回撤
+超过 100%，直接报错不输出。
 
 ---
 

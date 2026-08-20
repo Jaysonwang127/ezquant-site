@@ -63,6 +63,16 @@ def to_number(s):
         return None
 
 
+def decode(raw, encoding=None):
+    """MT5 报表常见 utf-8 / utf-16，预设自动尝试。"""
+    for enc in ([encoding] if encoding else ["utf-8", "utf-16", "cp1252", "gbk"]):
+        try:
+            return raw.decode(enc)
+        except (UnicodeDecodeError, LookupError, TypeError):
+            continue
+    return None
+
+
 def parse_report(text):
     """把报表所有储存格拉平，用「标签储存格 → 下一个储存格」的方式取值。"""
     cells = [clean(c) for c in CELL_RE.findall(text)]
@@ -95,14 +105,7 @@ def main():
                     help="报表编码；MT5 常见 utf-16 / utf-8，预设自动尝试")
     args = ap.parse_args()
 
-    raw = Path(args.report).read_bytes()
-    text = None
-    for enc in ([args.encoding] if args.encoding else ["utf-8", "utf-16", "cp1252", "gbk"]):
-        try:
-            text = raw.decode(enc)
-            break
-        except (UnicodeDecodeError, LookupError, TypeError):
-            continue
+    text = decode(Path(args.report).read_bytes(), args.encoding)
     if text is None:
         print("✗ 无法解码报表，请用 --encoding 指定编码", file=sys.stderr)
         return 2
