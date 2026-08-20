@@ -3,7 +3,8 @@
 这个目录把原本靠人工维护的两件事自动化：
 
 1. **绩效数字** —— 7 支 EA 页面 + 首页卡片的绩效区块，全部由 `data/performance.json` 生成
-2. **风控矩阵** —— 跨产品的风控机制对照页，由 `data/risk-matrix.json` 生成
+2. **风控矩阵** —— 跨产品的风控机制对照表，由 `data/risk-matrix.json` 生成，
+   输出到 `tools/out/`，**仅供内部稽核与业务对话，不放上网站**
 
 改数字请改 JSON，**不要手改 HTML**，否则下次生成会被覆盖。
 
@@ -14,12 +15,11 @@
 ```bash
 # 提交前跑这三条
 python3 tools/gen_perf.py --check          # 页面绩效是否与 JSON 一致
-python3 tools/gen_risk_matrix.py --check   # 风控矩阵页是否与 JSON 一致
 python3 tools/check_consistency.py         # 跨页数字有没有互相矛盾
 
 # 改完 JSON 之后重新生成
 python3 tools/gen_perf.py
-python3 tools/gen_risk_matrix.py
+python3 tools/gen_risk_matrix.py   # 输出到 tools/out/，内部检视用
 ```
 
 无需任何第三方套件，Python 3.9+ 即可。
@@ -61,7 +61,7 @@ Equity Drawdown Maximal」本来就是含未平仓浮亏的口径，跟网站上
 | `perfdata.py` | 绩效推导逻辑（资金基准换算、防爆仓检查），三支脚本共用 |
 | `data/risk-matrix.json` | 各 EA 的风控机制有无（目前尚未经原始码稽核） |
 | `gen_perf.py` | 生成 7 支 EA 页面的 `#s1` 区块 + 首页卡片绩效块 |
-| `gen_risk_matrix.py` | 生成 `ea/risk-matrix.html` |
+| `gen_risk_matrix.py` | 生成风控矩阵到 `tools/out/`（内部用，不公开） |
 | `check_consistency.py` | 跨页数字矛盾检查 |
 | `mt5_report_to_json.py` | MT5 HTML 报表 → performance.json 片段 |
 | `mcp/` | 接 MT5 MCP（只读）的设定与界线 |
@@ -70,13 +70,19 @@ Equity Drawdown Maximal」本来就是含未平仓浮亏的口径，跟网站上
 
 ---
 
-## 两个资金栏位
+## 三个资金栏位
 
 ```
-backtest_capital   回测实际使用的起始资金。历史事实，不因文案而改。
-display_capital    网站上用来计算报酬率与回撤的基准（＝建议本金）。
-                   省略时等于 backtest_capital。
+backtest_capital     回测实际使用的起始资金。历史事实，不因文案而改。
+recommended_capital  建议本金。网站 hero／首页卡片／资金建议表三处显示的数字，
+                     也是对外报绩效百分比时该用的分母。
+display_capital      选填。网站上用来计算报酬率与回撤的基准。
+                     省略时等于 backtest_capital。
 ```
+
+`recommended_capital` 是给外部消费的（TG 绩效卡、业务简报等）——建议本金
+以前只散落在三处 HTML 里，没有单一来源可读。现在改这个栏位，
+`check_consistency.py` 会检查三处显示值是否都跟上。
 
 同样的手数下，净利、获利因子、笔数与资金无关；**报酬率与最大净值回撤
 则会一起等比缩放**：

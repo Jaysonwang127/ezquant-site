@@ -9,3 +9,6 @@ package-lock.json
 
 # 本机 MCP 设定：会含帐号资讯，绝不进版控
 .mcp.json
+
+# 内部产出（风控矩阵等），不公开
+tools/out/

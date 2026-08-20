@@ -86,30 +86,30 @@ def main():
                     + "、".join(f"{t:,}" for t in sorted(known_trades))
                 )
 
+        # 建议本金以 performance.json 为准，三处显示值都必须与它一致
+        rec = ea.get("recommended_capital")
         hero = HERO_CAPITAL_RE.search(html)
         hero_cap = hero.group(1).strip() if hero else None
         idx_cap = card_capital.get(slug)
-        if hero_cap and idx_cap:
-            # 只比对金额本身，忽略「起」「（依…而定）」等尾巴
-            h = re.search(r"\$[\d,]+", hero_cap)
-            i = re.search(r"\$[\d,]+", idx_cap)
-            if h and i and h.group(0) != i.group(0):
-                errors.append(
-                    f"{name}（{slug}）：首页卡片写「建议资金 {idx_cap}」，"
-                    f"但 EA 页 hero 写「建议最低资金 {hero_cap}」"
-                )
-        elif hero_cap is None:
-            warns.append(f"{name}（{slug}）：EA 页 hero 找不到「建议最低资金」")
-        elif idx_cap is None:
-            warns.append(f"{name}（{slug}）：首页卡片找不到「建议资金」")
 
-        if hero_cap:
-            h = re.search(r"\$([\d,]+)", hero_cap)
-            if h and int(h.group(1).replace(",", "")) != ea["backtest_capital"]:
-                warns.append(
-                    f"{name}（{slug}）：绩效统计基准 ${ea.get('display_capital') or ea['backtest_capital']:,}，"
-                    f"但建议最低资金写 {hero_cap} —— 请确认文案有说明两者口径不同"
+        for label, shown in (("EA 页 hero", hero_cap), ("首页卡片", idx_cap)):
+            if shown is None:
+                warns.append(f"{name}（{slug}）：{label} 找不到建议资金")
+                continue
+            m = re.search(r"\$([\d,]+)", shown)
+            if not m:
+                warns.append(f"{name}（{slug}）：{label} 的建议资金「{shown}」读不出金额")
+            elif rec is not None and int(m.group(1).replace(",", "")) != rec:
+                errors.append(
+                    f"{name}（{slug}）：{label} 写「{shown}」，"
+                    f"但 performance.json 的 recommended_capital 是 ${rec:,}"
                 )
+
+        if rec is not None and rec != ea["backtest_capital"]:
+            warns.append(
+                f"{name}（{slug}）：建议本金 ${rec:,} 与回测基准 "
+                f"${ea['backtest_capital']:,} 不同 —— 对外报百分比时要说清楚用的是哪一个"
+            )
 
     for e in errors:
         print(f"[E] {e}")

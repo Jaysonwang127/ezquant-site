@@ -10,62 +10,163 @@
     "periods[].max_dd_pct": "最大净值回撤百分比（含未平仓浮亏口径）",
     "periods[].profit_factor": "获利因子",
     "periods[].trades": "交易笔数",
-    "_derived": "报酬率＝净利 ÷ display_capital；最大净值回撤＝回测浮亏金额 ÷ display_capital。两者共用同一个基准，不会只调一边"
+    "_derived": "报酬率＝净利 ÷ display_capital；最大净值回撤＝回测浮亏金额 ÷ display_capital。两者共用同一个基准，不会只调一边",
+    "recommended_capital": "建议本金（＝网站 hero／首页卡片／资金建议表三处显示的数字）。对外报绩效百分比时的分母基准。与 backtest_capital 不同：后者是回测事实，前者是我们对客户的建议"
   },
   "eas": [
     {
-      "slug": "bailian", "name": "百炼成金",
-      "symbol": "XAUUSD", "backtest_capital": 100000, "start_lots": "组合内建",
+      "slug": "bailian",
+      "name": "百炼成金",
+      "symbol": "XAUUSD",
+      "backtest_capital": 100000,
+      "start_lots": "组合内建",
       "periods": [
-        {"label": "2026 年至今", "net_profit": 14781, "max_dd_pct": 10.7, "profit_factor": 1.21, "trades": 2709}
-      ]
+        {
+          "label": "2026 年至今",
+          "net_profit": 14781,
+          "max_dd_pct": 10.7,
+          "profit_factor": 1.21,
+          "trades": 2709
+        }
+      ],
+      "recommended_capital": 100000
     },
     {
-      "slug": "caifu", "name": "顺势之星",
-      "symbol": "XAUUSD", "backtest_capital": 100000, "start_lots": "0.01 手起",
+      "slug": "caifu",
+      "name": "顺势之星",
+      "symbol": "XAUUSD",
+      "backtest_capital": 100000,
+      "start_lots": "0.01 手起",
       "periods": [
-        {"label": "2026 年至今", "net_profit": 22556, "max_dd_pct": 68.4, "profit_factor": 1.34, "trades": 7833}
-      ]
+        {
+          "label": "2026 年至今",
+          "net_profit": 22556,
+          "max_dd_pct": 68.4,
+          "profit_factor": 1.34,
+          "trades": 7833
+        }
+      ],
+      "recommended_capital": 100000
     },
     {
-      "slug": "goldtripod", "name": "金鼎 GoldTripod",
-      "symbol": "XAUUSD", "backtest_capital": 5000, "start_lots": "0.1 手",
+      "slug": "goldtripod",
+      "name": "金鼎 GoldTripod",
+      "symbol": "XAUUSD",
+      "backtest_capital": 5000,
+      "start_lots": "0.1 手",
       "periods": [
-        {"label": "2025 全年", "net_profit": 6672, "max_dd_pct": 24.7, "profit_factor": 1.20, "trades": 2158},
-        {"label": "2026 年至今", "net_profit": 13287, "max_dd_pct": 25.2, "profit_factor": 1.34, "trades": 1815}
-      ]
+        {
+          "label": "2025 全年",
+          "net_profit": 6672,
+          "max_dd_pct": 24.7,
+          "profit_factor": 1.2,
+          "trades": 2158
+        },
+        {
+          "label": "2026 年至今",
+          "net_profit": 13287,
+          "max_dd_pct": 25.2,
+          "profit_factor": 1.34,
+          "trades": 1815
+        }
+      ],
+      "recommended_capital": 5000
     },
     {
-      "slug": "h1trend", "name": "黄金罗盘",
-      "symbol": "XAUUSD", "backtest_capital": 100000, "start_lots": "0.05 手起",
+      "slug": "h1trend",
+      "name": "黄金罗盘",
+      "symbol": "XAUUSD",
+      "backtest_capital": 100000,
+      "start_lots": "0.05 手起",
       "periods": [
-        {"label": "2026 年至今", "net_profit": 73378, "max_dd_pct": 23.4, "profit_factor": 1.77, "trades": 3311}
-      ]
+        {
+          "label": "2026 年至今",
+          "net_profit": 73378,
+          "max_dd_pct": 23.4,
+          "profit_factor": 1.77,
+          "trades": 3311
+        }
+      ],
+      "recommended_capital": 100000
     },
     {
-      "slug": "jinshe", "name": "金蛇出洞",
-      "symbol": "XAUUSD", "backtest_capital": 10000, "start_lots": "0.02 手",
+      "slug": "jinshe",
+      "name": "金蛇出洞",
+      "symbol": "XAUUSD",
+      "backtest_capital": 10000,
+      "start_lots": "0.02 手",
       "periods": [
-        {"label": "2024 全年", "net_profit": 146, "max_dd_pct": 5.3, "profit_factor": 1.18, "trades": 149},
-        {"label": "2025 全年", "net_profit": 391, "max_dd_pct": 4.5, "profit_factor": 1.28, "trades": 185},
-        {"label": "2026 年至今", "net_profit": 3050, "max_dd_pct": 8.3, "profit_factor": 1.42, "trades": 354}
-      ]
+        {
+          "label": "2024 全年",
+          "net_profit": 146,
+          "max_dd_pct": 5.3,
+          "profit_factor": 1.18,
+          "trades": 149
+        },
+        {
+          "label": "2025 全年",
+          "net_profit": 391,
+          "max_dd_pct": 4.5,
+          "profit_factor": 1.28,
+          "trades": 185
+        },
+        {
+          "label": "2026 年至今",
+          "net_profit": 3050,
+          "max_dd_pct": 8.3,
+          "profit_factor": 1.42,
+          "trades": 354
+        }
+      ],
+      "recommended_capital": 10000
     },
     {
-      "slug": "liangyi", "name": "两仪",
-      "symbol": "XAUUSD", "backtest_capital": 1000, "start_lots": "0.01 手",
+      "slug": "liangyi",
+      "name": "两仪",
+      "symbol": "XAUUSD",
+      "backtest_capital": 1000,
+      "start_lots": "0.01 手",
       "periods": [
-        {"label": "2024 全年", "net_profit": 2009, "max_dd_pct": 22.6, "profit_factor": 1.57, "trades": 1673},
-        {"label": "2025 全年", "net_profit": 2918, "max_dd_pct": 25.8, "profit_factor": 1.65, "trades": 1461},
-        {"label": "2026 年至今", "net_profit": 2995, "max_dd_pct": 30.0, "profit_factor": 2.18, "trades": 748}
-      ]
+        {
+          "label": "2024 全年",
+          "net_profit": 2009,
+          "max_dd_pct": 22.6,
+          "profit_factor": 1.57,
+          "trades": 1673
+        },
+        {
+          "label": "2025 全年",
+          "net_profit": 2918,
+          "max_dd_pct": 25.8,
+          "profit_factor": 1.65,
+          "trades": 1461
+        },
+        {
+          "label": "2026 年至今",
+          "net_profit": 2995,
+          "max_dd_pct": 30.0,
+          "profit_factor": 2.18,
+          "trades": 748
+        }
+      ],
+      "recommended_capital": 1000
     },
     {
-      "slug": "shuangwei", "name": "黄金双卫",
-      "symbol": "XAUUSD", "backtest_capital": 100000, "start_lots": "0.03 手起",
+      "slug": "shuangwei",
+      "name": "黄金双卫",
+      "symbol": "XAUUSD",
+      "backtest_capital": 100000,
+      "start_lots": "0.03 手起",
       "periods": [
-        {"label": "2026 年至今", "net_profit": 77949, "max_dd_pct": 32.5, "profit_factor": 1.56, "trades": 6852}
-      ]
+        {
+          "label": "2026 年至今",
+          "net_profit": 77949,
+          "max_dd_pct": 32.5,
+          "profit_factor": 1.56,
+          "trades": 6852
+        }
+      ],
+      "recommended_capital": 100000
     }
   ]
 }

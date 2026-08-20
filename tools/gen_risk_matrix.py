@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""生成跨产品风控矩阵页 ea/risk-matrix.html。
+"""生成跨产品风控矩阵页（内部用）。
+
+输出到 tools/out/risk-matrix.html —— 该目录已 gitignore，
+不进版控也不会被 GitHub Pages 公开。本表供内部稽核与业务对话使用。
 
 资料来源：
   * tools/data/risk-matrix.json   —— 各 EA 的风控机制有无
@@ -9,7 +12,6 @@
 所以之后改了导览或页尾，重跑本脚本即可自动跟上。
 
 用法：
-    python3 tools/gen_risk_matrix.py --check
     python3 tools/gen_risk_matrix.py
 """
 import argparse
@@ -25,7 +27,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 MATRIX = ROOT / "tools" / "data" / "risk-matrix.json"
 PERF = ROOT / "tools" / "data" / "performance.json"
 SHELL_SRC = ROOT / "ea" / "jinshe.html"
-OUT = ROOT / "ea" / "risk-matrix.html"
+OUT = ROOT / "tools" / "out" / "risk-matrix.html"   # 内部用，不进版控、不公开
 
 HEADER_RE = re.compile(r'<header class="site">.*?</header>', re.S)
 TAIL_RE = re.compile(r'<footer class="site">.*\Z', re.S)
@@ -195,14 +197,15 @@ def main():
 
     if args.check:
         if old != out:
-            print("✗ ea/risk-matrix.html 与资料档不一致，请执行 "
+            print("✗ 风控矩阵与资料档不一致，请执行 "
                   "python3 tools/gen_risk_matrix.py", file=sys.stderr)
             return 1
-        print("✓ ea/risk-matrix.html 与资料档一致")
+        print("✓ 风控矩阵与资料档一致")
         return 0
 
+    OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(out, encoding="utf-8")
-    print(f"✓ 已生成 ea/risk-matrix.html（{len(matrix['eas'])} 支 EA × "
+    print(f"✓ 已生成 tools/out/risk-matrix.html（{len(matrix['eas'])} 支 EA × "
           f"{len(matrix['columns'])} 项机制）"
           + ("，内容有更新" if old != out else "，无变更"))
     return 0
