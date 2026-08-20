@@ -1,104 +1,319 @@
 {
   "_comment": "跨产品风控矩阵。目前所有栏位皆由「各 EA 页面文案」整理而来，尚未经原始码稽核，故 verified 一律为 false。取得 EA 原始码后，请依 tools/audit/RISK_AUDIT.md 的流程逐支核对，核对无误者把 verified 改为 true。",
   "values": {
-    "yes":     {"mark": "✓", "cls": "v-yes",  "meaning": "有，且为硬性机制"},
-    "no":      {"mark": "✕", "cls": "v-no",   "meaning": "无"},
-    "partial": {"mark": "△", "cls": "v-part", "meaning": "有但有条件（预设关闭 / 非硬性）"},
-    "na":      {"mark": "—", "cls": "v-na",   "meaning": "结构上不适用"},
-    "unknown": {"mark": "?", "cls": "v-unk",  "meaning": "页面未说明，待原始码确认"}
+    "yes": {
+      "mark": "✓",
+      "cls": "v-yes",
+      "meaning": "有，且为硬性机制"
+    },
+    "no": {
+      "mark": "✕",
+      "cls": "v-no",
+      "meaning": "无"
+    },
+    "partial": {
+      "mark": "△",
+      "cls": "v-part",
+      "meaning": "有但有条件（预设关闭 / 非硬性）"
+    },
+    "na": {
+      "mark": "—",
+      "cls": "v-na",
+      "meaning": "结构上不适用"
+    },
+    "unknown": {
+      "mark": "?",
+      "cls": "v-unk",
+      "meaning": "页面未说明，待原始码确认"
+    }
   },
   "columns": [
-    {"key": "add_mode",      "label": "逆势加仓"},
-    {"key": "stop_loss",     "label": "单笔硬止损"},
-    {"key": "layer_cap",     "label": "层数硬上限"},
-    {"key": "basket_sl",     "label": "整批 / 全局止损"},
-    {"key": "equity_cb",     "label": "账户权益熔断"},
-    {"key": "spread_filter", "label": "点差过滤"},
-    {"key": "hedge_exit",    "label": "对冲 / 反手削单"}
+    {
+      "key": "add_mode",
+      "label": "逆势加仓"
+    },
+    {
+      "key": "stop_loss",
+      "label": "单笔硬止损"
+    },
+    {
+      "key": "layer_cap",
+      "label": "层数硬上限"
+    },
+    {
+      "key": "basket_sl",
+      "label": "整批 / 全局止损"
+    },
+    {
+      "key": "equity_cb",
+      "label": "账户权益熔断"
+    },
+    {
+      "key": "spread_filter",
+      "label": "点差过滤"
+    },
+    {
+      "key": "hedge_exit",
+      "label": "对冲 / 反手削单"
+    }
   ],
   "eas": [
     {
-      "slug": "goldtripod", "risk_level": "稳健", "risk_class": "r1", "verified": false,
+      "slug": "goldtripod",
+      "risk_level": "稳健",
+      "risk_class": "r1",
+      "verified": false,
       "cells": {
-        "add_mode":      {"v": "no",      "t": "不加仓、不马丁、不网格；每腿最多一笔，全系统最多三笔"},
-        "stop_loss":     {"v": "yes",     "t": "每笔独立止损，随波动度自适应调整"},
-        "layer_cap":     {"v": "na",      "t": "无加仓层级，持仓上限即三笔"},
-        "basket_sl":     {"v": "partial", "t": "页面仅称「总额保护」，触发条件未公开"},
-        "equity_cb":     {"v": "unknown", "t": "页面未提；目前以建议使用者自订停机线（单腿回撤 20%）替代"},
-        "spread_filter": {"v": "unknown", "t": "页面未提"},
-        "hedge_exit":    {"v": "na",      "t": "无对冲机制"}
+        "add_mode": {
+          "v": "no",
+          "t": "不加仓、不马丁、不网格；每腿最多一笔，全系统最多三笔"
+        },
+        "stop_loss": {
+          "v": "yes",
+          "t": "每笔独立止损，随波动度自适应调整"
+        },
+        "layer_cap": {
+          "v": "na",
+          "t": "无加仓层级，持仓上限即三笔"
+        },
+        "basket_sl": {
+          "v": "partial",
+          "t": "页面仅称「总额保护」，触发条件未公开"
+        },
+        "equity_cb": {
+          "v": "unknown",
+          "t": "页面未提；目前以建议使用者自订停机线（单腿回撤 20%）替代"
+        },
+        "spread_filter": {
+          "v": "unknown",
+          "t": "页面未提"
+        },
+        "hedge_exit": {
+          "v": "na",
+          "t": "无对冲机制"
+        }
       }
     },
     {
-      "slug": "bailian", "risk_level": "均衡", "risk_class": "r2", "verified": false,
+      "slug": "bailian",
+      "risk_level": "均衡",
+      "risk_class": "r2",
+      "verified": false,
       "cells": {
-        "add_mode":      {"v": "no",      "t": "子策略各自独立开仓，不追加、不摊平"},
-        "stop_loss":     {"v": "yes",     "t": "每笔开仓时即设定固定止损止盈，随波动自适应缩放"},
-        "layer_cap":     {"v": "yes",     "t": "同时最大持仓笔数上限（默认 60 笔）"},
-        "basket_sl":     {"v": "na",      "t": "无整批止损；风险由单笔固定止损 + 权益熔断承接"},
-        "equity_cb":     {"v": "yes",     "t": "权益较历史最高点回撤达设定比例（默认 20%）全平并停止交易"},
-        "spread_filter": {"v": "yes",     "t": "实时点差超过阈值时暂停开仓"},
-        "hedge_exit":    {"v": "na",      "t": "子策略互不对冲"}
+        "add_mode": {
+          "v": "no",
+          "t": "原版全档搜 multiplier / martingale 零命中；每 magic 同时最多 1 单，一单一结（EA邏輯解析 三节）"
+        },
+        "stop_loss": {
+          "v": "yes",
+          "t": "每笔掛單同時以 sqSetSLandPT 设好固定 SL/TP；MT5 改版对码移植未改（CHANGELOG 二节）"
+        },
+        "layer_cap": {
+          "v": "yes",
+          "t": "InpMaxConcurrentPositions=60；文件载明历史峰值 45 口，60 从未触及"
+        },
+        "basket_sl": {
+          "v": "na",
+          "t": "无整批止损；风险由单笔固定止损 + 权益熔断承接"
+        },
+        "equity_cb": {
+          "v": "partial",
+          "t": "InpEquityStopPct，触发全平＋停开新仓。⚠ 两份文件对预设值记载不一致（CHANGELOG 写 0＝关闭，README 写上线组 20%），需确认出货版实际预设"
+        },
+        "spread_filter": {
+          "v": "yes",
+          "t": "InpMaxSpread=1.5；损益两平总成本实测 $2.20，headroom 约 7 倍"
+        },
+        "hedge_exit": {
+          "v": "na",
+          "t": "子策略互不对冲"
+        }
+      },
+      "sources": [
+        "Drive: 百煉成金/README_資料夾索引.md（2026-08-12 定版）",
+        "Drive: 百煉成金/MT5改版/報告/CHANGELOG_vs_original.md",
+        "Drive: 百煉成金/Portfolio339_EA邏輯解析_內部版.md（MT4 原版）"
+      ],
+      "note": "产品名对照：百炼成金 = Portfolio339_keep94（339 支母体经样本外筛选保留 90 支）。⚠ 待确认：CHANGELOG 记载 InpEquityStopPct 预设为 0（关闭），README 记载上线组预设为 20%。出货版 .ex5 究竟是哪一个，需实机确认 —— 这是产品页「默认20%」说法的唯一依据。"
+    },
+    {
+      "slug": "liangyi",
+      "risk_level": "均衡",
+      "risk_class": "r2",
+      "verified": false,
+      "cells": {
+        "add_mode": {
+          "v": "no",
+          "t": "不逆势摊平、不马丁；多子策略并行为分散设计，非加码"
+        },
+        "stop_loss": {
+          "v": "yes",
+          "t": "每笔独立硬性止损，不随浮亏调整"
+        },
+        "layer_cap": {
+          "v": "unknown",
+          "t": "页面未说明并行仓位数量上限"
+        },
+        "basket_sl": {
+          "v": "unknown",
+          "t": "页面未提整批或账户级止损"
+        },
+        "equity_cb": {
+          "v": "unknown",
+          "t": "页面未提"
+        },
+        "spread_filter": {
+          "v": "unknown",
+          "t": "页面未提点差过滤；另有重大经济数据前后自动暂停新单"
+        },
+        "hedge_exit": {
+          "v": "na",
+          "t": "无对冲机制"
+        }
       }
     },
     {
-      "slug": "liangyi", "risk_level": "均衡", "risk_class": "r2", "verified": false,
+      "slug": "jinshe",
+      "risk_level": "进取",
+      "risk_class": "r3",
+      "verified": false,
       "cells": {
-        "add_mode":      {"v": "no",      "t": "不逆势摊平、不马丁；多子策略并行为分散设计，非加码"},
-        "stop_loss":     {"v": "yes",     "t": "每笔独立硬性止损，不随浮亏调整"},
-        "layer_cap":     {"v": "unknown", "t": "页面未说明并行仓位数量上限"},
-        "basket_sl":     {"v": "unknown", "t": "页面未提整批或账户级止损"},
-        "equity_cb":     {"v": "unknown", "t": "页面未提"},
-        "spread_filter": {"v": "unknown", "t": "页面未提点差过滤；另有重大经济数据前后自动暂停新单"},
-        "hedge_exit":    {"v": "na",      "t": "无对冲机制"}
+        "add_mode": {
+          "v": "partial",
+          "t": "仅同向讯号在同一篮内加仓，固定手数（非倍数加码），无逆势摊平"
+        },
+        "stop_loss": {
+          "v": "unknown",
+          "t": "页面未说明单笔止损，风险控制集中在整篮层级"
+        },
+        "layer_cap": {
+          "v": "yes",
+          "t": "同篮加仓单数设有上限"
+        },
+        "basket_sl": {
+          "v": "yes",
+          "t": "整篮最大浮亏金额上限，作为最后一道保险丝"
+        },
+        "equity_cb": {
+          "v": "unknown",
+          "t": "页面未提账户级熔断"
+        },
+        "spread_filter": {
+          "v": "unknown",
+          "t": "页面未提"
+        },
+        "hedge_exit": {
+          "v": "yes",
+          "t": "反向讯号整篮全平并立即反手"
+        }
       }
     },
     {
-      "slug": "jinshe", "risk_level": "进取", "risk_class": "r3", "verified": false,
+      "slug": "h1trend",
+      "risk_level": "进取",
+      "risk_class": "r3",
+      "verified": false,
       "cells": {
-        "add_mode":      {"v": "partial", "t": "仅同向讯号在同一篮内加仓，固定手数（非倍数加码），无逆势摊平"},
-        "stop_loss":     {"v": "unknown", "t": "页面未说明单笔止损，风险控制集中在整篮层级"},
-        "layer_cap":     {"v": "yes",     "t": "同篮加仓单数设有上限"},
-        "basket_sl":     {"v": "yes",     "t": "整篮最大浮亏金额上限，作为最后一道保险丝"},
-        "equity_cb":     {"v": "unknown", "t": "页面未提账户级熔断"},
-        "spread_filter": {"v": "unknown", "t": "页面未提"},
-        "hedge_exit":    {"v": "yes",     "t": "反向讯号整篮全平并立即反手"}
+        "add_mode": {
+          "v": "yes",
+          "t": "双向独立网格，依加仓倍率与加仓递增逐层往不利方向加仓"
+        },
+        "stop_loss": {
+          "v": "no",
+          "t": "仅有统一止盈点数；页面未见单笔止损"
+        },
+        "layer_cap": {
+          "v": "yes",
+          "t": "单向最大层数硬上限 + 单笔最大手数硬上限"
+        },
+        "basket_sl": {
+          "v": "no",
+          "t": "无整批硬止损；风险上限改由首尾对冲封死"
+        },
+        "equity_cb": {
+          "v": "unknown",
+          "t": "页面未提"
+        },
+        "spread_filter": {
+          "v": "yes",
+          "t": "进场前检查点差与滑点上限"
+        },
+        "hedge_exit": {
+          "v": "yes",
+          "t": "加仓层数超过门槛即启动首尾对冲削单并整批退场"
+        }
       }
     },
     {
-      "slug": "h1trend", "risk_level": "进取", "risk_class": "r3", "verified": false,
+      "slug": "shuangwei",
+      "risk_level": "进取",
+      "risk_class": "r3",
+      "verified": false,
       "cells": {
-        "add_mode":      {"v": "yes",     "t": "双向独立网格，依加仓倍率与加仓递增逐层往不利方向加仓"},
-        "stop_loss":     {"v": "no",      "t": "仅有统一止盈点数；页面未见单笔止损"},
-        "layer_cap":     {"v": "yes",     "t": "单向最大层数硬上限 + 单笔最大手数硬上限"},
-        "basket_sl":     {"v": "no",      "t": "无整批硬止损；风险上限改由首尾对冲封死"},
-        "equity_cb":     {"v": "unknown", "t": "页面未提"},
-        "spread_filter": {"v": "yes",     "t": "进场前检查点差与滑点上限"},
-        "hedge_exit":    {"v": "yes",     "t": "加仓层数超过门槛即启动首尾对冲削单并整批退场"}
+        "add_mode": {
+          "v": "yes",
+          "t": "顺势加码 + 逆势动态网格补单，手数按倍率随层数放大"
+        },
+        "stop_loss": {
+          "v": "no",
+          "t": "页面未见单笔硬止损"
+        },
+        "layer_cap": {
+          "v": "yes",
+          "t": "单边层数硬封顶 + 单笔最大手数限制"
+        },
+        "basket_sl": {
+          "v": "no",
+          "t": "页面明载「不设整体硬性止损」，出场以浮盈触发为主"
+        },
+        "equity_cb": {
+          "v": "unknown",
+          "t": "页面未提"
+        },
+        "spread_filter": {
+          "v": "yes",
+          "t": "点差超过设定上限则不开新单"
+        },
+        "hedge_exit": {
+          "v": "yes",
+          "t": "首尾对冲 + 顺势获利单与网格亏损单的跨区对冲"
+        }
       }
     },
     {
-      "slug": "shuangwei", "risk_level": "进取", "risk_class": "r3", "verified": false,
+      "slug": "caifu",
+      "risk_level": "进取",
+      "risk_class": "r3",
+      "verified": false,
       "cells": {
-        "add_mode":      {"v": "yes",     "t": "顺势加码 + 逆势动态网格补单，手数按倍率随层数放大"},
-        "stop_loss":     {"v": "no",      "t": "页面未见单笔硬止损"},
-        "layer_cap":     {"v": "yes",     "t": "单边层数硬封顶 + 单笔最大手数限制"},
-        "basket_sl":     {"v": "no",      "t": "页面明载「不设整体硬性止损」，出场以浮盈触发为主"},
-        "equity_cb":     {"v": "unknown", "t": "页面未提"},
-        "spread_filter": {"v": "yes",     "t": "点差超过设定上限则不开新单"},
-        "hedge_exit":    {"v": "yes",     "t": "首尾对冲 + 顺势获利单与网格亏损单的跨区对冲"}
-      }
-    },
-    {
-      "slug": "caifu", "risk_level": "进取", "risk_class": "r3", "verified": false,
-      "cells": {
-        "add_mode":      {"v": "yes",     "t": "顺势倍率加仓 + 逆势网格解套"},
-        "stop_loss":     {"v": "no",      "t": "页面未见单笔硬止损；有移动止损但需先达起步浮盈"},
-        "layer_cap":     {"v": "no",      "t": "页面明载「默认未设加仓层数上限」，仅受最大手数约束"},
-        "basket_sl":     {"v": "partial", "t": "有全局亏损金额上限，但默认关闭，需手动开启"},
-        "equity_cb":     {"v": "unknown", "t": "页面未提"},
-        "spread_filter": {"v": "yes",     "t": "最大点差限制 + 整批平仓后的冷却期"},
-        "hedge_exit":    {"v": "no",      "t": "无对冲削单；靠全局止盈与均价止盈结算"}
+        "add_mode": {
+          "v": "yes",
+          "t": "顺势倍率加仓 + 逆势网格解套"
+        },
+        "stop_loss": {
+          "v": "no",
+          "t": "页面未见单笔硬止损；有移动止损但需先达起步浮盈"
+        },
+        "layer_cap": {
+          "v": "no",
+          "t": "页面明载「默认未设加仓层数上限」，仅受最大手数约束"
+        },
+        "basket_sl": {
+          "v": "partial",
+          "t": "有全局亏损金额上限，但默认关闭，需手动开启"
+        },
+        "equity_cb": {
+          "v": "unknown",
+          "t": "页面未提"
+        },
+        "spread_filter": {
+          "v": "yes",
+          "t": "最大点差限制 + 整批平仓后的冷却期"
+        },
+        "hedge_exit": {
+          "v": "no",
+          "t": "无对冲削单；靠全局止盈与均价止盈结算"
+        }
       }
     }
   ]
