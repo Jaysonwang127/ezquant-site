@@ -31,11 +31,17 @@ python3 tools/gen_risk_matrix.py
 ```
 MT5 终端 → 历史 / 测试器 → 右键「报告」→ 存成 HTML
    ↓
-python3 tools/mt5_report_to_json.py --label "2026 年至今" report.html
-   ↓  把输出的 JSON 片段贴进 tools/data/performance.json 的 periods
+python3 tools/mt5_report_to_json.py --label "2026 年至今" --apply caifu report.html
+   ↓  （直接写回 performance.json；同 label 覆盖，不同 label 附加）
 python3 tools/gen_perf.py
 python3 tools/check_consistency.py
 ```
+
+不加 `--apply` 则只印出 JSON 片段供人工检视。
+
+`--apply` 会检查**报表的初始资金**与 `backtest_capital` 是否一致，不一致直接
+挡下 —— 这两个对不上时报酬率与回撤都会算错。确认报表无误要换基准，
+加 `--set-capital` 一并更新。
 
 `mt5_report_to_json.py` 认得英文 / 简体 / 繁体三种 MT5 报表标签。
 若你的报表是别的语言，在该档的 `LABELS` 补上对应标签即可。

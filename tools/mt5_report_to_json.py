@@ -13,8 +13,12 @@ MT5 有两种报表都能吃：
     python3 tools/mt5_report_to_json.py --label "2026 年至今" report.html
     python3 tools/mt5_report_to_json.py --label "2025 全年" --capital 5000 report.html
 
-输出可直接贴进 tools/data/performance.json 的 periods 阵列，
-再跑 python3 tools/gen_perf.py 重新生成页面。
+加上 --apply <slug> 可直接写回 performance.json，不必手贴：
+
+    python3 tools/mt5_report_to_json.py --label "2026 年至今" --apply caifu report.html
+    python3 tools/gen_perf.py
+
+同 label 的区间会被覆盖，不同 label 会依序附加。
 """
 import argparse
 import html as html_mod
@@ -83,6 +87,10 @@ def main():
     ap.add_argument("--label", required=True, help='区间名称，如 "2026 年至今"')
     ap.add_argument("--capital", type=float, default=None,
                     help="初始资金；不给则用报表里的初始存款")
+    ap.add_argument("--apply", metavar="SLUG", default=None,
+                    help="直接写回 performance.json 中该 slug 的 periods（同 label 覆盖）")
+    ap.add_argument("--set-capital", action="store_true",
+                    help="搭配 --apply：同时把该 EA 的 backtest_capital 设成本报表的初始资金")
     ap.add_argument("--encoding", default=None,
                     help="报表编码；MT5 常见 utf-16 / utf-8，预设自动尝试")
     args = ap.parse_args()
@@ -138,9 +146,48 @@ def main():
         "trades": int(to_number(f["trades"])),
     }
 
-    print(f"# 初始资金（请确认与 performance.json 的 initial_capital 一致）：{capital:,.0f}",
-          file=sys.stderr)
-    print(json.dumps(period, ensure_ascii=False, indent=2))
+    if not args.apply:
+        print(f"# 报表初始资金：{capital:,.0f}"
+              f"（请确认与 performance.json 的 backtest_capital 一致）", file=sys.stderr)
+        print(json.dumps(period, ensure_ascii=False, indent=2))
+        return 0
+
+    data_path = Path(__file__).resolve().parent / "data" / "performance.json"
+    data = json.loads(data_path.read_text(encoding="utf-8"))
+    ea = next((e for e in data["eas"] if e["slug"] == args.apply), None)
+    if ea is None:
+        print(f"✗ performance.json 里没有 slug「{args.apply}」", file=sys.stderr)
+        return 2
+
+    if args.set_capital:
+        if ea["backtest_capital"] != int(capital):
+            print(f"  backtest_capital：{ea['backtest_capital']:,} → {int(capital):,}")
+        ea["backtest_capital"] = int(capital)
+    elif ea["backtest_capital"] != int(capital):
+        print(f"✗ 报表初始资金 {capital:,.0f} 与 performance.json 里的 "
+              f"backtest_capital {ea['backtest_capital']:,} 不符。\n"
+              f"  这两个数字必须一致，否则报酬率与回撤会算错。\n"
+              f"  确认报表无误的话，加上 --set-capital 一并更新。", file=sys.stderr)
+        return 2
+
+    for i, p in enumerate(ea["periods"]):
+        if p["label"] == period["label"]:
+            if p == period:
+                print(f"✓ {ea['name']} {period['label']}：数字未变")
+            else:
+                print(f"✓ {ea['name']} {period['label']}：已覆盖")
+                for k in ("net_profit", "max_dd_pct", "profit_factor", "trades"):
+                    if p[k] != period[k]:
+                        print(f"    {k}: {p[k]} → {period[k]}")
+            ea["periods"][i] = period
+            break
+    else:
+        ea["periods"].append(period)
+        print(f"✓ {ea['name']}：新增区间「{period['label']}」")
+
+    data_path.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("\n下一步：python3 tools/gen_perf.py && python3 tools/check_consistency.py")
     return 0
 
 
