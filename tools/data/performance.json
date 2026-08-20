@@ -1,0 +1,70 @@
+{
+  "_comment": "EZQUANT 各 EA 历史绩效唯一事实来源。改这里，然后跑 python3 tools/gen_perf.py 重新生成各 EA 页面的绩效区块。不要直接手改 ea/*.html 的 #s1 区块。",
+  "_schema": {
+    "slug": "对应 ea/<slug>.html",
+    "initial_capital": "统计基准初始资金（数字，USD）",
+    "start_lots": "起始手数的显示文字",
+    "periods[].label": "区间名称，如「2026 年至今」",
+    "periods[].net_profit": "该区间净利（USD，可为负）",
+    "periods[].max_dd_pct": "最大净值回撤百分比（含未平仓浮亏口径）",
+    "periods[].profit_factor": "获利因子",
+    "periods[].trades": "交易笔数",
+    "_derived": "报酬率一律由 net_profit / initial_capital 推导，不手填，确保全站口径一致"
+  },
+  "eas": [
+    {
+      "slug": "bailian", "name": "百炼成金",
+      "symbol": "XAUUSD", "initial_capital": 100000, "start_lots": "组合内建",
+      "periods": [
+        {"label": "2026 年至今", "net_profit": 14781, "max_dd_pct": 10.7, "profit_factor": 1.21, "trades": 2709}
+      ]
+    },
+    {
+      "slug": "caifu", "name": "顺势之星",
+      "symbol": "XAUUSD", "initial_capital": 100000, "start_lots": "0.01 手起",
+      "periods": [
+        {"label": "2026 年至今", "net_profit": 22556, "max_dd_pct": 68.4, "profit_factor": 1.34, "trades": 7833}
+      ]
+    },
+    {
+      "slug": "goldtripod", "name": "金鼎 GoldTripod",
+      "symbol": "XAUUSD", "initial_capital": 5000, "start_lots": "0.1 手",
+      "periods": [
+        {"label": "2025 全年", "net_profit": 6672, "max_dd_pct": 24.7, "profit_factor": 1.20, "trades": 2158},
+        {"label": "2026 年至今", "net_profit": 13287, "max_dd_pct": 25.2, "profit_factor": 1.34, "trades": 1815}
+      ]
+    },
+    {
+      "slug": "h1trend", "name": "黄金罗盘",
+      "symbol": "XAUUSD", "initial_capital": 100000, "start_lots": "0.05 手起",
+      "periods": [
+        {"label": "2026 年至今", "net_profit": 73378, "max_dd_pct": 23.4, "profit_factor": 1.77, "trades": 3311}
+      ]
+    },
+    {
+      "slug": "jinshe", "name": "金蛇出洞",
+      "symbol": "XAUUSD", "initial_capital": 10000, "start_lots": "0.02 手",
+      "periods": [
+        {"label": "2024 全年", "net_profit": 146, "max_dd_pct": 5.3, "profit_factor": 1.18, "trades": 149},
+        {"label": "2025 全年", "net_profit": 391, "max_dd_pct": 4.5, "profit_factor": 1.28, "trades": 185},
+        {"label": "2026 年至今", "net_profit": 3050, "max_dd_pct": 8.3, "profit_factor": 1.42, "trades": 354}
+      ]
+    },
+    {
+      "slug": "liangyi", "name": "两仪",
+      "symbol": "XAUUSD", "initial_capital": 1000, "start_lots": "0.01 手",
+      "periods": [
+        {"label": "2024 全年", "net_profit": 2009, "max_dd_pct": 22.6, "profit_factor": 1.57, "trades": 1673},
+        {"label": "2025 全年", "net_profit": 2918, "max_dd_pct": 25.8, "profit_factor": 1.65, "trades": 1461},
+        {"label": "2026 年至今", "net_profit": 2995, "max_dd_pct": 30.0, "profit_factor": 2.18, "trades": 748}
+      ]
+    },
+    {
+      "slug": "shuangwei", "name": "黄金双卫",
+      "symbol": "XAUUSD", "initial_capital": 100000, "start_lots": "0.03 手起",
+      "periods": [
+        {"label": "2026 年至今", "net_profit": 77949, "max_dd_pct": 32.5, "profit_factor": 1.56, "trades": 6852}
+      ]
+    }
+  ]
+}

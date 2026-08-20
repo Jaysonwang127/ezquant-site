@@ -20,8 +20,8 @@ nav a.nav-cta{background:var(--gold);color:var(--dark);padding:7px 14px;border-r
 .btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(201,162,39,.38);color:var(--dark);}
 .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);box-shadow:none;}
 .btn.ghost:hover{background:rgba(255,255,255,.1);color:#fff;}
-.light .btn.ghost,section:not(.hero):not(.dark) .btn.ghost{color:var(--navy);border-color:var(--navy);}
-section:not(.hero):not(.dark) .btn.ghost:hover{background:var(--navy);color:#fff;}
+.light .btn.ghost,section:not(.hero):not(.dark):not(.detail-hero) .btn.ghost{color:var(--navy);border-color:var(--navy);}
+section:not(.hero):not(.dark):not(.detail-hero) .btn.ghost:hover{background:var(--navy);color:#fff;}
 
 /* sections */
 section{padding:72px 0;position:relative;}
@@ -154,6 +154,7 @@ footer.site .disclaimer{max-width:900px;margin:10px auto 0;font-size:12px;color:
 .card .perf-na{margin:10px 0 12px;padding:14px 10px;text-align:center;background:#f4f7fc;border:1px dashed var(--border);border-radius:10px;color:var(--muted);font-size:13px;font-weight:600;}
 .perf-table td.num{font-family:Menlo,Consolas,monospace;text-align:right;white-space:nowrap;}
 .perf-table td.pos{color:var(--green);font-weight:700;}
+.perf-table td.neg{color:var(--red);font-weight:700;}
 .perf-note{color:var(--muted);font-size:12px;margin-top:10px;line-height:1.7;}
 
 
@@ -189,7 +190,7 @@ footer.site .disclaimer{max-width:900px;margin:10px auto 0;font-size:12px;color:
 .perf-kpi .k{background:linear-gradient(180deg,#fffdf6,#fbf5e6);border:1px solid #efdca8;border-radius:12px;padding:16px 18px;text-align:center;}
 .perf-kpi .k .kl{display:block;font-size:11px;letter-spacing:2px;color:#8a6d10;font-weight:700;}
 .perf-kpi .k .kv{display:block;font-size:30px;font-weight:800;color:var(--navy);font-family:Menlo,Consolas,monospace;line-height:1.2;margin-top:6px;}
-.perf-kpi .k .kv.pos{color:var(--green);}
+.perf-kpi .k .kv.pos{color:var(--green);}.perf-kpi .k .kv.neg{color:var(--red);}
 .perf-kpi .k .ks{display:block;font-size:12px;color:var(--muted);margin-top:4px;}
 .perf-bars{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px 14px;margin:0 0 16px;}
 .perf-bars .bh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;}

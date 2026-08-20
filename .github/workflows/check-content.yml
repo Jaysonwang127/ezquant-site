@@ -1,0 +1,27 @@
+name: 内容一致性检查
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 绩效区块与 performance.json 是否一致
+        run: python3 tools/gen_perf.py --check
+
+      - name: 风控矩阵页与 risk-matrix.json 是否一致
+        run: python3 tools/gen_risk_matrix.py --check
+
+      # 目前站上还有 8 项待处理的文案矛盾，先不让它挡住 CI。
+      # 修完之后请把 continue-on-error 拿掉，让矛盾变成硬性失败。
+      - name: 跨页数字矛盾检查
+        continue-on-error: true
+        run: python3 tools/check_consistency.py

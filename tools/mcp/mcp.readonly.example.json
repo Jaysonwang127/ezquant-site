@@ -1,0 +1,15 @@
+{
+  "_README": "复制成本机工作目录下的 .mcp.json 再填值。切勿把填好的档案提交进 repo。务必使用观摩帐号 / 投资人密码（investor password），并在 MT5 关闭自动交易。",
+  "mcpServers": {
+    "mt5": {
+      "command": "<你选用的 MT5 MCP server 执行档或 python -m ...>",
+      "args": [],
+      "env": {
+        "MT5_LOGIN": "<观摩帐号号码>",
+        "MT5_PASSWORD": "<投资人（只读）密码，不是主密码>",
+        "MT5_SERVER": "<经纪商伺服器名称>",
+        "MT5_PATH": "<terminal64.exe 的完整路径>"
+      }
+    }
+  }
+}
