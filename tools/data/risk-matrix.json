@@ -92,7 +92,8 @@
           "v": "na",
           "t": "无对冲机制"
         }
-      }
+      },
+      "evidence": "page"
     },
     {
       "slug": "bailian",
@@ -117,8 +118,8 @@
           "t": "无整批止损；风险由单笔固定止损 + 权益熔断承接"
         },
         "equity_cb": {
-          "v": "partial",
-          "t": "InpEquityStopPct，触发全平＋停开新仓。⚠ 两份文件对预设值记载不一致（CHANGELOG 写 0＝关闭，README 写上线组 20%），需确认出货版实际预设"
+          "v": "yes",
+          "t": "InpEquityStopPct=20（实机确认），触发全平＋停开新仓。为本 EA 唯一的账户层级防线（无整批止损）"
         },
         "spread_filter": {
           "v": "yes",
@@ -132,9 +133,11 @@
       "sources": [
         "Drive: 百煉成金/README_資料夾索引.md（2026-08-12 定版）",
         "Drive: 百煉成金/MT5改版/報告/CHANGELOG_vs_original.md",
-        "Drive: 百煉成金/Portfolio339_EA邏輯解析_內部版.md（MT4 原版）"
+        "Drive: 百煉成金/Portfolio339_EA邏輯解析_內部版.md（MT4 原版）",
+        "MT5 终端参数面板实机确认（InpEquityStopPct=20）"
       ],
-      "note": "产品名对照：百炼成金 = Portfolio339_keep94（339 支母体经样本外筛选保留 90 支）。⚠ 待确认：CHANGELOG 记载 InpEquityStopPct 预设为 0（关闭），README 记载上线组预设为 20%。出货版 .ex5 究竟是哪一个，需实机确认 —— 这是产品页「默认20%」说法的唯一依据。"
+      "note": "产品名对照：百炼成金 = Portfolio339_keep94（339 支母体经样本外筛选保留 90 支）。CHANGELOG 记载 InpEquityStopPct 预设为 0，README 记载上线组为 20%；已于 MT5 终端实机确认出货版为 20%，产品页「默认20%」说法成立。",
+      "evidence": "docs"
     },
     {
       "slug": "liangyi",
@@ -170,7 +173,8 @@
           "v": "na",
           "t": "无对冲机制"
         }
-      }
+      },
+      "evidence": "page"
     },
     {
       "slug": "jinshe",
@@ -206,7 +210,8 @@
           "v": "yes",
           "t": "反向讯号整篮全平并立即反手"
         }
-      }
+      },
+      "evidence": "page"
     },
     {
       "slug": "h1trend",
@@ -242,7 +247,8 @@
           "v": "yes",
           "t": "加仓层数超过门槛即启动首尾对冲削单并整批退场"
         }
-      }
+      },
+      "evidence": "page"
     },
     {
       "slug": "shuangwei",
@@ -278,7 +284,8 @@
           "v": "yes",
           "t": "首尾对冲 + 顺势获利单与网格亏损单的跨区对冲"
         }
-      }
+      },
+      "evidence": "page"
     },
     {
       "slug": "caifu",
@@ -314,7 +321,13 @@
           "v": "no",
           "t": "无对冲削单；靠全局止盈与均价止盈结算"
         }
-      }
+      },
+      "evidence": "page"
     }
-  ]
+  ],
+  "evidence_levels": {
+    "page": "仅依产品页文案整理，未经查证",
+    "docs": "有专案文件或实机佐证",
+    "code": "原始码逐条核对完成（附档名:行号）"
+  }
 }

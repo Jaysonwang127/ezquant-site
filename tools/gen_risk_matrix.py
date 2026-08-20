@@ -50,6 +50,8 @@ EXTRA_CSS = """<style>
 .rm-detail ul{margin:0;padding-left:20px;}
 .rm-detail li{font-size:13.5px;margin-bottom:4px;}
 .rm-detail li b{color:var(--navy);}
+.rm-detail h4 .rm-lv{margin-left:10px;font-size:11px;font-weight:600;color:var(--muted);background:#f4f7fc;border:1px solid var(--border);border-radius:999px;padding:2px 10px;vertical-align:2px;}
+.rm-detail .rm-src{font-size:12.5px;color:var(--muted);margin:6px 0 0;line-height:1.7;}
 @media (max-width:820px){.rm-scroll{overflow-x:auto;}.rm-scroll table{min-width:760px;}}
 </style>"""
 
@@ -105,16 +107,24 @@ def build(matrix, perf):
             f'{ea["cells"][c["key"]]["t"]}</li>'
             for c in cols
         )
-        detail.append(f'<h4>{p["name"]}</h4><ul>{items}</ul>')
+        lvl = matrix["evidence_levels"][ea.get("evidence", "page")]
+        note = f'<p class="rm-src">{ea["note"]}</p>' if ea.get("note") else ""
+        detail.append(f'<h4>{p["name"]}<span class="rm-lv">{lvl}</span></h4>'
+                      f'<ul>{items}</ul>{note}')
     detail_html = '<div class="rm-detail">' + "".join(detail) + "</div>"
 
-    unverified = [e["slug"] for e in matrix["eas"] if not e.get("verified")]
+    lv = {k: [e["slug"] for e in matrix["eas"] if e.get("evidence", "page") == k]
+          for k in ("page", "docs", "code")}
+    parts = []
+    if lv["code"]:
+        parts.append(f'{len(lv["code"])} 支已完成原始码逐条核对')
+    if lv["docs"]:
+        parts.append(f'{len(lv["docs"])} 支有专案文件或实机佐证')
+    if lv["page"]:
+        parts.append(f'{len(lv["page"])} 支仅依产品页文案整理、尚待查证')
     verify_note = (
-        "本表目前依各产品页说明整理，"
-        f"其中 {len(unverified)} 支尚未完成原始码逐条核对；"
-        "标示为「?」者代表产品页未说明该机制，并不等于该机制不存在。"
-        if unverified else
-        "本表所有栏位均已完成原始码逐条核对。"
+        "各产品的查证程度不一：" + "、".join(parts) + "。"
+        "标示为「?」者代表该来源未说明此机制，并不等于该机制不存在。"
     )
 
     return f"""<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
