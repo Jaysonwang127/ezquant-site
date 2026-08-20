@@ -1,0 +1,180 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gold Compass (黄金罗盘) | EZQUANT Gold EA</title>
+<link rel="alternate" hreflang="zh-Hans" href="https://ezquant.com/ea/h1trend.html">
+<link rel="alternate" hreflang="en" href="https://ezquant.com/en/ea/h1trend.html">
+<link rel="alternate" hreflang="x-default" href="https://ezquant.com/ea/h1trend.html">
+<link rel="stylesheet" href="../../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>Gold CFD Quant Strategy Library</small></div>
+<nav><a href="../index.html">Home</a><a href="../index.html#products">Strategies</a><a href="../index.html#pricing">Pricing</a><a href="../index.html#partner">Partnership</a><a class="nav-cta" href="https://t.me/ezquant_gold_bot?start=web_en_ea_h1trend" target="_blank" rel="noopener noreferrer">Chat on Telegram</a><a href="../../ea/h1trend.html" lang="zh-Hans">中文</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">Grid / hedge</span><span class="tag">Head/tail hedge failsafe</span><span class="tag plat">MT4 + MT5</span><span class="risk r3">Aggressive</span></div>
+<h1>黄金罗盘 Gold Compass</h1>
+<p class="subtitle">Gold grid scaling × head/tail hedge failsafe</p>
+<div class="meta-row"><div>Instrument: <strong>XAUUSD (gold)</strong></div><div>Timeframe: <strong>H1 (internal logic runs on an hourly rhythm; other timeframes can attach too)</strong></div><div>Suggested minimum capital: <strong>$5,000+</strong></div><div>Suggested leverage: <strong>1:100 or higher</strong></div></div>
+<div class="cta"><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_h1trend" target="_blank" rel="noopener noreferrer">Chat / request demo account</a><a class="btn ghost" href="../index.html#pricing">View pricing</a></div>
+</div></section>
+
+<nav class="subnav"><div class="container"><a href="#s1">Performance</a><a href="#s2">Overview</a><a href="#s3">Highlights</a><a href="#s4">Entry</a><a href="#s5">Position mgmt</a><a href="#s6">Risk control</a><a href="#s7">Capital</a><a href="#s8">Who it's for</a><a href="#s9">Requirements</a><a href="#s10">Notes</a></div></nav>
+
+<section class="detail-section" id="s1"><div class="container">
+<h2>Historical performance</h2>
+<div class="perf-cond"><span><b>Instrument</b> XAUUSD</span><span><b>Starting capital</b> $100,000</span><span><b>Starting lot size</b> From 0.05</span></div>
+<div class="perf-kpi"><div class="k"><span class="kl">Cumulative net profit</span><span class="kv pos">+$73,378</span><span class="ks">YTD 2026</span></div><div class="k"><span class="kl">Cumulative return</span><span class="kv pos">+73.4%</span><span class="ks">Net profit ÷ starting capital</span></div><div class="k"><span class="kl">Max equity drawdown</span><span class="kv">23.4%</span><span class="ks">Highest across periods</span></div><div class="k"><span class="kl">Profit factor</span><span class="kv">1.77</span><span class="ks">Gross profit ÷ gross loss · 3,311 trades</span></div></div>
+<div class="perf-bars"><div class="bh"><b>Return vs. max drawdown by period</b><span><i style="background:var(--green)"></i>Return<i style="background:var(--red)"></i>Max equity drawdown</span></div><div class="br"><span class="bl">YTD 2026</span><div class="bt"><div class="bf" style="width:92.6%"></div><div class="bd" style="width:29.5%"></div></div><span class="bv">+73.4%<small>DD 23.4%</small></span></div></div>
+<table class="perf-table"><tr><th>Period</th><th>Net profit</th><th>Return</th><th>Max equity drawdown</th><th>Profit factor</th><th>Trades</th></tr>
+<tr><td>YTD 2026</td><td class="num pos">+$73,378</td><td class="num pos">+73.4%</td><td class="num">23.4%</td><td class="num">1.77</td><td class="num">3,311</td></tr>
+</table>
+<p class="perf-note">The figures above are historical performance statistics, not a live trading record; past performance does not indicate future results. Return = net profit ÷ starting capital, not compounded, and excludes deposits/withdrawals. <strong>Max equity drawdown</strong> is the largest decline in account equity (including open floating loss), not just closed-trade drawdown. Ask us for a demo account to see live results.</p>
+</div></section>
+
+<section class="detail-section" id="s2"><div class="container">
+<h2>Overview</h2>
+<p class="lead">Gold Compass is a <b class="hl">grid-scaling EA built around an hourly rhythm</b>, using a four-layer architecture: "<b class="hl">dual-direction independent grids × auto-scaling × average-price trailing take-profit × head/tail hedge failsafe</b>." The system opens a first order when a move starts, scales in automatically by multiplier as the market extends, and locks in profit through two settlement mechanisms — a dollar-profit exit and average-price trailing.</p>
+<p>Once layer count reaches a set threshold, the system automatically switches on <b class="hl">head/tail hedge unwinding</b>, <b class="hl">pre-capping potential risk</b> — actively converting martingale-style exposure into a controlled, small-loss exit.</p>
+</div></section>
+
+<section class="detail-section" id="s3"><div class="container">
+<h2>Key features</h2>
+<div class="feature-block">
+<div class="feature"><h4>Independent dual-direction grid</h4><p><b class="hl">Longs and shorts each place, take-profit and risk-control independently</b>, so they don't interfere with each other during a one-directional move, and can capture both trending and ranging conditions.</p></div>
+<div class="feature"><h4>Flexible scaling and step control</h4><p>Offers both a <b class="hl">"multiplier" and a "fixed increment" scaling mode</b>: multiplier expansion scales faster, fixed increment gives a steadier rhythm — mix them to match your risk appetite.</p></div>
+<div class="feature"><h4>Direct dollar-profit exit</h4><p>Supports <b class="hl">three independent dollar-profit thresholds — long, short, and total</b> — hitting one closes that basket immediately, avoiding profit giveback.</p></div>
+<div class="feature"><h4>Average-price trailing take-profit</h4><p>Once a position hits its activation count, it <b class="hl">automatically starts trailing from that side's average price</b>, stepping dynamically to lock in accumulated floating gains.</p></div>
+<div class="feature"><h4>Head/tail hedge failsafe</h4><p>Once layers exceed a set threshold, the system <b class="hl">actively hedges the first and last order</b>; once the combined result hits a target dollar amount, it exits the whole batch — pre-capping potential risk.</p></div>
+<div class="feature"><h4>Flexible lot sizing</h4><p>Can use a fixed base lot, or enable <b class="hl">"auto lot sizing" that scales dynamically with account equity</b>, with hard caps on max lot per trade and max layers per side.</p></div>
+</div>
+</div></section>
+
+<section class="detail-section" id="s4"><div class="container">
+<h2>Entry logic</h2>
+<p>The first order is built on a <b class="hl">dual-direction pending-order concept</b>, triggering automatically once a move clearly develops; subsequent scaling adds layers against the position at "spacing + spacing multiplier," forming a self-extending grid. <b class="hl">Longs and shorts are fully symmetric at the entry layer</b> — there's no directional bias built in.</p>
+<div class="feature-block">
+<div class="feature"><h4>Spread and slippage filter</h4><p>Checks whether <b class="hl">current spread and slippage are within set limits</b> before entering, avoiding passive fills during extreme quotes.</p></div>
+<div class="feature"><h4>Minimum-distance validation</h4><p>Every pending order's distance is <b class="hl">automatically checked against the broker's minimum valid distance</b>; anything too tight is auto-corrected and logged, so the order can be placed successfully.</p></div>
+</div>
+</div></section>
+
+<section class="detail-section" id="s5"><div class="container">
+<h2>Position management</h2>
+<p>As the market extends, the system scales by "spacing × spacing multiplier"; the next lot size is calculated from a mix of "lot multiplier + lot increment," bounded by <b class="hl">both a "max lot per trade" and a "max layers per side" hard cap</b>. Once layer count hits the head/tail hedge activation threshold, the system <b class="hl">automatically switches into failsafe mode</b>.</p>
+<table><thead><tr><th>Item</th><th>Control method</th></tr></thead><tbody>
+<tr><td>Scaling trigger</td><td>Adds a layer once the market moves against the position by the "layer spacing," with spacing widening by the "spacing multiplier" each layer.</td></tr>
+<tr><td>Layer lot size</td><td>Calculated from "lot multiplier" and "lot increment," which can be used alone or combined.</td></tr>
+<tr><td>Lot cap</td><td>Per-trade lot never exceeds the "max lot per trade" hard cap.</td></tr>
+<tr><td>Layer cap</td><td>Layers on one side never exceed the "max layers per side" hard cap; exceeding the threshold triggers the head/tail hedge failsafe.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s6"><div class="container">
+<h2>Exit and risk-control priority</h2>
+<p>The system runs multiple take-profit and protection layers, checked top-down each cycle — <b class="hl">any layer that triggers fires its own action</b>, so mechanisms don't interfere with each other.</p>
+<table><thead><tr><th>Order</th><th>Mechanism</th><th>Trigger (plain language)</th><th>Action</th></tr></thead><tbody>
+<tr><td>1</td><td>Unified take-profit points</td><td>A fixed take-profit level set per trade, executed server-side.</td><td>That position closes when the target hits.</td></tr>
+<tr><td>2</td><td>Dollar-profit exit</td><td>Long, short or total floating profit reaches a set dollar threshold.</td><td>Closes that side (or everything), locking in profit.</td></tr>
+<tr><td>3</td><td>Average-price trailing</td><td>Once position count hits the activation threshold, trailing starts from the average price; triggers when price pulls back from its high by the retracement amount.</td><td>Closes that side's whole basket, realizing locked-in floating gains.</td></tr>
+<tr><td>4</td><td>Head/tail hedge unwind</td><td>Layers exceed the activation threshold, arming the failsafe; combined result of first/last orders reaches the target dollar amount.</td><td>Hedge-closes the head/tail orders and exits the whole batch, pre-capping potential risk.</td></tr>
+<tr><td>5</td><td>Manual close-all</td><td>User presses "close all" on the control panel.</td><td>Immediately ends all positions.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s7"><div class="container">
+<h2>Risk tier and capital guidance</h2>
+<p>This strategy is a grid-scaling type with <b class="hl">no hard stop-loss point</b>; risk is instead managed by three mechanisms working together — "dollar-profit exit," "average-price trailing," and "head/tail hedge failsafe" — <b class="hl">rated "Aggressive."</b> Extreme one-directional moves can still produce significant floating losses; the head/tail hedge mechanism <b class="hl">reduces but does not fully eliminate</b> this risk — size capital to your own risk tolerance.</p>
+<table><thead><tr><th>Risk tier</th><th>Suggested min. capital</th><th>Suggested leverage</th><th>Expected max drawdown range</th></tr></thead><tbody>
+<tr><td>Aggressive (r3)</td><td>$100,000+</td><td>1:100 or higher</td><td>Depends on parameters</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s8"><div class="container">
+<h2>Who it's for</h2>
+<ul class="audience">
+<li>Traders who want to keep participating in gold through grid scaling but <b class="hl">require a clear, built-in failsafe exit</b>.</li>
+<li>Medium-to-long-term investors who <b class="hl">can tolerate floating losses</b> and swing volatility.</li>
+<li>Users comfortable with MT4/MT5, with <b class="hl">VPS deployment capability</b>.</li>
+<li>Users who understand grid-type risk characteristics and <b class="hl">keep ample margin in reserve</b>.</li>
+</ul>
+</div></section>
+
+<section class="detail-section" id="s9"><div class="container">
+<h2>System requirements</h2>
+<table><thead><tr><th>Item</th><th>Description</th></tr></thead><tbody>
+<tr><td>Platform</td><td>MetaTrader 4 (MT4) / MetaTrader 5 (MT5).</td></tr>
+<tr><td>Instrument</td><td>Primarily gold CFD (XAUUSD); can also be applied to major forex pairs.</td></tr>
+<tr><td>Environment</td><td>Uninterrupted 24-hour connectivity; VPS recommended.</td></tr>
+<tr><td>Chart timeframe</td><td>H1 suggested (internal logic runs on an hourly rhythm); other timeframes can run too.</td></tr>
+<tr><td>Capital sizing</td><td>Estimate potential exposure from "lot multiplier × max layers per side"; suggest an account balance at least 3x the estimated margin.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s10"><div class="container">
+<h2>Usage notes</h2>
+<div class="notice">This EA is a grid-type strategy with <b class="hl">no hard stop-loss point</b> — extreme one-directional moves can still produce significant drawdown; the head/tail hedge mechanism reduces but does not fully eliminate this risk.</div>
+<div class="notice">For a first run, we suggest <b class="hl">starting with the smallest lot size and a conservative multiplier</b>, and observing on demo or a small live account for <b class="hl">1–2 weeks before scaling up</b>.</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>Want to see it running live?</h3><p>Message us on Telegram, or WeChat <strong>ezmoney50</strong> and mention "Gold Compass" — we'll set you up with a read-only MT4/MT5 demo account and walk you through licensing. Partners get their own pricing.</p></div><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_h1trend" target="_blank" rel="noopener noreferrer">Chat on Telegram</a></div>
+<a class="back" href="../index.html#products">← Back to strategy library</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · Gold CFD Quant Strategy Library · Telegram @ezquant_gold_bot · WeChat ezmoney50</div>
+<div class="disclaimer">Historical performance shown on this site is for reference only; past performance does not indicate future results. CFDs are highly leveraged, highly volatile instruments — you can lose your entire deposit. Trade only within your risk tolerance; all gains and losses are your own responsibility. Nothing on this site is investment advice.</div>
+</div></footer>
+<!-- EZQuant Telegram CTA (T8, EN) -->
+<style>
+  .ezq-tg-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f2540;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(15, 37, 64, 0.35);
+    font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #c9a227;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ezq-tg-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 37, 64, 0.45);
+  }
+  .ezq-tg-fab svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .ezq-tg-fab {
+      right: 14px;
+      bottom: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<a
+  class="ezq-tg-fab"
+  href="https://t.me/ezquant_gold_bot?start=web_en_ea_h1trend"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Ask our AI on Telegram"
+>
+  <svg viewBox="0 0 24 24" fill="#c9a227" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.064-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.209.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.174-.041-.249-.024-.106.024-1.793 1.14-5.062 3.345-.479.329-.913.489-1.301.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.892-.663 3.498-1.524 5.831-2.53 6.998-3.017 3.332-1.386 4.023-1.627 4.474-1.635.099-.002.321.023.465.14.121.098.155.23.171.323.016.093.036.305.02.47z"/>
+  </svg>
+  <span>Ask our AI on Telegram</span>
+</a>
+</body></html>

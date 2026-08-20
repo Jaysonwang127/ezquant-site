@@ -1,0 +1,176 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trend Star (顺势之星) | EZQUANT Gold EA</title>
+<link rel="alternate" hreflang="zh-Hans" href="https://ezquant.com/ea/caifu.html">
+<link rel="alternate" hreflang="en" href="https://ezquant.com/en/ea/caifu.html">
+<link rel="alternate" hreflang="x-default" href="https://ezquant.com/ea/caifu.html">
+<link rel="stylesheet" href="../../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>Gold CFD Quant Strategy Library</small></div>
+<nav><a href="../index.html">Home</a><a href="../index.html#products">Strategies</a><a href="../index.html#pricing">Pricing</a><a href="../index.html#partner">Partnership</a><a class="nav-cta" href="https://t.me/ezquant_gold_bot?start=web_en_ea_caifu" target="_blank" rel="noopener noreferrer">Chat on Telegram</a><a href="../../ea/caifu.html" lang="zh-Hans">中文</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">Grid / hedge</span><span class="tag">Trend scaling + grid unwind</span><span class="tag plat">MT4 + MT5</span><span class="risk r3">Aggressive</span></div>
+<h1>顺势之星 Trend Star</h1>
+<p class="subtitle">Scales up with the trend, grids out against it</p>
+<div class="meta-row"><div>Instrument: <strong>XAUUSD (gold)</strong></div><div>Timeframe: <strong>M5</strong></div><div>Suggested minimum capital: <strong>$5,000+ (depends on scaling depth and lot structure)</strong></div><div>Suggested leverage: <strong>1:100+, reserve margin according to scaling depth</strong></div></div>
+<div class="cta"><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_caifu" target="_blank" rel="noopener noreferrer">Chat / request demo account</a><a class="btn ghost" href="../index.html#pricing">View pricing</a></div>
+</div></section>
+
+<nav class="subnav"><div class="container"><a href="#s1">Performance</a><a href="#s2">Overview</a><a href="#s3">Highlights</a><a href="#s4">Entry</a><a href="#s5">Position mgmt</a><a href="#s6">Risk control</a><a href="#s7">Capital</a><a href="#s8">Who it's for</a><a href="#s9">Requirements</a><a href="#s10">Notes</a></div></nav>
+
+<section class="detail-section" id="s1"><div class="container">
+<h2>Historical performance</h2>
+<div class="perf-cond"><span><b>Instrument</b> XAUUSD</span><span><b>Starting capital</b> $100,000</span><span><b>Starting lot size</b> From 0.01</span></div>
+<div class="perf-kpi"><div class="k"><span class="kl">Cumulative net profit</span><span class="kv pos">+$22,556</span><span class="ks">YTD 2026</span></div><div class="k"><span class="kl">Cumulative return</span><span class="kv pos">+22.6%</span><span class="ks">Net profit ÷ starting capital</span></div><div class="k"><span class="kl">Max equity drawdown</span><span class="kv">68.4%</span><span class="ks">Highest across periods</span></div><div class="k"><span class="kl">Profit factor</span><span class="kv">1.34</span><span class="ks">Gross profit ÷ gross loss · 7,833 trades</span></div></div>
+<div class="perf-bars"><div class="bh"><b>Return vs. max drawdown by period</b><span><i style="background:var(--green)"></i>Return<i style="background:var(--red)"></i>Max equity drawdown</span></div><div class="br"><span class="bl">YTD 2026</span><div class="bt"><div class="bf" style="width:30.6%"></div><div class="bd" style="width:92.6%"></div></div><span class="bv">+22.6%<small>DD 68.4%</small></span></div></div>
+<table class="perf-table"><tr><th>Period</th><th>Net profit</th><th>Return</th><th>Max equity drawdown</th><th>Profit factor</th><th>Trades</th></tr>
+<tr><td>YTD 2026</td><td class="num pos">+$22,556</td><td class="num pos">+22.6%</td><td class="num">68.4%</td><td class="num">1.34</td><td class="num">7,833</td></tr>
+</table>
+<p class="perf-note">The figures above are historical performance statistics, not a live trading record; past performance does not indicate future results. Return = net profit ÷ starting capital, not compounded, and excludes deposits/withdrawals. <strong>Max equity drawdown</strong> is the largest decline in account equity (including open floating loss), not just closed-trade drawdown. Ask us for a demo account to see live results.</p>
+</div></section>
+
+<section class="detail-section" id="s2"><div class="container">
+<h2>Overview</h2>
+<p class="lead">Trend Star is a <b class="hl">trend-following scalper built around the M5 timeframe</b>. It uses <b class="hl">four EMAs (13/21/34/55)</b> as the base trend read, with a <b class="hl">seven-dimension confluence filter</b> as the entry gate; it <b class="hl">scales up by multiplier in trend direction to amplify gains, and grids in against the trend, layer by layer, to average down cost</b>. Average-price take-profit, a trailing stop, and a global-dollar close-all round out a complete entry → scaling → exit → defense loop.</p>
+<p>Data on this page comes from <b class="hl">live demo-account trade records</b>, covering <b class="hl">2026-02-03 to 2026-06-02 (119 days)</b> on XAUUSD, 7,626 trades total, with <b class="hl">max drawdown around 8.1%</b>. Past performance does not indicate future results and is for reference only.</p>
+</div></section>
+
+<section class="detail-section" id="s3"><div class="container">
+<h2>Key features</h2>
+<div class="feature-block">
+<div class="feature"><h4>Seven-dimension confluence filter</h4><p>CCI/DeMarker, Bulls/Bears, Gator, MACD, ADX, KDJ, fractals — <b class="hl">seven filters, each independently toggleable</b>, to tune the entry rhythm to your preference.</p></div>
+<div class="feature"><h4>Trend + counter-trend dual module</h4><p><b class="hl">Trend direction scales up with momentum, counter-trend direction grids in to average down</b> — built to handle both trending and ranging markets.</p></div>
+<div class="feature"><h4>Average-price take-profit + trailing stop</h4><p><b class="hl">Average-price take-profit locks in overall profit; the trailing stop follows new highs</b>, giving dual protection.</p></div>
+<div class="feature"><h4>Global dollar close-all</h4><p><b class="hl">Once the set global-profit dollar amount is hit, the whole batch exits and locks in the gain</b>; an optional global max-loss cap (off by default) can also be enabled.</p></div>
+<div class="feature"><h4>Batch cooldown</h4><p>After a full close, the EA <b class="hl">enters a cooldown period</b> to avoid chasing straight back in and stacking up consecutive losses.</p></div>
+<div class="feature"><h4>Max spread and lot limits</h4><p>A <b class="hl">max-spread parameter filters extreme quotes</b>; a max-lot parameter caps how large any single scaled-in trade can get.</p></div>
+</div>
+</div></section>
+
+<section class="detail-section" id="s4"><div class="container">
+<h2>Entry logic</h2>
+<p>The system reads trend direction from the alignment of EMA13/21/34/55, then the enabled filters vote together on momentum, strength, and oscillation conditions; <b class="hl">only when multiple filters confirm together is a signal treated as valid</b>.</p>
+<table><thead><tr><th>Check</th><th>Description</th></tr></thead><tbody>
+<tr><td>Spread filter</td><td>Checks live spread against the max-spread limit before entry; pauses new orders if exceeded.</td></tr>
+<tr><td>Cooldown protection</td><td>No new orders open within the cooldown window after a full close, avoiding an immediate re-entry.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s5"><div class="container">
+<h2>Position management</h2>
+<p>The trend direction scales up layer by layer at the set spacing and trend-scaling multiplier to amplify gains; the counter-trend direction grids in layer by layer at the grid spacing and counter-trend multiplier to average down cost. Layer count and per-trade lot size on both sides are bounded by the max-lot parameter; the system has <b class="hl">no default cap on scaling layers</b>, so actual risk grows the longer a move continues — assess your own capital tolerance accordingly.</p>
+</div></section>
+
+<section class="detail-section" id="s6"><div class="container">
+<h2>Exit and risk-control priority</h2>
+<p>The system runs <b class="hl">multiple stop-loss and profit-protection layers</b>, checked top-down every cycle.</p>
+<table><thead><tr><th>Order</th><th>Mechanism</th><th>Trigger (brief)</th><th>Action</th></tr></thead><tbody>
+<tr><td>1</td><td>Spread filter</td><td>Spread exceeds the max-spread limit.</td><td>Pauses new orders and scaling.</td></tr>
+<tr><td>2</td><td>Global take-profit</td><td>Total floating profit hits the set global-profit dollar amount.</td><td>Closes the whole batch to lock in profit.</td></tr>
+<tr><td>3</td><td>Global stop-loss</td><td>Total floating loss hits the set global-loss dollar amount (off by default, must be enabled manually).</td><td>Closes the whole batch to cut losses.</td></tr>
+<tr><td>4</td><td>Average-price take-profit</td><td>Position average price reaches the set take-profit point distance.</td><td>Closes the whole batch.</td></tr>
+<tr><td>5</td><td>Trailing stop</td><td>Activates once floating profit reaches the trailing-stop activation distance.</td><td>Advances the stop following the trailing-stop step size.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s7"><div class="container">
+<h2>Risk tier and capital guidance</h2>
+<p>This EA <b class="hl">includes a counter-trend grid-scaling module</b>, has no default cap on scaling layers, and <b class="hl">the global stop-loss is off by default</b> — an extreme one-directional move can produce substantial floating losses. <b class="hl">Risk tier: Aggressive.</b> The capital/leverage figures below are only a reference range and must be adjusted to your actual scaling parameters and risk tolerance.</p>
+<table><thead><tr><th>Risk tier</th><th>Suggested min. capital</th><th>Suggested leverage</th><th>Expected max drawdown range</th></tr></thead><tbody>
+<tr><td>Aggressive (default parameters)</td><td>$100,000+</td><td>1:100 or higher</td><td>Depends on parameters; the live demo sample above shows ≈8.1%, which is not representative of extreme conditions</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s8"><div class="container">
+<h2>Who it's for</h2>
+<ul class="audience">
+<li>Traders who want to <b class="hl">catch both trending and ranging gold moves</b> without missing either regime.</li>
+<li>Users who <b class="hl">can tolerate the floating losses counter-trend scaling produces</b> and understand scaling money management.</li>
+<li>Users comfortable with MT4/MT5 who <b class="hl">can configure their own filter combination</b>.</li>
+<li>Users who monitor their account regularly and <b class="hl">are willing to actively set a global stop-loss cap</b>.</li>
+</ul>
+</div></section>
+
+<section class="detail-section" id="s9"><div class="container">
+<h2>System requirements</h2>
+<table><thead><tr><th>Item</th><th>Description</th></tr></thead><tbody>
+<tr><td>Platform</td><td>MT5 as the primary version; an MT4 version is also available.</td></tr>
+<tr><td>Instrument</td><td>Gold CFD (XAUUSD).</td></tr>
+<tr><td>MT5 account type</td><td>Hedging mode.</td></tr>
+<tr><td>Environment</td><td>VPS running 24 hours a day.</td></tr>
+<tr><td>Attach to</td><td>M5 suggested.</td></tr>
+<tr><td>Capital sizing</td><td>Estimate potential exposure from max counter-trend layers and the scaling multiplier; reserve ample margin.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s10"><div class="container">
+<h2>Usage notes</h2>
+<div class="notice">This strategy includes counter-trend grid scaling — extreme one-directional moves can cause significant floating losses. <b class="hl">Always set a global stop-loss cap yourself.</b></div>
+<div class="notice">Your filter combination directly affects entry frequency and signal quality — <b class="hl">start with the default combination and observe before adjusting further</b>.</div>
+<div class="notice">The historical performance shown here comes from a live demo account, and <b class="hl">the sample period is limited</b> — past performance does not indicate future results; assess your own risk tolerance carefully.</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>Want to see it running live?</h3><p>Message us on Telegram, or WeChat <strong>ezmoney50</strong> and mention "Trend Star" — we'll set you up with a read-only MT4/MT5 demo account and walk you through licensing. Partners get their own pricing.</p></div><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_caifu" target="_blank" rel="noopener noreferrer">Chat on Telegram</a></div>
+<a class="back" href="../index.html#products">← Back to strategy library</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · Gold CFD Quant Strategy Library · Telegram @ezquant_gold_bot · WeChat ezmoney50</div>
+<div class="disclaimer">Historical performance shown on this site is for reference only; past performance does not indicate future results. CFDs are highly leveraged, highly volatile instruments — you can lose your entire deposit. Trade only within your risk tolerance; all gains and losses are your own responsibility. Nothing on this site is investment advice.</div>
+</div></footer>
+<!-- EZQuant Telegram CTA (T8, EN) -->
+<style>
+  .ezq-tg-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f2540;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(15, 37, 64, 0.35);
+    font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #c9a227;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ezq-tg-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 37, 64, 0.45);
+  }
+  .ezq-tg-fab svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .ezq-tg-fab {
+      right: 14px;
+      bottom: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<a
+  class="ezq-tg-fab"
+  href="https://t.me/ezquant_gold_bot?start=web_en_ea_caifu"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Ask our AI on Telegram"
+>
+  <svg viewBox="0 0 24 24" fill="#c9a227" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.064-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.209.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.174-.041-.249-.024-.106.024-1.793 1.14-5.062 3.345-.479.329-.913.489-1.301.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.892-.663 3.498-1.524 5.831-2.53 6.998-3.017 3.332-1.386 4.023-1.627 4.474-1.635.099-.002.321.023.465.14.121.098.155.23.171.323.016.093.036.305.02.47z"/>
+  </svg>
+  <span>Ask our AI on Telegram</span>
+</a>
+</body></html>

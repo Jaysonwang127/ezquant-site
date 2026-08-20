@@ -1,0 +1,181 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bai Lian Cheng Jin (百炼成金) | EZQUANT Gold EA</title>
+<link rel="alternate" hreflang="zh-Hans" href="https://ezquant.com/ea/bailian.html">
+<link rel="alternate" hreflang="en" href="https://ezquant.com/en/ea/bailian.html">
+<link rel="alternate" hreflang="x-default" href="https://ezquant.com/ea/bailian.html">
+<link rel="stylesheet" href="../../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>Gold CFD Quant Strategy Library</small></div>
+<nav><a href="../index.html">Home</a><a href="../index.html#products">Strategies</a><a href="../index.html#pricing">Pricing</a><a href="../index.html#partner">Partnership</a><a class="nav-cta" href="https://t.me/ezquant_gold_bot?start=web_en_ea_bailian" target="_blank" rel="noopener noreferrer">Chat on Telegram</a><a href="../../ea/bailian.html" lang="zh-Hans">中文</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">Multi-strategy</span><span class="tag">Volatility-adaptive</span><span class="tag plat">MT5</span><span class="risk r2">Balanced</span></div>
+<h1>百炼成金 Bai Lian Cheng Jin</h1>
+<p class="subtitle">A vast portfolio of sub-strategies, winning through diversification</p>
+<div class="meta-row"><div>Instrument: <strong>XAUUSD (gold)</strong></div><div>Timeframe: <strong>M15</strong></div><div>Suggested minimum capital: <strong>$50,000+</strong></div><div>Suggested leverage: <strong>1:100 or higher</strong></div></div>
+<div class="cta"><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_bailian" target="_blank" rel="noopener noreferrer">Chat / request demo account</a><a class="btn ghost" href="../index.html#pricing">View pricing</a></div>
+</div></section>
+
+<nav class="subnav"><div class="container"><a href="#s1">Performance</a><a href="#s2">Overview</a><a href="#s3">Highlights</a><a href="#s4">Entry</a><a href="#s5">Position mgmt</a><a href="#s6">Risk control</a><a href="#s7">Capital</a><a href="#s8">Who it's for</a><a href="#s9">Requirements</a><a href="#s10">Notes</a></div></nav>
+
+<section class="detail-section" id="s1"><div class="container">
+<h2>Historical performance</h2>
+<div class="perf-cond"><span><b>Instrument</b> XAUUSD</span><span><b>Starting capital</b> $100,000</span><span><b>Starting lot size</b> Built into the portfolio</span></div>
+<div class="perf-kpi"><div class="k"><span class="kl">Cumulative net profit</span><span class="kv pos">+$14,781</span><span class="ks">YTD 2026</span></div><div class="k"><span class="kl">Cumulative return</span><span class="kv pos">+14.8%</span><span class="ks">Net profit ÷ starting capital</span></div><div class="k"><span class="kl">Max equity drawdown</span><span class="kv">10.7%</span><span class="ks">Highest across periods</span></div><div class="k"><span class="kl">Profit factor</span><span class="kv">1.21</span><span class="ks">Gross profit ÷ gross loss · 2,709 trades</span></div></div>
+<div class="perf-bars"><div class="bh"><b>Return vs. max drawdown by period</b><span><i style="background:var(--green)"></i>Return<i style="background:var(--red)"></i>Max equity drawdown</span></div><div class="br"><span class="bl">YTD 2026</span><div class="bt"><div class="bf" style="width:92.6%"></div><div class="bd" style="width:66.9%"></div></div><span class="bv">+14.8%<small>DD 10.7%</small></span></div></div>
+<table class="perf-table"><tr><th>Period</th><th>Net profit</th><th>Return</th><th>Max equity drawdown</th><th>Profit factor</th><th>Trades</th></tr>
+<tr><td>YTD 2026</td><td class="num pos">+$14,781</td><td class="num pos">+14.8%</td><td class="num">10.7%</td><td class="num">1.21</td><td class="num">2,709</td></tr>
+</table>
+<p class="perf-note">The figures above are historical performance statistics, not a live trading record; past performance does not indicate future results. Return = net profit ÷ starting capital, not compounded, and excludes deposits/withdrawals. <strong>Max equity drawdown</strong> is the largest decline in account equity (including open floating loss), not just closed-trade drawdown. Ask us for a demo account to see live results.</p>
+</div></section>
+
+<section class="detail-section" id="s2"><div class="container">
+<h2>Overview</h2>
+<p class="lead">Bai Lian Cheng Jin is a <b class="hl">portfolio system made of nearly 100 independent sub-strategies</b> trading gold CFDs on the <b class="hl">M15 timeframe</b>. Each sub-strategy has its own signal logic and its own stop-loss/take-profit, and <b class="hl">opens and closes fully independently — no averaging, no hedging between them</b>. The edge comes from "diversifying across a large number of weak signals," not from betting on direction with a single entry logic.</p>
+<p>The sub-strategies were <b class="hl">selected out-of-sample</b> and kept only if they held up; stop/target distances scale with volatility, and an <b class="hl">account-level equity circuit breaker</b> sets a hard boundary on total risk while preserving the diversification benefit.</p>
+</div></section>
+
+<section class="detail-section" id="s3"><div class="container">
+<h2>Key features</h2>
+<div class="feature-block">
+<div class="feature"><h4>Multi-strategy portfolio</h4><p><b class="hl">Nearly 90 independent sub-strategies</b> that survived out-of-sample screening run in parallel; no single trade's P&L represents the portfolio.</p></div>
+<div class="feature"><h4>Fixed stop/target</h4><p>Every trade has its <b class="hl">stop and target set at entry</b> — no adding to it, no averaging down, no waiting for a reversal to bail you out.</p></div>
+<div class="feature"><h4>Volatility-adaptive</h4><p>Stop/target distances <b class="hl">scale automatically with market volatility</b> (capped), with lot size adjusted inversely to keep per-trade risk roughly consistent.</p></div>
+<div class="feature"><h4>Equity circuit breaker</h4><p>If account equity drawdown from its peak <b class="hl">hits a set threshold (20% by default), everything closes and trading stops</b> — the account-level last line of defense.</p></div>
+<div class="feature"><h4>Spread filter</h4><p>New entries <b class="hl">pause when live spread exceeds a set threshold</b>, avoiding poor fills during abnormal market conditions.</p></div>
+<div class="feature"><h4>Position cap</h4><p>A <b class="hl">hard cap on total concurrent positions</b> prevents exposure from spiraling when several sub-strategies signal in the same direction at once.</p></div>
+</div>
+</div></section>
+
+<section class="detail-section" id="s4"><div class="container">
+<h2>Entry logic</h2>
+<p>Each sub-strategy <b class="hl">evaluates its signal exactly once, at the open of each new M15 bar</b>, judging direction independently based on its own indicator combination, then <b class="hl">enters with a pending order</b> (breakout-style) when conditions align — never scanning tick-by-tick or chasing at market. Any given sub-strategy holds <b class="hl">at most one order at a time</b> and won't stack entries on the same signal.</p>
+<table><thead><tr><th>Item</th><th>Description</th></tr></thead><tbody>
+<tr><td>Evaluation timing</td><td>Once, at each new M15 bar open</td></tr>
+<tr><td>Entry style</td><td>Pending order (breakout), never market-chasing</td></tr>
+<tr><td>Signal source</td><td>Each sub-strategy's own independent indicator combination</td></tr>
+<tr><td>Duplicate-entry limit</td><td>Each sub-strategy holds at most one order at a time</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s5"><div class="container">
+<h2>Position management</h2>
+<p>This product <b class="hl">uses no averaging, martingale, or grid</b>: every trade stands on its own from open to close, never added to on adverse moves. Whatever complexity you see in total account exposure comes from <b class="hl">nearly 90 independent sub-strategies opening and closing on their own schedules</b>, not from any single trade being scaled up.</p>
+<table><thead><tr><th>Item</th><th>Description</th></tr></thead><tbody>
+<tr><td>Scaling</td><td>None — no adding, no averaging</td></tr>
+<tr><td>Sub-strategy independence</td><td>Each has its own signal and stop/target, unaffected by the others</td></tr>
+<tr><td>Concurrent positions</td><td>Multiple sub-strategies may each hold a position at once; total is capped (60 by default)</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s6"><div class="container">
+<h2>Exit and risk-control priority</h2>
+<p>Each individual trade only has <b class="hl">two exit lines — fixed stop-loss and fixed take-profit</b> — no trailing stop or break-even move. At the account level, an equity circuit breaker acts as the <b class="hl">portfolio's last line of defense</b>.</p>
+<table><thead><tr><th>Priority</th><th>Layer</th><th>Description</th></tr></thead><tbody>
+<tr><td>1</td><td>Pending-order timeout</td><td>Unfilled pending orders auto-cancel after a set time</td></tr>
+<tr><td>2</td><td>Fixed stop-loss</td><td>Set at entry; closes when price hits it</td></tr>
+<tr><td>3</td><td>Fixed take-profit</td><td>Set at entry; closes when price hits it</td></tr>
+<tr><td>4</td><td>Equity circuit breaker</td><td>Account equity drawdown from its peak hits a set threshold — everything is force-closed and trading stops</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s7"><div class="container">
+<h2>Risk tier and capital guidance</h2>
+<p>Bai Lian Cheng Jin uses fixed stop/target with no averaging per trade — a relatively disciplined portfolio structure. But because nearly 90 sub-strategies can be positioned simultaneously, overall exposure fluctuates with how many signals fire together, so it's <b class="hl">classed as "Balanced"</b>, with the equity circuit breaker as the risk ceiling backstop.</p>
+<table><thead><tr><th>Risk tier</th><th>Suggested min. capital</th><th>Suggested leverage</th><th>Expected max drawdown range</th></tr></thead><tbody>
+<tr><td>Balanced</td><td>$100,000+</td><td>1:100 or higher</td><td>Historical reference range ≈ 11%–20% (bounded by the circuit-breaker ceiling; not a guarantee of future results)</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s8"><div class="container">
+<h2>Who it's for</h2>
+<ul class="audience">
+<li>Investors who want <b class="hl">diversified exposure to gold CFDs</b> rather than betting on direction with one entry logic.</li>
+<li>Investors who can tolerate frequent in-and-out trading across sub-strategies and <b class="hl">occasional losing months or quarters</b>.</li>
+<li>Accounts on a <b class="hl">hedging platform</b>, sized to cover margin requirements for multiple concurrent positions.</li>
+<li>Investors who accept that "past performance doesn't guarantee future results" and are willing to <b class="hl">start small and verify against a live account</b> before scaling up.</li>
+</ul>
+</div></section>
+
+<section class="detail-section" id="s9"><div class="container">
+<h2>System requirements</h2>
+<table><thead><tr><th>Item</th><th>Requirement</th></tr></thead><tbody>
+<tr><td>Platform</td><td>MT5</td></tr>
+<tr><td>Account type</td><td>Hedging account — Netting accounts cannot run this EA</td></tr>
+<tr><td>Instrument</td><td>XAUUSD (gold)</td></tr>
+<tr><td>Attach to</td><td>M15 (other timeframes will not start)</td></tr>
+<tr><td>Other</td><td>No custom indicators required</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s10"><div class="container">
+<h2>Usage notes</h2>
+<div class="notice">All historical performance and statistics on this page are based on historical simulation and do not indicate future returns — <b class="hl">live results may differ from backtested ones</b>.</div>
+<div class="notice">We recommend <b class="hl">verifying with the smallest lot size live first</b>, confirming execution matches expectations, before scaling up capital and lot size.</div>
+<div class="notice">If you adjust the base lot size, <b class="hl">scale the equity circuit-breaker percentage proportionally</b>, so your actual risk exposure doesn't drift from what's intended.</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>Want to see it running live?</h3><p>Message us on Telegram, or WeChat <strong>ezmoney50</strong> and mention "Bai Lian Cheng Jin" — we'll set you up with a read-only MT4/MT5 demo account and walk you through licensing. Partners get their own pricing.</p></div><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_bailian" target="_blank" rel="noopener noreferrer">Chat on Telegram</a></div>
+<a class="back" href="../index.html#products">← Back to strategy library</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · Gold CFD Quant Strategy Library · Telegram @ezquant_gold_bot · WeChat ezmoney50</div>
+<div class="disclaimer">Historical performance shown on this site is for reference only; past performance does not indicate future results. CFDs are highly leveraged, highly volatile instruments — you can lose your entire deposit. Trade only within your risk tolerance; all gains and losses are your own responsibility. Nothing on this site is investment advice.</div>
+</div></footer>
+<!-- EZQuant Telegram CTA (T8, EN) -->
+<style>
+  .ezq-tg-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f2540;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(15, 37, 64, 0.35);
+    font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #c9a227;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ezq-tg-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 37, 64, 0.45);
+  }
+  .ezq-tg-fab svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .ezq-tg-fab {
+      right: 14px;
+      bottom: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<a
+  class="ezq-tg-fab"
+  href="https://t.me/ezquant_gold_bot?start=web_en_ea_bailian"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Ask our AI on Telegram"
+>
+  <svg viewBox="0 0 24 24" fill="#c9a227" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.064-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.209.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.174-.041-.249-.024-.106.024-1.793 1.14-5.062 3.345-.479.329-.913.489-1.301.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.892-.663 3.498-1.524 5.831-2.53 6.998-3.017 3.332-1.386 4.023-1.627 4.474-1.635.099-.002.321.023.465.14.121.098.155.23.171.323.016.093.036.305.02.47z"/>
+  </svg>
+  <span>Ask our AI on Telegram</span>
+</a>
+</body></html>

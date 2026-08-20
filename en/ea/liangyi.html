@@ -1,0 +1,183 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liang Yi (两仪) | EZQUANT Gold EA</title>
+<link rel="alternate" hreflang="zh-Hans" href="https://ezquant.com/ea/liangyi.html">
+<link rel="alternate" hreflang="en" href="https://ezquant.com/en/ea/liangyi.html">
+<link rel="alternate" hreflang="x-default" href="https://ezquant.com/ea/liangyi.html">
+<link rel="stylesheet" href="../../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>Gold CFD Quant Strategy Library</small></div>
+<nav><a href="../index.html">Home</a><a href="../index.html#products">Strategies</a><a href="../index.html#pricing">Pricing</a><a href="../index.html#partner">Partnership</a><a class="nav-cta" href="https://t.me/ezquant_gold_bot?start=web_en_ea_liangyi" target="_blank" rel="noopener noreferrer">Chat on Telegram</a><a href="../../ea/liangyi.html" lang="zh-Hans">中文</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">Breakout</span><span class="tag">Pivot breakout + pullback</span><span class="tag plat">MT5</span><span class="risk r2">Balanced</span></div>
+<h1>两仪 Liang Yi</h1>
+<p class="subtitle"><b class="hl">Trend-following pivot breakout</b>, with an optional pullback engine</p>
+<div class="meta-row"><div>Instrument: <strong>XAUUSD (gold)</strong></div><div>Timeframe: <strong>M1, always-on (signals on D1/H4/H1, secondary engine on M15)</strong></div><div>Suggested minimum capital: <strong>$2,000+</strong></div><div>Suggested leverage: <strong>1:100 or higher (hedging account)</strong></div></div>
+<div class="cta"><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_liangyi" target="_blank" rel="noopener noreferrer">Chat / request demo account</a><a class="btn ghost" href="../index.html#pricing">View pricing</a></div>
+</div></section>
+
+<nav class="subnav"><div class="container"><a href="#s1">Performance</a><a href="#s2">Overview</a><a href="#s3">Highlights</a><a href="#s4">Entry</a><a href="#s5">Position mgmt</a><a href="#s6">Risk control</a><a href="#s7">Capital</a><a href="#s8">Who it's for</a><a href="#s9">Requirements</a><a href="#s10">Notes</a></div></nav>
+
+<section class="detail-section" id="s1"><div class="container">
+<h2>Historical performance</h2>
+<div class="perf-cond"><span><b>Instrument</b> XAUUSD</span><span><b>Starting capital</b> $1,000</span><span><b>Starting lot size</b> 0.01</span></div>
+<div class="perf-kpi"><div class="k"><span class="kl">Cumulative net profit</span><span class="kv pos">+$7,922</span><span class="ks">3 periods combined</span></div><div class="k"><span class="kl">Cumulative return</span><span class="kv pos">+792.2%</span><span class="ks">Net profit ÷ starting capital</span></div><div class="k"><span class="kl">Max equity drawdown</span><span class="kv">30.0%</span><span class="ks">Highest across periods</span></div><div class="k"><span class="kl">Profit factor</span><span class="kv">1.80</span><span class="ks">Average across periods · 3,882 trades</span></div></div>
+<div class="perf-bars"><div class="bh"><b>Return vs. max drawdown by period</b><span><i style="background:var(--green)"></i>Return<i style="background:var(--red)"></i>Max equity drawdown</span></div><div class="br"><span class="bl">Full year 2024</span><div class="bt"><div class="bf" style="width:62.1%"></div><div class="bd" style="width:7.0%"></div></div><span class="bv">+200.9%<small>DD 22.6%</small></span></div><div class="br"><span class="bl">Full year 2025</span><div class="bt"><div class="bf" style="width:90.2%"></div><div class="bd" style="width:8.0%"></div></div><span class="bv">+291.8%<small>DD 25.8%</small></span></div><div class="br"><span class="bl">YTD 2026</span><div class="bt"><div class="bf" style="width:92.6%"></div><div class="bd" style="width:9.3%"></div></div><span class="bv">+299.5%<small>DD 30.0%</small></span></div></div>
+<table class="perf-table"><tr><th>Period</th><th>Net profit</th><th>Return</th><th>Max equity drawdown</th><th>Profit factor</th><th>Trades</th></tr>
+<tr><td>Full year 2024</td><td class="num pos">+$2,009</td><td class="num pos">+200.9%</td><td class="num">22.6%</td><td class="num">1.57</td><td class="num">1,673</td></tr>
+<tr><td>Full year 2025</td><td class="num pos">+$2,918</td><td class="num pos">+291.8%</td><td class="num">25.8%</td><td class="num">1.65</td><td class="num">1,461</td></tr>
+<tr><td>YTD 2026</td><td class="num pos">+$2,995</td><td class="num pos">+299.5%</td><td class="num">30.0%</td><td class="num">2.18</td><td class="num">748</td></tr>
+</table>
+<p class="perf-note">The figures above are historical performance statistics, not a live trading record; past performance does not indicate future results. Return = net profit ÷ starting capital, not compounded, and excludes deposits/withdrawals. <strong>Max equity drawdown</strong> is the largest decline in account equity (including open floating loss), not just closed-trade drawdown. Ask us for a demo account to see live results.</p>
+</div></section>
+
+<section class="detail-section" id="s2"><div class="container">
+<h2>Overview</h2>
+<p class="lead">Liang Yi is a <b class="hl">dual-engine programmatic strategy</b> for XAUUSD (gold), built around <b class="hl">trend-following pivot breakouts</b>: it enters in the direction of confirmed breaks of recent swing highs/lows, and <b class="hl">never averages against the trend and never martingales</b>. The main engine runs several sub-strategies in parallel, <b class="hl">each opening and stopping out independently</b> without interfering with one another; exits are layered — a break-even trailing stop locks in profit first, then structure-based trailing stops and trailing targets take over, balancing noise tolerance with protecting realized gains.</p>
+<p>Liang Yi also has an <b class="hl">optional second engine</b>, a supplementary oversold-pullback signal, <b class="hl">disabled by default</b> and switchable on depending on the account's risk appetite. The EA also includes <b class="hl">automatic filtering around major economic releases</b> to reduce slippage and abnormal-volatility risk during news events.</p>
+</div></section>
+
+<section class="detail-section" id="s3"><div class="container">
+<h2>Key features</h2>
+<div class="feature-block">
+<div class="feature"><h4>Pivot trend breakout</h4><p>Uses recent swing highs/lows as reference points and <b class="hl">enters with pending orders once a close confirms the break</b> — no chasing candles.</p></div>
+<div class="feature"><h4>Parallel sub-strategies</h4><p>The main engine runs several parameter variants at once, <b class="hl">each opening and stopping out independently</b>, spreading reliance across multiple trigger conditions rather than one signal.</p></div>
+<div class="feature"><h4>No counter-trend averaging, no martingale</h4><p>Every trade is an <b class="hl">independent position with an independent hard stop</b> — no averaging down, no doubling up; risk never scales with floating loss.</p></div>
+<div class="feature"><h4>Layered exits protect gains</h4><p><b class="hl">Break-even move, structure-based trailing stop, and trailing target</b> hand off in sequence to progressively lock in realized profit.</p></div>
+<div class="feature"><h4>Optional second engine</h4><p>A built-in <b class="hl">oversold-pullback signal</b> as a supplementary engine, <b class="hl">off by default</b>, switchable based on risk appetite, and <b class="hl">does not affect the main engine</b>.</p></div>
+<div class="feature"><h4>Automatic news filter</h4><p>New orders <b class="hl">automatically pause around CPI, PPI, NFP, retail sales, FOMC</b> and other major releases to reduce the impact of abnormal news volatility.</p></div>
+</div>
+</div></section>
+
+<section class="detail-section" id="s4"><div class="container">
+<h2>Entry logic</h2>
+<p>The main engine continuously scans each sub-strategy's signal conditions on the always-on M1 cycle, using recent pivot highs/lows as the reference. Once price breaks and a close confirms it, the EA <b class="hl">enters with a pending order in trend direction</b>; <b class="hl">any pending order that doesn't fill within its validity window is auto-cancelled</b> rather than sitting on the book as accumulating risk. The sub-strategies use different parameters (different signal timeframes and breakout conditions), judge independently, and don't share positions or stops.</p>
+<p>The second engine (off by default) is an <b class="hl">oversold-pullback signal</b>: it identifies a structural rebound after an oversold reading via momentum indicators and follows through in trend direction — a different trigger mechanism from the main engine's breakout logic, meant to add opportunities during ranging or pullback phases.</p>
+<table><tr><th>Engine</th><th>Trigger</th><th>Status</th></tr>
+<tr><td>Main engine</td><td>Break of pivot high/low, pending order on close confirmation</td><td>On by default</td></tr>
+<tr><td>Second engine (optional)</td><td>Oversold pullback, trend-following follow-through</td><td>Off by default, switchable</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s5"><div class="container">
+<h2>Position management</h2>
+<p>Liang Yi never averages against the trend and never martingales. <b class="hl">Every trade opens independently with an independent hard stop — position size never adjusts based on floating loss.</b> Because the main engine runs multiple sub-strategies in parallel, the account may hold several independent positions at once (each with its own stop) — this is a deliberate result of <b class="hl">spreading across multiple trigger conditions for broader signal coverage</b>, not averaging down. If enabled, the second engine trades with its own independent position and stop, sharing no risk exposure with the main engine.</p>
+<table><tr><th>Item</th><th>Description</th></tr>
+<tr><td>Scaling</td><td>None (no counter-trend averaging, no martingale)</td></tr>
+<tr><td>Concurrent positions</td><td>The main engine's sub-strategies can each hold an independent position at the same time</td></tr>
+<tr><td>Stop-loss</td><td>Independent hard stop per trade — risk never grows with floating loss</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s6"><div class="container">
+<h2>Exit and risk-control priority</h2>
+<p>Exits are handled in layers, <b class="hl">locking in floating profit first, then handing off to structural protection</b>:</p>
+<table><tr><th>Priority</th><th>Mechanism</th><th>Description</th></tr>
+<tr><td>1</td><td>Break-even move</td><td>Once floating profit hits a set ratio, the stop moves to near cost — locking in a scratch trade at worst</td></tr>
+<tr><td>2</td><td>Structure-based trailing stop</td><td>Tightens the stop dynamically based on price structure (highs/lows), following the trend to protect realized floating gains</td></tr>
+<tr><td>3</td><td>Trailing target</td><td>Moves the take-profit target up as the trend continues in your favor</td></tr>
+<tr><td>4</td><td>Fixed stop-loss / take-profit</td><td>Fallback exit if none of the above trigger</td></tr>
+</table>
+<p>The EA also <b class="hl">automatically pauses new entries before Friday's close</b> and around CPI, PPI, NFP, retail sales, FOMC and other major data releases, to reduce risk from abnormal volatility and slippage during news events.</p>
+</div></section>
+
+<section class="detail-section" id="s7"><div class="container">
+<h2>Risk tier and capital guidance</h2>
+<p>Liang Yi is rated <strong>Balanced (r2)</strong>: every trade carries an independent hard stop with no counter-trend averaging or martingale, so per-trade risk is contained; but because multiple sub-strategies can be in the market simultaneously, <b class="hl">account-level exposure scales with how many positions are open at once</b>, giving it higher volatility and drawdown than a single-position strategy — hence it isn't classed as the most conservative tier.</p>
+<table><tr><th>Risk tier</th><th>Suggested min. capital</th><th>Suggested leverage</th><th>Expected max drawdown range</th></tr>
+<tr><td>Balanced (r2)</td><td>$1,000+</td><td>1:100 or higher</td><td>Depends on parameters; see the "Historical performance" section above for tested figures</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s8"><div class="container">
+<h2>Who it's for</h2>
+<ul class="audience">
+<li>Traders who want a <b class="hl">hands-off, trend-following breakout approach</b> to gold.</li>
+<li>Accounts comfortable with <b class="hl">several independent positions open at once</b>, seeking a higher trade frequency.</li>
+<li>Traders who want clear stop-loss discipline and <b class="hl">explicitly reject martingale or unlimited averaging</b>.</li>
+<li>More advanced users who may want to <b class="hl">enable the optional second engine</b> later to adjust trade frequency.</li>
+</ul>
+</div></section>
+
+<section class="detail-section" id="s9"><div class="container">
+<h2>System requirements</h2>
+<table><tr><th>Item</th><th>Requirement</th></tr>
+<tr><td>Platform</td><td>MT5</td></tr>
+<tr><td>Account type</td><td>Hedging account</td></tr>
+<tr><td>Instrument</td><td>XAUUSD (gold)</td></tr>
+<tr><td>Attach to</td><td>M1 (internal signal timeframes are handled per sub-strategy)</td></tr>
+<tr><td>VPS</td><td>Recommended, for stable 24-hour operation</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s10"><div class="container">
+<h2>Usage notes</h2>
+<div class="notice">Liang Yi's main engine runs multiple sub-strategies in parallel, so the account may hold several independent positions at once — <b class="hl">assess your risk tolerance against total account exposure, not a single position</b>.</div>
+<div class="notice">The second engine is off by default. If you enable it, evaluate your account's overall risk tolerance first — <b class="hl">we don't recommend turning it on without understanding its trigger logic</b>.</div>
+<div class="notice">Past performance does not indicate future results. Gold CFDs are volatile — <b class="hl">size positions to your own capital and risk tolerance</b>.</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>Want to see it running live?</h3><p>Message us on Telegram, or WeChat <strong>ezmoney50</strong> and mention "Liang Yi" — we'll set you up with a read-only MT4/MT5 demo account and walk you through licensing. Partners get their own pricing.</p></div><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_liangyi" target="_blank" rel="noopener noreferrer">Chat on Telegram</a></div>
+<a class="back" href="../index.html#products">← Back to strategy library</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · Gold CFD Quant Strategy Library · Telegram @ezquant_gold_bot · WeChat ezmoney50</div>
+<div class="disclaimer">Historical performance shown on this site is for reference only; past performance does not indicate future results. CFDs are highly leveraged, highly volatile instruments — you can lose your entire deposit. Trade only within your risk tolerance; all gains and losses are your own responsibility. Nothing on this site is investment advice.</div>
+</div></footer>
+<!-- EZQuant Telegram CTA (T8, EN) -->
+<style>
+  .ezq-tg-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f2540;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(15, 37, 64, 0.35);
+    font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #c9a227;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ezq-tg-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 37, 64, 0.45);
+  }
+  .ezq-tg-fab svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .ezq-tg-fab {
+      right: 14px;
+      bottom: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<a
+  class="ezq-tg-fab"
+  href="https://t.me/ezquant_gold_bot?start=web_en_ea_liangyi"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Ask our AI on Telegram"
+>
+  <svg viewBox="0 0 24 24" fill="#c9a227" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.064-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.209.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.174-.041-.249-.024-.106.024-1.793 1.14-5.062 3.345-.479.329-.913.489-1.301.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.892-.663 3.498-1.524 5.831-2.53 6.998-3.017 3.332-1.386 4.023-1.627 4.474-1.635.099-.002.321.023.465.14.121.098.155.23.171.323.016.093.036.305.02.47z"/>
+  </svg>
+  <span>Ask our AI on Telegram</span>
+</a>
+</body></html>

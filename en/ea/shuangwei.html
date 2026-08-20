@@ -1,0 +1,183 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shuang Wei (黄金双卫) | EZQUANT Gold EA</title>
+<link rel="alternate" hreflang="zh-Hans" href="https://ezquant.com/ea/shuangwei.html">
+<link rel="alternate" hreflang="en" href="https://ezquant.com/en/ea/shuangwei.html">
+<link rel="alternate" hreflang="x-default" href="https://ezquant.com/ea/shuangwei.html">
+<link rel="stylesheet" href="../../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>Gold CFD Quant Strategy Library</small></div>
+<nav><a href="../index.html">Home</a><a href="../index.html#products">Strategies</a><a href="../index.html#pricing">Pricing</a><a href="../index.html#partner">Partnership</a><a class="nav-cta" href="https://t.me/ezquant_gold_bot?start=web_en_ea_shuangwei" target="_blank" rel="noopener noreferrer">Chat on Telegram</a><a href="../../ea/shuangwei.html" lang="zh-Hans">中文</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">Grid / hedge</span><span class="tag">Dynamic volatility grid scaling</span><span class="tag plat">MT4 + MT5</span><span class="risk r3">Aggressive</span></div>
+<h1>黄金双卫 Shuang Wei</h1>
+<p class="subtitle">Trend scaling × dynamic grid refill × multi-momentum confluence filter</p>
+<div class="meta-row"><div>Instrument: <strong>XAUUSD (gold)</strong></div><div>Timeframe: <strong>Whatever chart it's attached to (M5 suggested)</strong></div><div>Suggested minimum capital: <strong>$3,000+</strong></div><div>Suggested leverage: <strong>1:100 or higher</strong></div></div>
+<div class="cta"><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_shuangwei" target="_blank" rel="noopener noreferrer">Chat / request demo account</a><a class="btn ghost" href="../index.html#pricing">View pricing</a></div>
+</div></section>
+
+<nav class="subnav"><div class="container"><a href="#s1">Performance</a><a href="#s2">Overview</a><a href="#s3">Highlights</a><a href="#s4">Entry</a><a href="#s5">Position mgmt</a><a href="#s6">Risk control</a><a href="#s7">Capital</a><a href="#s8">Who it's for</a><a href="#s9">Requirements</a><a href="#s10">Notes</a></div></nav>
+
+<section class="detail-section" id="s1"><div class="container">
+<h2>Historical performance</h2>
+<div class="perf-cond"><span><b>Instrument</b> XAUUSD</span><span><b>Starting capital</b> $100,000</span><span><b>Starting lot size</b> From 0.03</span></div>
+<div class="perf-kpi"><div class="k"><span class="kl">Cumulative net profit</span><span class="kv pos">+$77,949</span><span class="ks">YTD 2026</span></div><div class="k"><span class="kl">Cumulative return</span><span class="kv pos">+77.9%</span><span class="ks">Net profit ÷ starting capital</span></div><div class="k"><span class="kl">Max equity drawdown</span><span class="kv">32.5%</span><span class="ks">Highest across periods</span></div><div class="k"><span class="kl">Profit factor</span><span class="kv">1.56</span><span class="ks">Gross profit ÷ gross loss · 6,852 trades</span></div></div>
+<div class="perf-bars"><div class="bh"><b>Return vs. max drawdown by period</b><span><i style="background:var(--green)"></i>Return<i style="background:var(--red)"></i>Max equity drawdown</span></div><div class="br"><span class="bl">YTD 2026</span><div class="bt"><div class="bf" style="width:92.6%"></div><div class="bd" style="width:38.6%"></div></div><span class="bv">+77.9%<small>DD 32.5%</small></span></div></div>
+<table class="perf-table"><tr><th>Period</th><th>Net profit</th><th>Return</th><th>Max equity drawdown</th><th>Profit factor</th><th>Trades</th></tr>
+<tr><td>YTD 2026</td><td class="num pos">+$77,949</td><td class="num pos">+77.9%</td><td class="num">32.5%</td><td class="num">1.56</td><td class="num">6,852</td></tr>
+</table>
+<p class="perf-note">The figures above are historical performance statistics, not a live trading record; past performance does not indicate future results. Return = net profit ÷ starting capital, not compounded, and excludes deposits/withdrawals. <strong>Max equity drawdown</strong> is the largest decline in account equity (including open floating loss), not just closed-trade drawdown. Ask us for a demo account to see live results.</p>
+</div></section>
+
+<section class="detail-section" id="s2"><div class="container">
+<h2>Overview</h2>
+<p class="lead">Shuang Wei is a strategy that combines <b class="hl">"trend scaling" with "dynamic grid refill"</b> in one program, driven by the market's real-time realized volatility: grid entry spacing and settlement/exit thresholds <b class="hl">automatically expand or contract with volatility</b> — wider defense and higher profit ceilings when the market moves hard, tighter when it's quiet — built to capture swings with a clear direction.</p>
+<p>Overall direction is judged with <b class="hl">multiple EMAs on the attached timeframe</b>, combined with momentum, strength and oscillation-structure indicators to confirm signals and avoid single-indicator misreads; exits are handled by <b class="hl">unified take-profit, floating-profit-in-dollars triggers, average-price trailing, and head/tail hedging</b> working together.</p>
+</div></section>
+
+<section class="detail-section" id="s3"><div class="container">
+<h2>Key features</h2>
+<div class="feature-block">
+<div class="feature"><h4>Trend scaling + dynamic grid</h4><p>The trend module scales up as a trend extends; the grid module <b class="hl">refills on pullbacks using spacing calculated from real market volatility</b> — built to handle both trending and ranging conditions.</p></div>
+<div class="feature"><h4>Dual momentum filter</h4><p>Trend scaling only fires when spacing conditions are met <b class="hl">and the system confirms momentum is still strong</b>, reducing chasing entries into exhausted moves.</p></div>
+<div class="feature"><h4>Extreme-sentiment filter</h4><p>Before refilling the grid, the system checks an extreme-sentiment indicator, <b class="hl">only allowing a refill order when it detects a sharp panic move or a capitulation sell-off</b>.</p></div>
+<div class="feature"><h4>Dynamic swing settlement</h4><p>Profit targets adjust dynamically with real market volatility — <b class="hl">the more violent the move, the larger the exit target</b> — avoiding an early exit that leaves money on the table.</p></div>
+<div class="feature"><h4>Breathing room to unwind against you</h4><p>When a grid basket's total P&L turns from negative to positive, it doesn't close immediately at breakeven — it <b class="hl">waits for a set amount of dynamic-volatility room</b> first, giving reversals a chance to develop into real profit.</p></div>
+<div class="feature"><h4>Head/tail hedge and cross-zone rescue</h4><p>When grid orders pile up, the system <b class="hl">automatically pairs the most-profitable and most-losing orders for a hedge close</b>; when combined profit from trend-winning trades and grid-losing trades reaches a safe net value, it can also close across zones, speeding up position reduction.</p></div>
+</div>
+</div></section>
+
+<section class="detail-section" id="s4"><div class="container">
+<h2>Entry logic</h2>
+<p>Overall direction is set by multiple EMAs on the attached timeframe, then confirmed by momentum, strength and oscillation-structure filters together — <b class="hl">only a confluence of signals counts as a valid entry</b>, avoiding single-indicator misreads. The first grid spacing against the trend is <b class="hl">calculated dynamically from real market volatility, not a fixed point distance</b>.</p>
+<table><thead><tr><th>Item</th><th>Description</th></tr></thead><tbody>
+<tr><td>First entry</td><td>Trend module sets overall direction, short-term momentum indicators pick relative highs/lows as the entry point.</td></tr>
+<tr><td>Spread/slippage protection</td><td>Checks live spread against a set cap before entering; skips new orders if exceeded.</td></tr>
+<tr><td>Direction / session control</td><td>Can be set to long-only, short-only, or both directions; new first entries can be blocked during set sessions.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s5"><div class="container">
+<h2>Position management</h2>
+<p>Trend-direction orders scale up in layers by "spacing × lot multiplier"; counter-trend orders refill in layers at dynamically calculated grid spacing to average down cost — both sides' lot sizes scale up by multiplier with layer count. The system has a <b class="hl">hard cap on layers per side</b>: no matter how the layer-count parameter is set, once a side hits that hard cap, no further layers are added, keeping exposure bounded.</p>
+<table><thead><tr><th>Item</th><th>Description</th></tr></thead><tbody>
+<tr><td>Lot multiplier</td><td>Each layer's size = starting lot × multiplier^(layer count) — a limited-layer grid-scaling structure.</td></tr>
+<tr><td>Hard layer cap per side</td><td>No matter how the layer-count parameter is set, hitting the hard cap forces scaling to stop.</td></tr>
+<tr><td>Max lot limit</td><td>A per-trade lot cap prevents excessive exposure in extreme conditions.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s6"><div class="container">
+<h2>Exit and risk-control priority</h2>
+<p>The system runs multiple exit/protection layers checked top-down each cycle; it's <b class="hl">primarily a floating-profit-triggered, multi-layer settlement design and sets no overall hard stop-loss</b>.</p>
+<table><thead><tr><th>Order</th><th>Mechanism</th><th>Trigger (plain language)</th><th>Action</th></tr></thead><tbody>
+<tr><td>1</td><td>Spread filter</td><td>Live spread exceeds set cap.</td><td>Pauses new orders and scaling until spread normalizes.</td></tr>
+<tr><td>2</td><td>Unified take-profit</td><td>Position average price reaches a set point target.</td><td>Closes that direction's whole basket.</td></tr>
+<tr><td>3</td><td>Floating-profit exit</td><td>Long / short / total floating profit hits a set dollar threshold.</td><td>Closes the corresponding side, or everything.</td></tr>
+<tr><td>4</td><td>Average-price trailing</td><td>After hitting activation layers/points, price pulls back from its high by the set retracement.</td><td>Closes that direction's whole basket, locking in floating gains.</td></tr>
+<tr><td>5</td><td>Head/tail hedge unwind</td><td>Layers on one side hit a set threshold, and the first and last orders net positive combined.</td><td>Hedge-closes those two orders, reducing position count.</td></tr>
+<tr><td>6</td><td>Cross-zone hedge</td><td>Combined net profit from trend-winning and grid-losing orders reaches a safe value.</td><td>Hedge-closes orders across the two zones.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s7"><div class="container">
+<h2>Risk tier and capital guidance</h2>
+<p>This strategy is a <b class="hl">"limited-layer grid-scaling" structure</b>: the counter-trend side refills at dynamic spacing to average down cost, with a hard cap on layers per side, but it <b class="hl">sets no overall hard stop-loss or max-drawdown protection</b> — exits rely entirely on floating-profit-triggered, multi-layer settlement. If a trend runs longer than the grid's capacity to absorb it, floating losses can become substantial. Risk tier: Aggressive — participate with capital that can <b class="hl">handle higher volatility</b> and ample margin.</p>
+<table><thead><tr><th>Risk tier</th><th>Suggested min. capital</th><th>Suggested leverage</th><th>Expected max drawdown range</th></tr></thead><tbody>
+<tr><td>Aggressive (r3)</td><td>$100,000+</td><td>1:100 or higher</td><td>Depends on parameters</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s8"><div class="container">
+<h2>Who it's for</h2>
+<ul class="audience">
+<li>Traders who want both trend swings and grid averaging opportunities and can tolerate higher volatility.</li>
+<li>Users <b class="hl">comfortable with the floating losses grid refills can produce</b>, who understand scaling money management.</li>
+<li>Users familiar with MT4/MT5 setup, <b class="hl">able to correctly configure EMA periods, indicator parameters and the layer cap</b>.</li>
+<li>Capital that can <b class="hl">reserve ample margin</b> for what grid averaging needs during one-directional runs.</li>
+</ul>
+</div></section>
+
+<section class="detail-section" id="s9"><div class="container">
+<h2>System requirements</h2>
+<table><thead><tr><th>Item</th><th>Description</th></tr></thead><tbody>
+<tr><td>Platform</td><td>Runs on both MetaTrader 4 and MetaTrader 5.</td></tr>
+<tr><td>Instrument</td><td>Primarily gold CFD (XAUUSD).</td></tr>
+<tr><td>MT5 account type</td><td>Must be a hedging account.</td></tr>
+<tr><td>Environment</td><td>Stable 24-hour connectivity; VPS recommended.</td></tr>
+<tr><td>Attach to</td><td>Whatever chart it's attached to, M5 suggested.</td></tr>
+<tr><td>Capital sizing</td><td>Estimate potential exposure from the max layer count and lot multiplier; reserve ample margin.</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="detail-section" id="s10"><div class="container">
+<h2>Usage notes</h2>
+<div class="notice">This is a scaling strategy with grid refills and no overall hard stop-loss — <b class="hl">extreme one-directional moves can still produce substantial floating drawdown</b>.</div>
+<div class="notice">We recommend <b class="hl">starting with the smallest lot size to verify behavior</b>, and only scaling up capital once you fully understand the layer cap and exit mechanisms.</div>
+<div class="notice">Actual parameters (spacing, multiplier, layers, take-profit thresholds, etc.) affect risk and capital requirements — <b class="hl">size everything to your own risk tolerance</b>.</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>Want to see it running live?</h3><p>Message us on Telegram, or WeChat <strong>ezmoney50</strong> and mention "Shuang Wei" — we'll set you up with a read-only MT4/MT5 demo account and walk you through licensing. Partners get their own pricing.</p></div><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_shuangwei" target="_blank" rel="noopener noreferrer">Chat on Telegram</a></div>
+<a class="back" href="../index.html#products">← Back to strategy library</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · Gold CFD Quant Strategy Library · Telegram @ezquant_gold_bot · WeChat ezmoney50</div>
+<div class="disclaimer">Historical performance shown on this site is for reference only; past performance does not indicate future results. CFDs are highly leveraged, highly volatile instruments — you can lose your entire deposit. Trade only within your risk tolerance; all gains and losses are your own responsibility. Nothing on this site is investment advice.</div>
+</div></footer>
+<!-- EZQuant Telegram CTA (T8, EN) -->
+<style>
+  .ezq-tg-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f2540;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(15, 37, 64, 0.35);
+    font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #c9a227;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ezq-tg-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 37, 64, 0.45);
+  }
+  .ezq-tg-fab svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .ezq-tg-fab {
+      right: 14px;
+      bottom: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<a
+  class="ezq-tg-fab"
+  href="https://t.me/ezquant_gold_bot?start=web_en_ea_shuangwei"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Ask our AI on Telegram"
+>
+  <svg viewBox="0 0 24 24" fill="#c9a227" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.064-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.209.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.174-.041-.249-.024-.106.024-1.793 1.14-5.062 3.345-.479.329-.913.489-1.301.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.892-.663 3.498-1.524 5.831-2.53 6.998-3.017 3.332-1.386 4.023-1.627 4.474-1.635.099-.002.321.023.465.14.121.098.155.23.171.323.016.093.036.305.02.47z"/>
+  </svg>
+  <span>Ask our AI on Telegram</span>
+</a>
+</body></html>

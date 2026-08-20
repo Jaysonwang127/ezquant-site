@@ -1,0 +1,187 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GoldTripod (金鼎) | EZQUANT Gold EA</title>
+<link rel="alternate" hreflang="zh-Hans" href="https://ezquant.com/ea/goldtripod.html">
+<link rel="alternate" hreflang="en" href="https://ezquant.com/en/ea/goldtripod.html">
+<link rel="alternate" hreflang="x-default" href="https://ezquant.com/ea/goldtripod.html">
+<link rel="stylesheet" href="../../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>Gold CFD Quant Strategy Library</small></div>
+<nav><a href="../index.html">Home</a><a href="../index.html#products">Strategies</a><a href="../index.html#pricing">Pricing</a><a href="../index.html#partner">Partnership</a><a class="nav-cta" href="https://t.me/ezquant_gold_bot?start=web_en_ea_goldtripod" target="_blank" rel="noopener noreferrer">Chat on Telegram</a><a href="../../ea/goldtripod.html" lang="zh-Hans">中文</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">Trend</span><span class="tag">3 independent legs, no averaging</span><span class="tag plat">MT5</span><span class="risk r1">Conservative</span></div>
+<h1>金鼎 GoldTripod</h1>
+<p class="subtitle">Three independent legs — first-entry only, no scaling, no grid</p>
+<div class="meta-row"><div>Instrument: <strong>XAUUSD (gold)</strong></div><div>Timeframe: <strong>Unrestricted (each leg has its own internal timeframe)</strong></div><div>Suggested minimum capital: <strong>$10,000+</strong></div><div>Suggested leverage: <strong>1:100 or higher</strong></div></div>
+<div class="cta"><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_goldtripod" target="_blank" rel="noopener noreferrer">Chat / request demo account</a><a class="btn ghost" href="../index.html#pricing">View pricing</a></div>
+</div></section>
+
+<nav class="subnav"><div class="container"><a href="#s1">Performance</a><a href="#s2">Overview</a><a href="#s3">Highlights</a><a href="#s4">Entry</a><a href="#s5">Position mgmt</a><a href="#s6">Risk control</a><a href="#s7">Capital</a><a href="#s8">Who it's for</a><a href="#s9">Requirements</a><a href="#s10">Notes</a></div></nav>
+
+<section class="detail-section" id="s1"><div class="container">
+<h2>Historical performance</h2>
+<div class="perf-cond"><span><b>Instrument</b> XAUUSD</span><span><b>Starting capital</b> $5,000</span><span><b>Starting lot size</b> 0.1</span></div>
+<div class="perf-kpi"><div class="k"><span class="kl">Cumulative net profit</span><span class="kv pos">+$19,959</span><span class="ks">2 periods combined</span></div><div class="k"><span class="kl">Cumulative return</span><span class="kv pos">+399.1%</span><span class="ks">Net profit ÷ starting capital</span></div><div class="k"><span class="kl">Max equity drawdown</span><span class="kv">25.2%</span><span class="ks">Highest across periods</span></div><div class="k"><span class="kl">Profit factor</span><span class="kv">1.27</span><span class="ks">Average across periods · 3,973 trades</span></div></div>
+<div class="perf-bars"><div class="bh"><b>Return vs. max drawdown by period</b><span><i style="background:var(--green)"></i>Return<i style="background:var(--red)"></i>Max equity drawdown</span></div><div class="br"><span class="bl">Full year 2025</span><div class="bt"><div class="bf" style="width:46.5%"></div><div class="bd" style="width:8.6%"></div></div><span class="bv">+133.4%<small>DD 24.7%</small></span></div><div class="br"><span class="bl">YTD 2026</span><div class="bt"><div class="bf" style="width:92.6%"></div><div class="bd" style="width:8.8%"></div></div><span class="bv">+265.7%<small>DD 25.2%</small></span></div></div>
+<table class="perf-table"><tr><th>Period</th><th>Net profit</th><th>Return</th><th>Max equity drawdown</th><th>Profit factor</th><th>Trades</th></tr>
+<tr><td>Full year 2025</td><td class="num pos">+$6,672</td><td class="num pos">+133.4%</td><td class="num">24.7%</td><td class="num">1.20</td><td class="num">2,158</td></tr>
+<tr><td>YTD 2026</td><td class="num pos">+$13,287</td><td class="num pos">+265.7%</td><td class="num">25.2%</td><td class="num">1.34</td><td class="num">1,815</td></tr>
+</table>
+<p class="perf-note">The figures above are historical performance statistics, not a live trading record; past performance does not indicate future results. Return = net profit ÷ starting capital, not compounded, and excludes deposits/withdrawals. <strong>Max equity drawdown</strong> is the largest decline in account equity (including open floating loss), not just closed-trade drawdown. Ask us for a demo account to see live results.</p>
+</div></section>
+
+<section class="detail-section" id="s2"><div class="container">
+<h2>Overview</h2>
+<p class="lead">GoldTripod is a <b class="hl">fully automatic trading system built for gold</b>. The name refers to a three-legged tripod — the system runs <b class="hl">three independent strategy legs</b>, each tuned to a different market personality: Leg 1 enters trend-following after multi-indicator confluence, on a slower rhythm; Leg 2 enters on volatility-adaptive range breakouts, at a medium rhythm; Leg 3 enters on a trend-filtered first-move, at a faster rhythm.</p>
+<p>Each leg has its own ID, timeframe and capital allocation — <b class="hl">signals and positions never cross between legs</b>. This has been verified directly: <b class="hl">running the three legs separately and summing their P&L produces exactly the same result as running all three together</b>.</p>
+</div></section>
+
+<section class="detail-section" id="s3"><div class="container">
+<h2>Key features</h2>
+<div class="feature-block">
+<div class="feature"><h4>First-entry only — no averaging, no martingale, no grid</h4><p><b class="hl">Each leg holds at most one position at a time, three max across the whole system.</b> <b class="hl">No averaging down, no doubling up</b> — the account structure carries no blow-up risk from those mechanisms.</p></div>
+<div class="feature"><h4>Three legs, spread risk</h4><p>Each leg's entry conditions and holding period differ, so <b class="hl">they don't all enter at once</b>. <b class="hl">Any single leg can be switched off</b> without affecting the other two.</p></div>
+<div class="feature"><h4>Fully automatic</h4><p>Runs itself once attached — <b class="hl">no manual judgment or manual orders needed</b>; it doesn't create chart objects and doesn't tax your chart resources.</p></div>
+<div class="feature"><h4>Volatility-adaptive</h4><p>Stop-loss, take-profit and entry thresholds <b class="hl">adjust automatically to market volatility</b> — wider in high volatility, tighter in low — no manual parameter swaps needed.</p></div>
+<div class="feature"><h4>Pre-tuned parameters</h4><p>All parameters are calibrated and validated out of the box — you <b class="hl">only need to set lot size and enable/disable switches</b>.</p></div>
+</div>
+</div></section>
+
+<section class="detail-section" id="s4"><div class="container">
+<h2>Entry logic</h2>
+<p>The three legs <b class="hl">decide independently, with no cross-reference</b>:</p>
+<table>
+<tr><th>Leg</th><th>Entry personality</th><th>Rhythm</th></tr>
+<tr><td>Leg 1 · Resonance</td><td>Trend entry after multi-indicator confluence</td><td>Slower, selective signals</td></tr>
+<tr><td>Leg 2 · Breakout</td><td>Volatility-adaptive range breakout</td><td>Medium</td></tr>
+<tr><td>Leg 3 · Tide</td><td>Trend-filtered first-move entry</td><td>Faster, more frequent</td></tr>
+</table>
+<p>The three legs use separate Magic numbers and <b class="hl">can all attach to the same XAUUSD chart</b> — you don't need, and shouldn't, run duplicate charts.</p>
+</div></section>
+
+<section class="detail-section" id="s5"><div class="container">
+<h2>Position management</h2>
+<p>This system has <b class="hl">no averaging, no martingale, no grid</b>. Each leg holds at most one position, three at most across the whole system. Lot sizes across the three legs should be <b class="hl">scaled proportionally to your capital</b> — don't scale up just one leg, or you'll upset the balance between them.</p>
+<table>
+<tr><th>Capital</th><th>Leg 1 lot</th><th>Leg 2 lot</th><th>Leg 3 lot</th></tr>
+<tr><td>$10,000</td><td>0.10</td><td>0.05</td><td>0.01</td></tr>
+<tr><td>$20,000</td><td>0.20</td><td>0.10</td><td>0.02</td></tr>
+<tr><td>$50,000</td><td>0.50</td><td>0.25</td><td>0.05</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s6"><div class="container">
+<h2>Exit and risk-control priority</h2>
+<p>The system runs a <b class="hl">multi-layer stop-loss mechanism</b>, checked in this order, no extra setup needed:</p>
+<table>
+<tr><th>Priority</th><th>Mechanism</th><th>Description</th></tr>
+<tr><td>1</td><td>Per-trade stop</td><td>Every position has its own stop, adjusted automatically to volatility</td></tr>
+<tr><td>2</td><td>Trailing target</td><td>Locks in gains dynamically as price moves in your favor</td></tr>
+<tr><td>3</td><td>Partial take-profit</td><td>Takes partial profit at staged targets</td></tr>
+<tr><td>4</td><td>Aggregate protection</td><td>An account-level protection layer</td></tr>
+</table>
+<p>We suggest also setting two manual kill-switches: <b class="hl">pause a leg if its own equity drawdown hits 20%</b> and observe; and stop everything when gold's H15 <b class="hl">14-period ATR five-day median drops below $4</b> (a sign of low-volatility chop), resuming once volatility picks back up.</p>
+</div></section>
+
+<section class="detail-section" id="s7"><div class="container">
+<h2>Risk tier and capital guidance</h2>
+<p>Structurally this system only ever holds a single first entry per leg, never averages or grids, and runs multi-layer stop-losses — <b class="hl">rated "Conservative."</b> That said, it's a trend-following system and will <b class="hl">clearly underperform, possibly losing money, during low-volatility chop</b> — that's an inherent trait of the strategy, not a defect, and should be managed with the suggested capital and kill-switches.</p>
+<table>
+<tr><th>Risk tier</th><th>Suggested min. capital</th><th>Suggested leverage</th><th>Expected max drawdown range</th></tr>
+<tr><td>Conservative</td><td>$5,000+</td><td>1:100 or higher</td><td>Depends on parameters (historical max drawdown ≈ $2,614)</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s8"><div class="container">
+<h2>Who it's for</h2>
+<ul class="audience">
+<li>Traders who want a <b class="hl">fully automatic, hands-off</b> way to trade gold.</li>
+<li>Investors comfortable with a losing month or year and who <b class="hl">judge performance over a longer horizon</b>.</li>
+<li>Accounts with <b class="hl">$10,000 or more</b>, who can scale lot sizes proportionally.</li>
+<li>Users willing to <b class="hl">apply kill-switches and check in regularly</b> as part of risk control.</li>
+</ul>
+</div></section>
+
+<section class="detail-section" id="s9"><div class="container">
+<h2>System requirements</h2>
+<table>
+<tr><th>Item</th><th>Requirement</th></tr>
+<tr><td>Platform</td><td>MetaTrader 5</td></tr>
+<tr><td>Account type</td><td>Hedging account; Netting accounts not supported</td></tr>
+<tr><td>Instrument</td><td>XAUUSD (gold), 2-decimal quoting</td></tr>
+<tr><td>Suggested spread</td><td>Within $0.30/oz</td></tr>
+<tr><td>Environment</td><td>VPS recommended for stable 24-hour operation</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s10"><div class="container">
+<h2>Usage notes</h2>
+<div class="notice">This is a trend-following system — it will clearly underperform or lose money during low-volatility gold chop; <b class="hl">that's an inherent trait, not a defect</b>. Apply the suggested kill-switches for risk control.</div>
+<div class="notice">Past performance does not indicate future results. CFDs are highly leveraged and highly volatile — you can lose your entire deposit. <b class="hl">Only trade with capital you can afford to lose</b>, and test thoroughly on a demo account before going live.</div>
+<div class="notice">Parameters are pre-tuned — <b class="hl">only adjust lot size and enable/disable switches</b>; changing anything else may upset the balance between the three legs.</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>Want to see it running live?</h3><p>Message us on Telegram, or WeChat <strong>ezmoney50</strong> and mention "GoldTripod" — we'll set you up with a read-only MT4/MT5 demo account and walk you through licensing. Partners get their own pricing.</p></div><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_goldtripod" target="_blank" rel="noopener noreferrer">Chat on Telegram</a></div>
+<a class="back" href="../index.html#products">← Back to strategy library</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · Gold CFD Quant Strategy Library · Telegram @ezquant_gold_bot · WeChat ezmoney50</div>
+<div class="disclaimer">Historical performance shown on this site is for reference only; past performance does not indicate future results. CFDs are highly leveraged, highly volatile instruments — you can lose your entire deposit. Trade only within your risk tolerance; all gains and losses are your own responsibility. Nothing on this site is investment advice.</div>
+</div></footer>
+<!-- EZQuant Telegram CTA (T8, EN) -->
+<style>
+  .ezq-tg-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f2540;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(15, 37, 64, 0.35);
+    font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #c9a227;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ezq-tg-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 37, 64, 0.45);
+  }
+  .ezq-tg-fab svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .ezq-tg-fab {
+      right: 14px;
+      bottom: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<a
+  class="ezq-tg-fab"
+  href="https://t.me/ezquant_gold_bot?start=web_en_ea_goldtripod"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Ask our AI on Telegram"
+>
+  <svg viewBox="0 0 24 24" fill="#c9a227" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.064-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.209.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.174-.041-.249-.024-.106.024-1.793 1.14-5.062 3.345-.479.329-.913.489-1.301.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.892-.663 3.498-1.524 5.831-2.53 6.998-3.017 3.332-1.386 4.023-1.627 4.474-1.635.099-.002.321.023.465.14.121.098.155.23.171.323.016.093.036.305.02.47z"/>
+  </svg>
+  <span>Ask our AI on Telegram</span>
+</a>
+</body></html>

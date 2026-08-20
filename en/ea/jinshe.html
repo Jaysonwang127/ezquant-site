@@ -1,0 +1,188 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jin She Chu Dong (金蛇出洞) | EZQUANT Gold EA</title>
+<link rel="alternate" hreflang="zh-Hans" href="https://ezquant.com/ea/jinshe.html">
+<link rel="alternate" hreflang="en" href="https://ezquant.com/en/ea/jinshe.html">
+<link rel="alternate" hreflang="x-default" href="https://ezquant.com/ea/jinshe.html">
+<link rel="stylesheet" href="../../assets/style.css"></head><body>
+<header class="site"><div class="container row">
+<div class="brand">EZQUANT<small>Gold CFD Quant Strategy Library</small></div>
+<nav><a href="../index.html">Home</a><a href="../index.html#products">Strategies</a><a href="../index.html#pricing">Pricing</a><a href="../index.html#partner">Partnership</a><a class="nav-cta" href="https://t.me/ezquant_gold_bot?start=web_en_ea_jinshe" target="_blank" rel="noopener noreferrer">Chat on Telegram</a><a href="../../ea/jinshe.html" lang="zh-Hans">中文</a></nav>
+</div></header>
+
+<section class="detail-hero"><div class="container">
+<div class="tags"><span class="tag">Breakout</span><span class="tag">Consolidation breakout, reversal</span><span class="tag plat">MT5</span><span class="risk r3">Aggressive</span></div>
+<h1>金蛇出洞 Jin She Chu Dong</h1>
+<p class="subtitle">Coils in consolidation, strikes on the breakout, reverses on a fresh signal</p>
+<div class="meta-row"><div>Instrument: <strong>XAUUSD (gold)</strong></div><div>Timeframe: <strong>H1</strong></div><div>Suggested minimum capital: <strong>$10,000+</strong></div><div>Suggested leverage: <strong>1:100 or higher</strong></div></div>
+<div class="cta"><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_jinshe" target="_blank" rel="noopener noreferrer">Chat / request demo account</a><a class="btn ghost" href="../index.html#pricing">View pricing</a></div>
+</div></section>
+
+<nav class="subnav"><div class="container"><a href="#s1">Performance</a><a href="#s2">Overview</a><a href="#s3">Highlights</a><a href="#s4">Entry</a><a href="#s5">Position mgmt</a><a href="#s6">Risk control</a><a href="#s7">Capital</a><a href="#s8">Who it's for</a><a href="#s9">Requirements</a><a href="#s10">Notes</a></div></nav>
+
+<section class="detail-section" id="s1"><div class="container">
+<h2>Historical performance</h2>
+<div class="perf-cond"><span><b>Instrument</b> XAUUSD</span><span><b>Starting capital</b> $10,000</span><span><b>Starting lot size</b> 0.02</span></div>
+<div class="perf-kpi"><div class="k"><span class="kl">Cumulative net profit</span><span class="kv pos">+$3,587</span><span class="ks">3 periods combined</span></div><div class="k"><span class="kl">Cumulative return</span><span class="kv pos">+35.9%</span><span class="ks">Net profit ÷ starting capital</span></div><div class="k"><span class="kl">Max equity drawdown</span><span class="kv">8.3%</span><span class="ks">Highest across periods</span></div><div class="k"><span class="kl">Profit factor</span><span class="kv">1.29</span><span class="ks">Average across periods · 688 trades</span></div></div>
+<div class="perf-bars"><div class="bh"><b>Return vs. max drawdown by period</b><span><i style="background:var(--green)"></i>Return<i style="background:var(--red)"></i>Max equity drawdown</span></div><div class="br"><span class="bl">Full year 2024</span><div class="bt"><div class="bf" style="width:4.6%"></div><div class="bd" style="width:16.1%"></div></div><span class="bv">+1.5%<small>DD 5.3%</small></span></div><div class="br"><span class="bl">Full year 2025</span><div class="bt"><div class="bf" style="width:11.8%"></div><div class="bd" style="width:13.7%"></div></div><span class="bv">+3.9%<small>DD 4.5%</small></span></div><div class="br"><span class="bl">YTD 2026</span><div class="bt"><div class="bf" style="width:92.6%"></div><div class="bd" style="width:25.2%"></div></div><span class="bv">+30.5%<small>DD 8.3%</small></span></div></div>
+<table class="perf-table"><tr><th>Period</th><th>Net profit</th><th>Return</th><th>Max equity drawdown</th><th>Profit factor</th><th>Trades</th></tr>
+<tr><td>Full year 2024</td><td class="num pos">+$146</td><td class="num pos">+1.5%</td><td class="num">5.3%</td><td class="num">1.18</td><td class="num">149</td></tr>
+<tr><td>Full year 2025</td><td class="num pos">+$391</td><td class="num pos">+3.9%</td><td class="num">4.5%</td><td class="num">1.28</td><td class="num">185</td></tr>
+<tr><td>YTD 2026</td><td class="num pos">+$3,050</td><td class="num pos">+30.5%</td><td class="num">8.3%</td><td class="num">1.42</td><td class="num">354</td></tr>
+</table>
+<p class="perf-note">The figures above are historical performance statistics, not a live trading record; past performance does not indicate future results. Return = net profit ÷ starting capital, not compounded, and excludes deposits/withdrawals. <strong>Max equity drawdown</strong> is the largest decline in account equity (including open floating loss), not just closed-trade drawdown. Ask us for a demo account to see live results.</p>
+</div></section>
+
+<section class="detail-section" id="s2"><div class="container">
+<h2>Overview</h2>
+<p class="lead">Jin She Chu Dong is a gold strategy built around "<b class="hl">breakout after narrow consolidation</b>." It watches <b class="hl">two classic consolidation-breakout patterns</b> at once, catching the moment price snaps from dormant to one-directional; when an opposing signal appears, it <b class="hl">closes the entire basket and immediately reverses</b>, so the position always sits on the side of the latest signal.</p>
+<p>Exits use a two-stage design — <b class="hl">bank half at the first target, trail the rest</b> — plus a <b class="hl">basket-wide max floating-loss cap</b> as a <b class="hl">last-resort fuse</b>, balancing trend capture with risk control.</p>
+</div></section>
+
+<section class="detail-section" id="s3"><div class="container">
+<h2>Key features</h2>
+<div class="feature-block">
+<div class="feature"><h4>Dual-signal confluence</h4><p>Watches <b class="hl">narrow-range-bar breakouts and consolidation-range breakouts</b> simultaneously, using a higher timeframe to help confirm, improving signal reliability.</p></div>
+<div class="feature"><h4>Volatility-adaptive</h4><p>Both the consolidation-range width and its proximity to reference levels are <b class="hl">measured dynamically using daily ATR</b>, adapting to different volatility regimes rather than using fixed point distances.</p></div>
+<div class="feature"><h4>Full reversal on opposite signal</h4><p>An opposing signal triggers an <b class="hl">immediate basket close and a fresh reversed basket</b> — the position direction always follows the latest signal.</p></div>
+<div class="feature"><h4>Two-stage exit</h4><p>Banks half the position at target, trails the rest, and <b class="hl">locks the stop-loss floor at breakeven</b> to keep a winner from turning into a loser.</p></div>
+<div class="feature"><h4>Basket-wide floating-loss cap</h4><p>A max floating-loss limit on the whole basket serves as a last-resort fuse in extreme moves.</p></div>
+<div class="feature"><h4>Close-confirmed signals only</h4><p>Every entry/exit signal is <b class="hl">confirmed on the close, never chasing an intrabar fake breakout</b>, cutting down noise.</p></div>
+</div>
+</div></section>
+
+<section class="detail-section" id="s4"><div class="container">
+<h2>Entry logic</h2>
+<p>The strategy watches two close-confirmed breakout signals at once, never chasing an intrabar fake breakout:</p>
+<table>
+<tr><th>Signal source</th><th>Logic</th></tr>
+<tr><td>Narrow-range-bar breakout</td><td>Identifies a narrow consolidation bar on a higher timeframe; a close above its top goes long, below its bottom goes short. After a breakout, price must pull back to the midline before the setup re-arms, avoiding repeated re-triggers.</td></tr>
+<tr><td>Consolidation-range breakout</td><td>Detects a narrow range formed by the last several candles, sitting close to the prior day's high or low; a close above the range top goes long, below the bottom goes short. Range width and proximity are measured dynamically using daily ATR.</td></tr>
+</table>
+<p>There's also a research module based on volume-profile key levels, <b class="hl">disabled by default, for advanced research use only</b>.</p>
+</div></section>
+
+<section class="detail-section" id="s5"><div class="container">
+<h2>Position management</h2>
+<p>Both signal sources <b class="hl">share the same position basket, with a fixed lot size per order</b>.</p>
+<table>
+<tr><th>Situation</th><th>Handling</th></tr>
+<tr><td>Same-direction signal</td><td>Adds to the basket; the exit reference resets to the new weighted average price</td></tr>
+<tr><td>Opposite-direction signal</td><td>Closes the whole basket and immediately opens a new reversed one</td></tr>
+<tr><td>Max orders per basket</td><td>The basket can add up to a set cap, preventing runaway scaling</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s6"><div class="container">
+<h2>Exit and risk-control priority</h2>
+<p>Exit logic is checked top-down:</p>
+<table>
+<tr><th>Priority</th><th>Condition</th><th>Action</th></tr>
+<tr><td>1</td><td>Price reaches "average price ± multiplier × first-signal range"</td><td>Closes half the basket to bank profit</td></tr>
+<tr><td>2</td><td>Remaining position trails</td><td>Trails at "range × multiplier" distance; stop floor locked at breakeven</td></tr>
+<tr><td>3</td><td>Opposite signal appears</td><td>Closes the whole basket and reverses</td></tr>
+<tr><td>4</td><td>Basket floating loss hits set cap</td><td>Closes everything — the last-resort fuse</td></tr>
+</table>
+<p>Note: this strategy <b class="hl">has no traditional per-trade fixed stop-loss</b> — loss control relies on the reversal signal and the basket-wide floating-loss cap.</p>
+</div></section>
+
+<section class="detail-section" id="s7"><div class="container">
+<h2>Risk tier and capital guidance</h2>
+<p>This strategy has <b class="hl">no fixed per-trade stop</b>, adds on same-direction signals, and closes/reverses the whole basket on opposite signals — <b class="hl">the basket can scale up to a set order cap</b> — an aggressive risk profile; in sharp whipsaw conditions, basket floating loss can approach the cap directly.</p>
+<table>
+<tr><th>Risk tier</th><th>Suggested min. capital</th><th>Suggested leverage</th><th>Expected max drawdown</th></tr>
+<tr><td>Aggressive</td><td>$10,000+</td><td>1:100 or higher</td><td>Depends on parameters</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s8"><div class="container">
+<h2>Who it's for</h2>
+<ul class="audience">
+<li>Investors comfortable with no fixed per-trade stop, relying instead on <b class="hl">a basket-wide floating-loss cap for risk control</b>.</li>
+<li>Traders who like catching one-directional gold breakouts and can <b class="hl">tolerate the whipsaw cost of repeated reversals during chop</b>.</li>
+<li>Investors with a reasonable risk tolerance and <b class="hl">capital that can support a multi-order basket</b>.</li>
+<li>Those inclined toward <b class="hl">long-term VPS operation</b> with regular drawdown check-ins.</li>
+</ul>
+</div></section>
+
+<section class="detail-section" id="s9"><div class="container">
+<h2>System requirements</h2>
+<table>
+<tr><th>Item</th><th>Requirement</th></tr>
+<tr><td>Platform</td><td>MetaTrader 5</td></tr>
+<tr><td>Instrument</td><td>XAUUSD (gold)</td></tr>
+<tr><td>Timeframe</td><td>H1</td></tr>
+<tr><td>Spread</td><td>A low-spread account is recommended — trade frequency is fairly high, so spread cost has a meaningful impact on results</td></tr>
+<tr><td>Environment</td><td>VPS recommended for stable 24-hour operation, so you don't miss a reversal signal to a dropped connection</td></tr>
+</table>
+</div></section>
+
+<section class="detail-section" id="s10"><div class="container">
+<h2>Usage notes</h2>
+<div class="notice">This strategy has no fixed per-trade stop-loss — loss control relies on the reversal signal and the basket-wide floating-loss cap; <b class="hl">never disable the basket floating-loss protection</b>, or you lose the last safety fuse.</div>
+<div class="notice">In choppy, ranging conditions it will <b class="hl">reverse more frequently</b>, and drawdown in that phase can exceed gains from the same period; the strategy <b class="hl">performs better in clearly one-directional markets</b> and may see stretches of loss in ranging ones — past performance does not indicate future results.</div>
+<div class="notice">This page only describes the strategy's logic and behavior and is <b class="hl">not investment advice</b>; gold CFDs carry high risk — assess your own risk tolerance before deciding.</div>
+</div></section>
+
+<section class="detail-section"><div class="container">
+<div class="contact-cta"><div class="ctxt"><h3>Want to see it running live?</h3><p>Message us on Telegram, or WeChat <strong>ezmoney50</strong> and mention "Jin She Chu Dong" — we'll set you up with a read-only MT4/MT5 demo account and walk you through licensing. Partners get their own pricing.</p></div><a class="btn" href="https://t.me/ezquant_gold_bot?start=web_en_ea_jinshe" target="_blank" rel="noopener noreferrer">Chat on Telegram</a></div>
+<a class="back" href="../index.html#products">← Back to strategy library</a>
+</div></section>
+
+<footer class="site"><div class="container">
+<div>© EZQUANT · Gold CFD Quant Strategy Library · Telegram @ezquant_gold_bot · WeChat ezmoney50</div>
+<div class="disclaimer">Historical performance shown on this site is for reference only; past performance does not indicate future results. CFDs are highly leveraged, highly volatile instruments — you can lose your entire deposit. Trade only within your risk tolerance; all gains and losses are your own responsibility. Nothing on this site is investment advice.</div>
+</div></footer>
+<!-- EZQuant Telegram CTA (T8, EN) -->
+<style>
+  .ezq-tg-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f2540;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(15, 37, 64, 0.35);
+    font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #c9a227;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ezq-tg-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 37, 64, 0.45);
+  }
+  .ezq-tg-fab svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .ezq-tg-fab {
+      right: 14px;
+      bottom: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<a
+  class="ezq-tg-fab"
+  href="https://t.me/ezquant_gold_bot?start=web_en_ea_jinshe"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Ask our AI on Telegram"
+>
+  <svg viewBox="0 0 24 24" fill="#c9a227" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.064-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.209.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.174-.041-.249-.024-.106.024-1.793 1.14-5.062 3.345-.479.329-.913.489-1.301.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.892-.663 3.498-1.524 5.831-2.53 6.998-3.017 3.332-1.386 4.023-1.627 4.474-1.635.099-.002.321.023.465.14.121.098.155.23.171.323.016.093.036.305.02.47z"/>
+  </svg>
+  <span>Ask our AI on Telegram</span>
+</a>
+</body></html>
