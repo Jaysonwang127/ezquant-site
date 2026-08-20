@@ -157,7 +157,7 @@ def build_card_perf(ea):
         '<div class="perf">'
         f'<div class="ph">{p["label"]} ・ 历史绩效 ・ ${cap:,} / {ea["start_lots"]}</div>'
         '<div class="phero">'
-        f'<span class="pv-big">{pct(ret)}</span>'
+        f'<span class="pv-big {cls(ret)}">{pct(ret)}</span>'
         f'<span class="pv-sub">报酬率 ｜ 净利 {money(p["net_profit"])}</span></div>'
         '<div class="pr">'
         '<div class="p"><span class="pl">最大净值回撤</span>'
