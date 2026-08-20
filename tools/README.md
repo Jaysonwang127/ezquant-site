@@ -12,7 +12,7 @@
 ## 常用指令
 
 ```bash
-# 提交前跑这三条（CI 也跑同样的）
+# 提交前跑这三条
 python3 tools/gen_perf.py --check          # 页面绩效是否与 JSON 一致
 python3 tools/gen_risk_matrix.py --check   # 风控矩阵页是否与 JSON 一致
 python3 tools/check_consistency.py         # 跨页数字有没有互相矛盾
@@ -52,6 +52,7 @@ Equity Drawdown Maximal」本来就是含未平仓浮亏的口径，跟网站上
 | 档案 | 用途 |
 |---|---|
 | `data/performance.json` | 各 EA 各区间的绩效原始数字（唯一事实来源） |
+| `perfdata.py` | 绩效推导逻辑（资金基准换算、防爆仓检查），三支脚本共用 |
 | `data/risk-matrix.json` | 各 EA 的风控机制有无（目前尚未经原始码稽核） |
 | `gen_perf.py` | 生成 7 支 EA 页面的 `#s1` 区块 + 首页卡片绩效块 |
 | `gen_risk_matrix.py` | 生成 `ea/risk-matrix.html` |
@@ -60,6 +61,28 @@ Equity Drawdown Maximal」本来就是含未平仓浮亏的口径，跟网站上
 | `mcp/` | 接 MT5 MCP（只读）的设定与界线 |
 | `audit/RISK_AUDIT.md` | EA 原始码风控稽核流程与提示词 |
 | `ea-repo-scaffold/bootstrap.sh` | 建立独立的 EA 原始码 repo 骨架 |
+
+---
+
+## 两个资金栏位
+
+```
+backtest_capital   回测实际使用的起始资金。历史事实，不因文案而改。
+display_capital    网站上用来计算报酬率与回撤的基准（＝建议本金）。
+                   省略时等于 backtest_capital。
+```
+
+同样的手数下，净利、获利因子、笔数与资金无关；**报酬率与最大净值回撤
+则会一起等比缩放**：
+
+```
+报酬率       = 净利 ÷ display_capital
+最大净值回撤 = 回测浮亏金额 ÷ display_capital
+```
+
+把基准资金调小，报酬率变漂亮的同时回撤也会同比例放大 —— 不能只调一边。
+若推导出的回撤超过 100%，`perfdata.py` 会直接报错（那个资金根本撑不过
+这段历史，数字不该被印出来）。
 
 ---
 

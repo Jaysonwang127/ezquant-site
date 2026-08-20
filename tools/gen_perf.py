@@ -17,7 +17,9 @@ import json
 import pathlib
 import re
 import sys
-from decimal import Decimal, ROUND_HALF_UP
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from perfdata import r1, derive, BlownAccountError  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "tools" / "data" / "performance.json"
@@ -39,11 +41,6 @@ CARD_PERF_RE = re.compile(r'<div class="perf">.*?</div></div></div>', re.S)
 CARD_HREF_RE = re.compile(r'href="ea/([a-z0-9_-]+)\.html"')
 
 
-def r1(v):
-    """四舍五入到小数一位（half-up，不用 Python 预设的 banker's rounding）。"""
-    return float(Decimal(str(v)).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP))
-
-
 def money(v):
     """+$3,587 / -$1,204"""
     sign = "+" if v >= 0 else "-"
@@ -63,16 +60,9 @@ def cls(v):
 
 def build_section(ea):
     periods = ea["periods"]
-    cap = ea["initial_capital"]
     if not periods:
         raise ValueError(f'{ea["slug"]}: periods 不可为空')
-    if cap <= 0:
-        raise ValueError(f'{ea["slug"]}: initial_capital 必须为正数')
-
-    # ---- 推导（先取显示值，再往上汇总）----
-    for p in periods:
-        p["_ret"] = r1(p["net_profit"] / cap * 100.0)
-        p["_dd"] = r1(p["max_dd_pct"])
+    cap, periods = derive(ea)
 
     total_net = sum(p["net_profit"] for p in periods)
     total_return = r1(sum(p["_ret"] for p in periods))
@@ -161,11 +151,11 @@ def build_section(ea):
 def build_card_perf(ea):
     """首页产品卡的绩效块 —— 显示「最新一个区间」，而非累计。"""
     p = ea["periods"][-1]
-    ret = r1(p["net_profit"] / ea["initial_capital"] * 100.0)
-    dd = r1(p["max_dd_pct"])
+    cap = ea["_display_capital"]
+    ret, dd = p["_ret"], p["_dd"]
     return (
         '<div class="perf">'
-        f'<div class="ph">{p["label"]} ・ 历史绩效 ・ ${ea["initial_capital"]:,} / {ea["start_lots"]}</div>'
+        f'<div class="ph">{p["label"]} ・ 历史绩效 ・ ${cap:,} / {ea["start_lots"]}</div>'
         '<div class="phero">'
         f'<span class="pv-big">{pct(ret)}</span>'
         f'<span class="pv-sub">报酬率 ｜ 净利 {money(p["net_profit"])}</span></div>'

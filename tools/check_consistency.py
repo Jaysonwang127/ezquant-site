@@ -105,9 +105,9 @@ def main():
 
         if hero_cap:
             h = re.search(r"\$([\d,]+)", hero_cap)
-            if h and int(h.group(1).replace(",", "")) != ea["initial_capital"]:
+            if h and int(h.group(1).replace(",", "")) != ea["backtest_capital"]:
                 warns.append(
-                    f"{name}（{slug}）：绩效统计基准 ${ea['initial_capital']:,}，"
+                    f"{name}（{slug}）：绩效统计基准 ${ea.get('display_capital') or ea['backtest_capital']:,}，"
                     f"但建议最低资金写 {hero_cap} —— 请确认文案有说明两者口径不同"
                 )
 

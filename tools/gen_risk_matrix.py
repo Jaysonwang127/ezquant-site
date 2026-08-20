@@ -18,6 +18,9 @@ import pathlib
 import re
 import sys
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from perfdata import derive  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MATRIX = ROOT / "tools" / "data" / "risk-matrix.json"
 PERF = ROOT / "tools" / "data" / "performance.json"
@@ -66,7 +69,8 @@ def build(matrix, perf):
     rows = []
     for ea in matrix["eas"]:
         p = perf_by_slug[ea["slug"]]
-        max_dd = max(x["max_dd_pct"] for x in p["periods"])
+        derive(p)
+        max_dd = max(x["_dd"] for x in p["periods"])
         cells = ""
         for c in cols:
             cell = ea["cells"][c["key"]]
