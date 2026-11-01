@@ -87,6 +87,12 @@ section p.lead{color:var(--muted);max-width:760px;font-size:16px;}
 .price .pp{font-size:40px;font-weight:900;color:var(--navy);margin:8px 0 2px;font-family:Menlo,Consolas,monospace;}
 .price .pp small{font-size:14px;color:var(--muted);font-weight:400;font-family:inherit;}
 .price .pd{font-size:13px;color:var(--muted);min-height:40px;}
+.price.free{background:var(--navy);border-color:var(--gold);}
+.price.free .pt,.price.free .pd{color:#dfe6f0;}
+.price.free .pp{color:var(--gold2);font-family:inherit;}
+.price.free .pd a{color:var(--gold2);}
+.free-btns{display:flex;flex-direction:column;gap:8px;margin:12px 0;}
+.free-btns a{display:block;padding:9px 12px;border-radius:999px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--dark);font-weight:700;font-size:14px;text-decoration:none;}
 
 /* features */
 .feature-block{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
