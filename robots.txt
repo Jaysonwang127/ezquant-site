@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /ea/_template.html
+
+Sitemap: https://ezquant.com/sitemap.xml
